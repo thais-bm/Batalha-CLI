@@ -22,18 +22,6 @@ public class Jogador extends Entidade{
     }
     
     private void loadDefaultSprite() {
-        sprite = new ArrayList<String>();
-        sprite.add("                                          ");
-        sprite.add("                                          ");
-        sprite.add("           __                /            ");
-        sprite.add("           \\ Z_            / /            ");
-        sprite.add("             \\_\\__       /__ /            ");
-        sprite.add("             /  \\\\\\_     //               ");
-        sprite.add("             \\_____/    //                ");
-        sprite.add("             /    \\    //                 ");
-    }
-
-    public ArrayList<String> getSprite() {
-        return sprite;
+        this.setSpriteList(Spritesheets.getCavaleirinho());
     }
 }

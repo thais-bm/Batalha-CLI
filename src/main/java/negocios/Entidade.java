@@ -1,4 +1,5 @@
 package negocios;
+import java.util.ArrayList;
 
 public class Entidade {
     private float max_vida;
@@ -6,6 +7,7 @@ public class Entidade {
     private float vida;
     private float atk;
     private float def;
+    private ArrayList<String> spritelist;
 
     public Entidade(float max_vida,float vida, float atk, float def) {
         this.max_vida = max_vida;
@@ -30,6 +32,9 @@ public class Entidade {
     public void setVida(float vida) {
         this.vida = vida;
     }
+    public void setSpriteList(ArrayList<String> list) {
+        this.spritelist = list;
+    }
 
     public float getAtk() {
         return atk;
@@ -45,6 +50,9 @@ public class Entidade {
     }
     public float getVida() {
         return vida;
+    }
+    public ArrayList<String> getSpriteList() {
+        return spritelist;
     }
 
     //Métodos

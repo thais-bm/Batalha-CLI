@@ -8,6 +8,7 @@ public class Inimigo extends Entidade{
 
     public Inimigo(String tipo, ArrayList<Item> recompensa, float max_vida,float vida, float atk, float def){
         super(max_vida, vida, atk, def);
+        loadDefaultSprite();
         this.tipo = tipo;
         this.recompensa = recompensa;
     }
@@ -24,5 +25,12 @@ public class Inimigo extends Entidade{
     }
     public void setRecompensa(ArrayList<Item> recompensa) {
         this.recompensa = recompensa;
+    }
+
+
+
+
+    private void loadDefaultSprite() {
+        this.setSpriteList(Spritesheets.getFantasminha());
     }
 }
