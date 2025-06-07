@@ -29,8 +29,19 @@ public class Main {
     items.add(armaduraDiamante);
     items.add(armaduraNetherite);
 
-    Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 20, 0);
-    Inimigo enemy = new Inimigo("Felicien", null,items, 100, 100, 10, 0);
+    Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 21, 0);
+    Inimigo enemy = new Inimigo("Felicien", null,items, 100, 100, 12, 0);
+
+    tela.updatePlayerSprite(player.getSpriteList());
+    tela.updateInimigoSprite(enemy.getSpriteList());
+    tela.updatePlayerData(player);
+    tela.updateEnemyData(enemy);
+    tela.drawBattleScreen();
+    tela.renderScreen();
+    tela.drawInventoryMain();
+    tela.renderScreen();
+    tela.drawInventoryItemSelected(1);
+    tela.renderScreen();
 
     Batalha batalha = new Batalha(4, player, enemy, inventário,true);
     batalha.iniciarTurnos(enemy, player);
@@ -48,7 +59,6 @@ public class Main {
     tela.toggleFrame();
     tela.setMargin(15);
     tela.renderScreen();*/
-
 
   }
 }

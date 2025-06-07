@@ -1,5 +1,6 @@
 package telas;
 import negocios.Entidade;
+import utilidades.ComandosUteis;
 
 import java.util.ArrayList;
 /*
@@ -144,22 +145,10 @@ public abstract class telabatalha {
         int line;
         int columnstart;
         int sizelimit;
-        int leftmargin;
-        int rightmargin;
         if (key.equals("jogador")) {line = 0; columnstart = 1; sizelimit = 15;}
         else {line = 14; columnstart = 50; sizelimit = 27;}
 
-        String newsubstr = "";
-        
-        if (nome.length() < sizelimit) {
-            leftmargin = (int) ((double) (sizelimit - nome.length()) / 2.0 );
-            rightmargin = (int) (((double) (sizelimit - nome.length()) / 2.0 ) + 0.5);
-            for (int i = 0; i < leftmargin; i++) {newsubstr += " ";}
-            newsubstr += nome;
-            for (int i = 0; i < rightmargin; i++) {newsubstr += " ";}
-        } else {
-            newsubstr += nome.substring(0, sizelimit);
-        }
+        String newsubstr = ComandosUteis.autocentraliza(nome, sizelimit);
 
         tela.set(line, new StringBuilder(tela.get(line)).replace(columnstart, columnstart + sizelimit, newsubstr).toString());
     }

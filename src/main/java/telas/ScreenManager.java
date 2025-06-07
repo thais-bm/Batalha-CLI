@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import negocios.Jogador;
 import negocios.Spritesheets;
+import negocios.Entidade;
 import negocios.Inimigo;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +20,11 @@ public class ScreenManager {
     //ex: elementos base de UI NÃO precisam entrar nessa lista
     //itens, sprites de personagem, inimigos, entram nessa lista
     Map<String, Sprite> spriteDict;
+
+    private double[] playerhpdata;
+    private String playername;
+    private double[] enemyhpdata;
+    private String enemyname;
 
     //construtor, claro, n pode faltar
     public ScreenManager() {
@@ -39,6 +45,27 @@ public class ScreenManager {
         tempemptysprite.add(" ");
         updatePlayerSprite(new Sprite(tempemptysprite));
         updateInimigoSprite(new Sprite(tempemptysprite));
+        updatePlayerData("template, substituir", 1, 1);
+        updateEnemyData("template, substituir", 1, 1);
+    }
+
+    //metodos pra atualizar os valores salvos de hp do jogador e inimigo, pra usar na tela de batalha
+    public void updatePlayerData(Entidade entidade) {
+        playername = entidade.getNome();
+        playerhpdata = new double[] {entidade.getVida(), entidade.getMax_vida()};
+    }
+    public void updatePlayerData(String nome, double hp, double maxhp) {
+        playername = nome;
+        playerhpdata = new double[] {hp, maxhp};
+    }
+
+    public void updateEnemyData(Entidade entidade) {
+        enemyname = entidade.getNome();
+        enemyhpdata = new double[] {entidade.getVida(), entidade.getMax_vida()};
+    }
+    public void updateEnemyData(String nome, double hp, double maxhp) {
+        enemyname = nome;
+        enemyhpdata = new double[] {hp, maxhp};
     }
 
     //autoexplicativo
@@ -128,17 +155,15 @@ public class ScreenManager {
         clear();
         telabatalha.drawUI(tela);
         telabatalha.drawPlayerSprite(tela, spriteDict.get("jogador"));
-        telabatalha.drawEnemySprite(tela, spriteDict.get("inimigo"));
-        //MUDAR VALORES DE HP E TEXTO QUANDO GAME MANAGER FOR IMPLEMENTADO
-        //PUXAR VALORES DO JOGADOR E INIMIGO DE VERDADE
-        //DEIXEI VALORES DE TESTE PRA TUDO
-        telabatalha.drawHPBar(tela, 150, 200, "jogador");
-        telabatalha.drawHPBar(tela, 99999, 99999, "inimigo");
+        telabatalha.drawEnemySprite(tela, spriteDict.get("inimigo")); //hp arredondado pra cima se nao for inteiro
+        telabatalha.drawHPBar(tela, (int) (playerhpdata[0] + 0.9999), (int) (playerhpdata[1] + 0.9999), "jogador");
+        telabatalha.drawHPBar(tela, (int) (enemyhpdata[0] + 0.9999), (int) (enemyhpdata[1] + 0.9999), "inimigo");
         telabatalha.drawMenuOptions(tela, "isso é uma opção", "atacar?", "não atacar", "todas as anteriores");
-        telabatalha.drawName(tela, "Mano Player", "jogador");
-        telabatalha.drawName(tela, "Fantasmagorico da Maldade", "inimigo");
+        telabatalha.drawName(tela, playername, "jogador");
+        telabatalha.drawName(tela, enemyname, "inimigo");
     }
 
+    //sequencia de metodos que desenha tela inicial do inventario aberto
     public void drawInventoryMain() {
         clear();
         TelaInventario.drawUI(tela);
@@ -151,5 +176,12 @@ public class ScreenManager {
         //nesse metodo aqui eu nao me dei o trabalho de fazer autoformatar e gerar a numeração
         //porque nessa tela obviamente só vão ter as opções selecionar e voltar
         TelaInventario.drawOptions(tela, " (1 a 8) - SELECIONAR ITEM", "0 - VOLTAR");
+    }
+
+    //sequencia de metodos que desenha pagina do inventario com item selecionado
+    public void drawInventoryItemSelected(int index) {
+        clear();
+        Inventario_ItemSelecionado.drawUI(tela);
+        Inventario_ItemSelecionado.drawDesc(tela, "- ITEM MANEIRO -", "palavras palavras palavras", "");
     }
 }
