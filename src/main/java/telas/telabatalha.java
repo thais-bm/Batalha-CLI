@@ -20,7 +20,7 @@ public abstract class telabatalha {
 
         //sprites dos elementos de IU de batalha
         ArrayList<String> barradevida = new ArrayList<String>();
-        barradevida.add("|[ NOME ]|                   O");
+        barradevida.add("| nome vai aqui |            O");
         barradevida.add("|HP ???/???|                 |");
         barradevida.add("     --------------------    |");
         barradevida.add("    {                    }   |");
@@ -38,7 +38,7 @@ public abstract class telabatalha {
         //esse daqui ficou tipo minimamente assimetrico mas a gente ignora e nao conta pra ninguem
         ArrayList<String> vidadoinimigo = new ArrayList<String>();
         vidadoinimigo.add(" _______________________________________ ");
-        vidadoinimigo.add("O     [NOME DO INIMIGO]     | HP ??/??  O");
+        vidadoinimigo.add("O     [NOME DO INIMIGO]     |HP ???/???|O");
         vidadoinimigo.add("|          --------------------         |");
         vidadoinimigo.add("|         {                    }        |");
         vidadoinimigo.add("|          --------------------         |");
@@ -110,16 +110,19 @@ public abstract class telabatalha {
         //parte que atualiza a barrinha de hp
         newline = "";
         for (int i = 0; i < 20; i++) {
-            if (i < barfill - 1) {newline += "/";}
+            if (i < barfill - 1 || barfill == 20) {newline += "/";}
             else if (i < barfill) {newline += "|";}
             else {newline += " ";}
         }
         tela.set(yposbar, new StringBuilder(tela.get(yposbar)).replace(xposbar, xposbar+20, newline).toString());
     }
     
+
+    //organiza e formata opções de menu da tela de batalha. como argumentos bota o array de tela e
+    //de 0 a 4 Strings. pode botar mais string mas da quinta pra cima elas vao ser ignoradas
     public static void drawMenuOptions(ArrayList<String> tela, String... args) {
         for (int i = 0; i < 4 && i < args.length; i++) {
-            String newsubstr = "  " + i+1 + " - " + args[i];
+            String newsubstr = "  " + (i+1) + " - " + args[i];
 
             if (newsubstr.length() > 40) {
                 newsubstr = newsubstr.substring(0, 39);
@@ -131,5 +134,33 @@ public abstract class telabatalha {
             builder.replace(0, 39, newsubstr);
             tela.set(i + 15, builder.toString());
         }
+    }
+
+    //coloca o nome do jogador ou do inimigo nas barras de vida
+    //se for jogador colocar "jogador" como argumento key
+    //se for inimigo colocar "inimigo" ou qualquer outra coisa tanto faz
+    //formata o texto pra ficar centralizado no espaço pro nome
+    public static void drawName(ArrayList<String> tela, String nome, String key) {
+        int line;
+        int columnstart;
+        int sizelimit;
+        int leftmargin;
+        int rightmargin;
+        if (key.equals("jogador")) {line = 0; columnstart = 1; sizelimit = 15;}
+        else {line = 14; columnstart = 50; sizelimit = 27;}
+
+        String newsubstr = "";
+        
+        if (nome.length() < sizelimit) {
+            leftmargin = (int) ((double) (sizelimit - nome.length()) / 2.0 );
+            rightmargin = (int) (((double) (sizelimit - nome.length()) / 2.0 ) + 0.5);
+            for (int i = 0; i < leftmargin; i++) {newsubstr += " ";}
+            newsubstr += nome;
+            for (int i = 0; i < rightmargin; i++) {newsubstr += " ";}
+        } else {
+            newsubstr += nome.substring(0, sizelimit);
+        }
+
+        tela.set(line, new StringBuilder(tela.get(line)).replace(columnstart, columnstart + sizelimit, newsubstr).toString());
     }
 }

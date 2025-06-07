@@ -29,7 +29,6 @@ public class Inimigo extends Entidade{
 
 
 
-
     private void loadDefaultSprite() {
         this.setSpriteList(Spritesheets.getFantasminha());
     }

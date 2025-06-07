@@ -46,4 +46,23 @@ public abstract class Spritesheets {
         sprite.add("                                          ");
         return sprite;
     }
+
+    public static ArrayList<String> getEsnupi() {
+        ArrayList<String> sprite;
+        sprite = new ArrayList<String>();
+        sprite.add("            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⠿⣟⣛⣛⣛⣫⣵⣿⣿⣿⣮⠻⣿⣿           ");
+        sprite.add("            ⣿⣿⡿⣱⣿⣿⣿⣿⣿⢻⣿⣿⣿⣿⣿⣷⢻⣿           ");
+        sprite.add("            ⣿⠫⠡⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠉⠇⣿           ");
+        sprite.add("            ⣿⣶⣦⡻⢿⣿⣿⣿⣿⣿⣿⣿⡇⠣⠈⢠⠐⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣷⣾⣽⣻⢿⣿⣿⡿⡸⠂⠀⡠⣳⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣿⣿⣿⡿⣁⣛⡣⣿⣷⣮⣽⣾⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣿⣿⢟⣼⣿⣻⣇⣿⣿⣿⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣿⡟⣾⣿⣏⣿⡟⢸⣿⣿⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣿⣇⡻⣿⡿⡟⢏⡙⡿⣿⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣿⣿⠿⠆⣿⢻⣷⢾⣭⣵⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⠻⢞⣭⣯⣯⣾⣿⣝⢿⣿⣿⣿⣿⣿           ");
+        sprite.add("            ⣿⣿⣿⣿⣷⣦⣥⣯⣯⣯⣭⣭⣼⣿⣿⣿⣿⣿           ");
+        return sprite;
+    }
 }

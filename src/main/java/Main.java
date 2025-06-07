@@ -4,6 +4,7 @@
 import telas.ScreenManager;
 import telas.Sprite;
 import negocios.Jogador;
+import negocios.Spritesheets;
 import negocios.Inimigo;
 
 public class Main {

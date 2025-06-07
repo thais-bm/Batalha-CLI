@@ -120,8 +120,10 @@ public class ScreenManager {
         //PUXAR VALORES DO JOGADOR E INIMIGO DE VERDADE
         //DEIXEI VALORES DE TESTE
         telabatalha.drawHPBar(tela, 150, 200, "jogador");
-        telabatalha.drawHPBar(tela, 243, 300, "inimigo");
-        telabatalha.drawMenuOptions(tela, "isso é uma opção de menu", "ataque?", " h    h h h hhh h      hh h  hhhhhhh", "todas as alternativas acima");
+        telabatalha.drawHPBar(tela, 99999, 99999, "inimigo");
+        telabatalha.drawMenuOptions(tela, "isso é uma opção", "atacar?", "não atacar", "todas as anteriores");
+        telabatalha.drawName(tela, "Mano Player", "jogador");
+        telabatalha.drawName(tela, "Fantasmagorico da Maldade", "inimigo");
     }
 
 }
