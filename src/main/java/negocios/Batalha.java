@@ -64,7 +64,6 @@ public class Batalha {
 
             System.out.println("Acao do jogador:");
             int turno = sc.nextInt();
-
             switch(turno) {
                 case 1:
                     personagem.atacar(this,inimigo);
@@ -92,6 +91,7 @@ public class Batalha {
                 inimigo.defender(this, inimigo);
                 numTurnos--;
             }
+
 
             //Se o inimigo tiver menos de 20 de vida e pocao de cura com ele da pra ele usar
             //Vou ver se da pra fazer se ele tiver pocao de dano foda dar pra usar

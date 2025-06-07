@@ -1,5 +1,9 @@
 package negocios;
 import telas.ScreenManager;
+import telas.Sprite;
+
+import java.util.Scanner;
+import telas.Sprite;
 
 public class GameManager {
     private Batalha batalha;
@@ -33,6 +37,13 @@ public class GameManager {
         tela.updatePlayerSprite(batalha.getPersonagem().getSpriteList());
         tela.updateInimigoSprite(batalha.getInimigo().getSpriteList());
         tela.drawBattleScreen(args);
+        if (args.length > 0) {
+            
+            if (args[0].equals(batalha.getInimigo().getNome() + " morreu, prosseguir")) {
+                System.out.println("morreu");
+                new Sprite(Spritesheets.getVitoria(), 11, 45).draw(tela.getScreen());
+            }
+        }
         tela.renderScreen();
     }
 
@@ -45,6 +56,9 @@ public class GameManager {
 
                 //Conseguiu derrotar o inimigo
                 if (batalha.getInimigo().getVida() <= 0) {
+                    battleSpriteLoad(batalha, batalha.getInimigo().getNome() + " morreu, prosseguir");
+                    Scanner scanner = new Scanner(System.in);
+                    scanner.next();
                     derrotouInimigo();
                     break;
                 }

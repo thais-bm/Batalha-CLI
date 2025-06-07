@@ -39,8 +39,12 @@ public class Main {
 
     Inimigo enemy2 = new Inimigo("Elon Musk", null,items, 100, 100, 10, 0);
 
+    Inimigo enemy3 = new Inimigo("snope", null,items, 999, 999, 10, 20);
+    enemy3.setSpriteList(Spritesheets.getEsnupi());
+
     Batalha batalha1 = new Batalha(20, player, enemy, inventário);
     Batalha batalha2 = new Batalha(20, player, enemy2, inventário);
+    Batalha batalha3 = new Batalha(20, player, enemy3, inventário);    
 
 /*
     tela.updatePlayerSprite(player.getSpriteList());
@@ -79,6 +83,9 @@ public class Main {
 
     manager.iniciarBatalha(batalha2);
     manager.controleTurno(batalha2);
+
+    manager.iniciarBatalha(batalha3);
+    manager.controleTurno(batalha3);
 
 
 

@@ -94,4 +94,13 @@ public abstract class Spritesheets {
         spritelist.add(" ⠀⠺⠊⠀⠀⠀⠀⠀⠀⠀  ");
         return spritelist;
     }
+    public static ArrayList<String> getVitoria() {
+        ArrayList<String> spritelist = new ArrayList<>();
+        spritelist.add("o-------------------o");
+        spritelist.add("[  MATOU O INIMIGO  ]");
+        spritelist.add("]      PARABENS     [");
+        spritelist.add("[     VITORIA!!1    ]");
+        spritelist.add("o-------------------o");
+        return spritelist;
+    }
 }
