@@ -3,15 +3,20 @@ package negocios;
 
 import java.util.Scanner;
 
+//Não sei se é pra ter um numero definido de turnos ou se vai trocando ate alguem morrer
+
 public class Batalha {
     private int numTurnos;
     private Jogador personagem;
     private Inimigo inimigo;
+    private Inventário inventário;
     private boolean seAtivo;
     private boolean vezDoJogador;
 
-    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, boolean seAtivo) {
+
+    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventário inventário, boolean seAtivo) {
         this.numTurnos = numTurnos;
+        this.inventário = inventário;
         this.personagem = personagem;
         this.inimigo = inimigo;
         this.seAtivo = seAtivo;
@@ -58,12 +63,12 @@ public class Batalha {
         vezDoJogador = true;
         System.out.println("Iniciando turnos");
         System.out.println(numTurnos);
-        System.out.println("É a vez do:" + personagem.getNome());
         turnoJogador();
     }
 
     public void turnoJogador() {
-        if(numTurnos > 0 && inimigo.seVivo(inimigo) && seAtivo && vezDoJogador) {
+        System.out.println("\nÉ a vez de:" + personagem.getNome());
+        if(numTurnos > 0 && inimigo.seVivo(inimigo) && seAtivo) {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("Turno do jogador:");
@@ -72,14 +77,15 @@ public class Batalha {
             switch(turno) {
                 case 1:
                     personagem.atacar(this,inimigo);
+                    turnoInimigo();
                     numTurnos--;
                     break;
                 case 2:
                     personagem.defender(this,personagem);
+                    turnoInimigo();
                     numTurnos--;
                     break;
                 case 3:
-                    //dps adicionar o inventario aqui
                     break;
                 case 4:
                     break;
@@ -87,21 +93,38 @@ public class Batalha {
 
 
         }
-        else{
+        else if(inimigo.seVivo(inimigo) == false && numTurnos > 0) {
             seAtivo = false;
-            System.out.println("Turno acabou!");
+            System.out.println("Batalha acabou!");
+            if(inimigo.recompensa != null){
+                System.out.println("O inimigo dropou recompensas: ");
+                for(int i = 0; i < inimigo.recompensa.size(); i++){
+                    System.out.println("-" + inimigo.recompensa.get(i).getNome());
+                }
+
+               for(int i = 0; i < inimigo.recompensa.size(); i++){
+                   System.out.println(inimigo.recompensa.get(i).getNome() + " adicionado");
+                   inventário.adicionarItem(inimigo.recompensa.get(i));
+               }
+            }
+        }
+        else if(numTurnos < 0 && inimigo.seVivo(inimigo) == true && seAtivo) {
+            seAtivo = false;
+            System.out.println("Batalha acabou!");
+            System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
         }
 
     }
     public void turnoInimigo() {
-        if(numTurnos > 0 && personagem.seVivo(personagem) && seAtivo && !vezDoJogador) {
-            if(personagem.getAtk() > inimigo.getAtk()) {
-                inimigo.defender(this,inimigo);
+        System.out.println("\nÉ a vez de:" + inimigo.getNome());
+        if(numTurnos > 0 && personagem.seVivo(personagem) && seAtivo) {
+            if(personagem.getAtk() + 50 > inimigo.getAtk()) {
+                inimigo.atacar(this,personagem);
                 numTurnos--;
                 turnoJogador();
             }
             else if(personagem.getAtk() < inimigo.getAtk()) {
-                inimigo.atacar(this,personagem);
+                inimigo.defender(this,inimigo);
                 numTurnos--;
                 turnoJogador();
             }
@@ -111,6 +134,11 @@ public class Batalha {
 
             //}
 
-        }
+        }else{
+            seAtivo = false;
+            System.out.println("Batalha acabou!");
+            System.out.println("Voce perdeu!: ");
+            }
+
     }
 }

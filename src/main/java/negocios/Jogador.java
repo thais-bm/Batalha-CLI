@@ -3,9 +3,11 @@ package negocios;
 import java.util.ArrayList;
 
 public class Jogador extends Entidade{
-    public int max_inv_tam;
-    public Inventário inventário;
-    public ArrayList<String> sprite;
+    private int max_inv_tam;
+    private Inventário inventário;
+    private ArrayList<String> sprite;
+    private Armadura armadura;
+    private Arma arma;
 
     public Jogador(String nome,int max_inv_tam, Inventário inventário,float max_vida, float vida, float atk, float def){
         super(nome,max_vida, vida, atk, def);
@@ -24,4 +26,13 @@ public class Jogador extends Entidade{
     private void loadDefaultSprite() {
         this.setSpriteList(Spritesheets.getCavaleirinho());
     }
+
+    public void equiparArmadura(Armadura armadura){
+        setDef(getDef() + armadura.getDefesaBonus());
+    }
+
+    public void equiparArma(Arma arma){
+        setAtk(getAtk() + arma.getDanoBonus());
+    }
+
 }

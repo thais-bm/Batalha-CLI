@@ -6,8 +6,13 @@ import java.util.List;
 public class Inventário {
     private int max_inv_tam;
     private int tamanho_atual;
-    //n lembro mais como faz array
     ArrayList<Item> lista_items;
+
+    public Inventário(int max_inv_tam, int tamanho_atual, ArrayList<Item> lista_items) {
+        this.max_inv_tam = max_inv_tam;
+        this.tamanho_atual = tamanho_atual;
+        this.lista_items = lista_items;
+    }
 
     //Getters e Setters
     public ArrayList<Item> getLista_items() {
@@ -35,18 +40,17 @@ public class Inventário {
     }
 
     //Métodos
-    public void adicionarItem(){
+    public void adicionarItem(Item item) {
         this.tamanho_atual += 1;
-        //n sei como vai botar o item aq
-        //lista_items.add(item);
+        lista_items.add(item);
     }
 
-    public void removerItem(){
+    public void usarItem(Item item) {
         this.tamanho_atual -= 1;
-
+        lista_items.remove(item);
     }
 
     public void listarItem(){
-
+        System.out.println(lista_items);
     }
 }

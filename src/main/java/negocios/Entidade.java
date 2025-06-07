@@ -73,28 +73,17 @@ public abstract class Entidade {
         System.out.println("Atacando: " + entidade.nome);
         entidade.vida -= this.atk;
         System.out.println("Total vida depois do ataque: " + entidade.vida);
-        if(batalha.isVezDoJogador()){
-            batalha.turnoJogador();
-        }
-        else{
-            batalha.turnoInimigo();
-        }
+
     }
 
     public void defender(Batalha batalha,Entidade entidade) {
         System.out.println(entidade.getNome() + " esta defendendo");
-        if(batalha.isVezDoJogador()){
-            batalha.turnoJogador();
-        }
-        else{
-            batalha.turnoInimigo();
-        }
+
         //adicionar os calculos com a defesa
     }
 
     public boolean seVivo(Entidade entidade) {
         if (entidade.vida > 0) {
-            System.out.println(entidade.getNome() + " esta vivo");
             return true;
         }
         else{
