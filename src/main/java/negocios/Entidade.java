@@ -1,7 +1,8 @@
 package negocios;
 import java.util.ArrayList;
 
-public class Entidade {
+public abstract class Entidade {
+    private String nome;
     private float max_vida;
     private float min_vida = 0;
     private float vida;
@@ -9,7 +10,8 @@ public class Entidade {
     private float def;
     private ArrayList<String> spritelist;
 
-    public Entidade(float max_vida,float vida, float atk, float def) {
+    public Entidade(String nome, float max_vida,float vida, float atk, float def) {
+        this.nome = nome;
         this.max_vida = max_vida;
         this.vida = vida;
         this.atk = atk;
@@ -17,6 +19,15 @@ public class Entidade {
     }
 
     //Getters e setters
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setAtk(float atk) {
         this.atk = atk;
     }
@@ -56,21 +67,45 @@ public class Entidade {
     }
 
     //Métodos
-    //Os parametros estao errados mas é so pra nao dar erro
-    public void atacar(Entidade entidade) {
 
+
+    public void atacar(Batalha batalha,Entidade entidade) {
+        System.out.println("Atacando: " + entidade.nome);
+        entidade.vida -= this.atk;
+        System.out.println("Total vida depois do ataque: " + entidade.vida);
+        if(batalha.isVezDoJogador()){
+            batalha.turnoJogador();
+        }
+        else{
+            batalha.turnoInimigo();
+        }
     }
 
-    public void defender(Entidade entidade) {
-
+    public void defender(Batalha batalha,Entidade entidade) {
+        System.out.println(entidade.getNome() + " esta defendendo");
+        if(batalha.isVezDoJogador()){
+            batalha.turnoJogador();
+        }
+        else{
+            batalha.turnoInimigo();
+        }
+        //adicionar os calculos com a defesa
     }
 
-    public boolean seVivo(){
-        return false;
+    public boolean seVivo(Entidade entidade) {
+        if (entidade.vida > 0) {
+            System.out.println(entidade.getNome() + " esta vivo");
+            return true;
+        }
+        else{
+            System.out.println(entidade.getNome() + " esta morto");
+            return false;
+        }
     }
 
     public void sofrerDano(Entidade entidade) {
-
+        this.vida -= entidade.atk;
+        //colocar mais calculos de defesa
     }
 
     public void draw(Entidade entidade) {

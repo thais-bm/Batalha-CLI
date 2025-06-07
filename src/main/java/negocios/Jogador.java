@@ -7,8 +7,8 @@ public class Jogador extends Entidade{
     public Inventário inventário;
     public ArrayList<String> sprite;
 
-    public Jogador(int max_inv_tam, Inventário inventário,float max_vida, float vida, float atk, float def){
-        super(max_vida, vida, atk, def);
+    public Jogador(String nome,int max_inv_tam, Inventário inventário,float max_vida, float vida, float atk, float def){
+        super(nome,max_vida, vida, atk, def);
         this.max_inv_tam = max_inv_tam;
         loadDefaultSprite();
     }
