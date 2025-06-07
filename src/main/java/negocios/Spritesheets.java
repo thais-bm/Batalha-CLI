@@ -65,4 +65,14 @@ public abstract class Spritesheets {
         sprite.add("            ⣿⣿⣿⣿⣷⣦⣥⣯⣯⣯⣭⣭⣼⣿⣿⣿⣿⣿           ");
         return sprite;
     }
+
+    public static ArrayList<String> getEspadinha() {
+        ArrayList<String> spritelist = new ArrayList<>();
+        spritelist.add("     /|\\     ");
+        spritelist.add("     |||     ");
+        spritelist.add("     |||     ");
+        spritelist.add("    <=O=>    ");
+        spritelist.add("      U      ");
+        return spritelist;
+    }
 }

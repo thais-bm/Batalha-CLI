@@ -2,6 +2,7 @@ package telas;
 import java.util.ArrayList;
 import java.util.List;
 import negocios.Jogador;
+import negocios.Spritesheets;
 import negocios.Inimigo;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,6 +81,7 @@ public class ScreenManager {
     }
     public void toggleFrame() {if(frame){frame = false;} else {frame = true;}} //esse é de liga/desliga sempre que chamado
     
+
     //limpa a tela principal
     public void clear() {
         for (int i = 0; i < tela.size(); i++) {
@@ -90,6 +92,8 @@ public class ScreenManager {
             tela.set(i, newstring);
         }
     }
+
+    
 
     //atualiza sprite atual do jogador para tela de batalha
     public void updatePlayerSprite(Sprite sprite) {
@@ -107,6 +111,15 @@ public class ScreenManager {
         this.updateInimigoSprite(new Sprite(spritelist, 0, 48));
     }
 
+    //atualiza sprite de um item em um slot específico no inventário
+    public void updateItemSprite(Sprite sprite, int itemindex) {
+        if (itemindex < 1 || itemindex > 8) {return;}
+        spriteDict.put("item"+itemindex, sprite);
+    }//arraylist vira sprite mesmo esquema
+    public void updateItemSprite(ArrayList<String> spritelist, int itemindex) {
+        this.updateItemSprite(new Sprite(spritelist), itemindex);
+    }
+
 
 
     //sequencia de metodos que desenha a tela completa de batalha na tela
@@ -116,9 +129,9 @@ public class ScreenManager {
         telabatalha.drawUI(tela);
         telabatalha.drawPlayerSprite(tela, spriteDict.get("jogador"));
         telabatalha.drawEnemySprite(tela, spriteDict.get("inimigo"));
-        //MUDAR VALORES DE HP QUANDO GAME MANAGER FOR IMPLEMENTADO
+        //MUDAR VALORES DE HP E TEXTO QUANDO GAME MANAGER FOR IMPLEMENTADO
         //PUXAR VALORES DO JOGADOR E INIMIGO DE VERDADE
-        //DEIXEI VALORES DE TESTE
+        //DEIXEI VALORES DE TESTE PRA TUDO
         telabatalha.drawHPBar(tela, 150, 200, "jogador");
         telabatalha.drawHPBar(tela, 99999, 99999, "inimigo");
         telabatalha.drawMenuOptions(tela, "isso é uma opção", "atacar?", "não atacar", "todas as anteriores");
@@ -126,4 +139,17 @@ public class ScreenManager {
         telabatalha.drawName(tela, "Fantasmagorico da Maldade", "inimigo");
     }
 
+    public void drawInventoryMain() {
+        clear();
+        TelaInventario.drawUI(tela);
+        for (int i = 1; i < 9; i++) {
+            Sprite sprite = spriteDict.get("item"+i);
+            if (sprite != null) {TelaInventario.drawItem(tela, sprite, i);}
+            else {TelaInventario.drawItem(tela, SpritesInterface.getEmptySlot(), i);}
+        }
+        //primeira string se alinha pra esquerda, segunda pra direita
+        //nesse metodo aqui eu nao me dei o trabalho de fazer autoformatar e gerar a numeração
+        //porque nessa tela obviamente só vão ter as opções selecionar e voltar
+        TelaInventario.drawOptions(tela, " (1 a 8) - SELECIONAR ITEM", "0 - VOLTAR");
+    }
 }
