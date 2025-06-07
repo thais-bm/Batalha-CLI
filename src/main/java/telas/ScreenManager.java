@@ -12,6 +12,8 @@ public class ScreenManager {
     private ArrayList<String> tela;
     int lineamount;
     int linesize;
+    int margin;
+    boolean frame;
     //armazena sprites não fixos e que variam durante gameplay
     //ex: elementos base de UI NÃO precisam entrar nessa lista
     //itens, sprites de personagem, inimigos, entram nessa lista
@@ -19,6 +21,8 @@ public class ScreenManager {
 
     //construtor, claro, n pode faltar
     public ScreenManager() {
+        frame = false;
+        margin = 0;
         lineamount = 20;
         linesize = 90;
         spriteDict = new HashMap<String, Sprite>();
@@ -42,11 +46,39 @@ public class ScreenManager {
     }
 
     //simplesmente faz o print da tela principal
-    public void renderScreen(){
-        for (int i = 0; i < lineamount; i++) {
-            System.out.println(tela.get(i));
-            }
+    //com uma margem
+    public void renderScreen() {
+        String extrastring = "";
+        String framestring = "";
+        String frameside = "";
+
+        for (int i = 0; i < margin; i++) {
+            extrastring += " ";
         }
+
+        if (frame) {
+            framestring += extrastring + "X";
+            for (int i = 0; i < linesize; i++) {
+                framestring += "-";
+            }
+            framestring += "X";
+            frameside = "|";
+            System.out.println(framestring);
+        }
+
+        for (int i = 0; i < lineamount; i++) {
+            System.out.println(extrastring + frameside + tela.get(i) + frameside);
+        }
+
+        if (frame) {System.out.println(framestring);}
+    }
+
+    //comandos que definem se a tela principal vai ter margem e uma moldura
+    public void setMargin(int margem) {
+        margin = margem; //se botar negativo aqui provavelmente vai causar erro no renderScreen
+        //bom candidato pra depois implementar tratamento de exceção pra realmente usar tudo que o professor ensinou
+    }
+    public void toggleFrame() {if(frame){frame = false;} else {frame = true;}} //esse é de liga/desliga sempre que chamado
     
     //limpa a tela principal
     public void clear() {
@@ -89,6 +121,7 @@ public class ScreenManager {
         //DEIXEI VALORES DE TESTE
         telabatalha.drawHPBar(tela, 150, 200, "jogador");
         telabatalha.drawHPBar(tela, 243, 300, "inimigo");
+        telabatalha.drawMenuOptions(tela, "isso é uma opção de menu", "ataque?", " h    h h h hhh h      hh h  hhhhhhh", "todas as alternativas acima");
     }
 
 }

@@ -9,7 +9,7 @@ então cada par de "\\" representa um "\"
 
 fora isso
 sprite do player em batalha: 8 x 42
-sprite do inimigo em batalha: 13 x 43
+sprite do inimigo em batalha: 13 x 42
 
 */
 
@@ -31,19 +31,19 @@ public abstract class Spritesheets {
     public static ArrayList<String> getFantasminha() {
         ArrayList<String> sprite;
         sprite = new ArrayList<String>();
-        sprite.add("                                           ");
-        sprite.add("                                           ");
-        sprite.add("                                           ");
-        sprite.add("                                           ");
-        sprite.add("             __------__                    ");
-        sprite.add("            /          \\\\                  ");
-        sprite.add("         __|       O     _\\__              ");
-        sprite.add("        |  |  O      _       \\             ");
-        sprite.add("         \\_|    ___--      _/              ");
-        sprite.add("            \\              _\\              ");
-        sprite.add("             |         ___/                ");
-        sprite.add("             \\_/\\_____/                    ");
-        sprite.add("                                           ");
+        sprite.add("                                          ");
+        sprite.add("                                          ");
+        sprite.add("                                          ");
+        sprite.add("                                          ");
+        sprite.add("             __------__                   ");
+        sprite.add("            /          \\\\                 ");
+        sprite.add("         __|       O     _\\__             ");
+        sprite.add("        |  |  O      _       \\            ");
+        sprite.add("         \\_|    ___--      _/             ");
+        sprite.add("            \\              _\\             ");
+        sprite.add("             |         ___/               ");
+        sprite.add("             \\_/\\_____/                   ");
+        sprite.add("                                          ");
         return sprite;
     }
 }

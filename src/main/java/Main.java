@@ -14,6 +14,8 @@ public class Main {
     tela.updatePlayerSprite(new Sprite(player.getSpriteList()));
     tela.updateInimigoSprite(new Sprite(enemy.getSpriteList()));
     tela.drawBattleScreen();
+    tela.toggleFrame();
+    tela.setMargin(15);
     tela.renderScreen();
   }
 }

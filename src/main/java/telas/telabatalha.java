@@ -29,10 +29,10 @@ public abstract class telabatalha {
 
         ArrayList<String> menu = new ArrayList<String>();
         menu.add("=========================================O");
-        menu.add("  1 - esse texto vai ser                 |");
-        menu.add("  2 - substituido em breve               |");
-        menu.add("  3 - pelas opcoes de batalha            |");
-        menu.add("  4 -                                    |");
+        menu.add("                                         |");
+        menu.add("                                         |");
+        menu.add("                                         |");
+        menu.add("                                         |");
         menu.add("                                         |");
 
         //esse daqui ficou tipo minimamente assimetrico mas a gente ignora e nao conta pra ninguem
@@ -115,5 +115,21 @@ public abstract class telabatalha {
             else {newline += " ";}
         }
         tela.set(yposbar, new StringBuilder(tela.get(yposbar)).replace(xposbar, xposbar+20, newline).toString());
+    }
+    
+    public static void drawMenuOptions(ArrayList<String> tela, String... args) {
+        for (int i = 0; i < 4 && i < args.length; i++) {
+            String newsubstr = "  " + i+1 + " - " + args[i];
+
+            if (newsubstr.length() > 40) {
+                newsubstr = newsubstr.substring(0, 39);
+            } else while (newsubstr.length() < 39) {
+                newsubstr += " ";
+            }
+
+            StringBuilder builder = new StringBuilder(tela.get(i + 15));
+            builder.replace(0, 39, newsubstr);
+            tela.set(i + 15, builder.toString());
+        }
     }
 }

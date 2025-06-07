@@ -6,7 +6,7 @@ public class Inimigo extends Entidade{
     public String tipo;
     public ArrayList<Item> recompensa;
 
-    public Inimigo(String tipo, ArrayList<Item> recompensa, float max_vida,float vida, float atk, float def){
+    public Inimigo(String tipo, ArrayList<Item> recompensa, float max_vida,float vida, float atk, float def) {
         super(max_vida, vida, atk, def);
         loadDefaultSprite();
         this.tipo = tipo;
