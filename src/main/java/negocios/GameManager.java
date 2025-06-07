@@ -50,8 +50,6 @@ public class GameManager {
                     break;
                 }
 
-
-
             }
         }
     }
@@ -60,18 +58,25 @@ public class GameManager {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         if (batalha.getInimigo().recompensa != null) {
-            System.out.println("O inimigo dropou recompensas: ");
-            for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
-                System.out.println("-" + batalha.getInimigo().recompensa.get(i).getNome());
-            }
+            adicionarAoInventario();
 
-            //Adiciona as recompensas que o inimigo tinha no inventario
-            for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
-                System.out.println(batalha.getInimigo().recompensa.get(i).getNome() + " adicionado no inventário");
-                batalha.getInventário().adicionarItem(batalha.getInimigo().recompensa.get(i));
-            }
         }
         reinciarBatalha();
+    }
+
+    //Se o inimigo tiver recompensas adiciona elas ao inventario
+    //Nao sei se o jogador vai ter que escolher entre oq adicioar e descartar ou se vai adicionar tudo direto
+    public void adicionarAoInventario(){
+        System.out.println("O inimigo dropou recompensas: ");
+        for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
+            System.out.println("-" + batalha.getInimigo().recompensa.get(i).getNome());
+        }
+
+        //Adiciona as recompensas que o inimigo tinha no inventario
+        for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
+            System.out.println(batalha.getInimigo().recompensa.get(i).getNome() + " adicionado no inventário");
+            batalha.getInventário().adicionarItem(batalha.getInimigo().recompensa.get(i));
+        }
     }
 
     public void perdeu(){
@@ -84,8 +89,8 @@ public class GameManager {
     public void reinciarBatalha() {
         System.out.println("Turno reinciado!");
         batalha.setSeAtivo(false);
-        iniciarBatalha(batalha);
     }
+
 }
 
 
