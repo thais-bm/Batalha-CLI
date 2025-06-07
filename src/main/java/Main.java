@@ -11,6 +11,7 @@ public class Main {
   public static void main(String[] args) {
     ScreenManager tela = new ScreenManager();
 
+
     ArrayList<Item> itemsInventario = new ArrayList<Item>();
     Inventário inventário = new Inventário(8,0,itemsInventario);
 
@@ -43,8 +44,12 @@ public class Main {
     tela.drawInventoryItemSelected(1);
     tela.renderScreen();
 
-    Batalha batalha = new Batalha(4, player, enemy, inventário,true);
-    batalha.iniciarTurnos(enemy, player);
+    Batalha batalha = new Batalha(20, player, enemy, inventário,true);
+
+
+    GameManager manager = new GameManager(batalha);
+    manager.iniciarBatalha();
+    manager.controleTurno();
 
     /*tela.updatePlayerSprite(new Sprite(player.getSpriteList()));
     tela.updateInimigoSprite(new Sprite(enemy.getSpriteList()));
