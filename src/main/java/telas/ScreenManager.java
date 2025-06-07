@@ -20,6 +20,7 @@ public class ScreenManager {
     //ex: elementos base de UI NÃO precisam entrar nessa lista
     //itens, sprites de personagem, inimigos, entram nessa lista
     Map<String, Sprite> spriteDict;
+    Map<String, String[]> itemdescdict;
 
     private double[] playerhpdata;
     private String playername;
@@ -33,6 +34,7 @@ public class ScreenManager {
         lineamount = 20;
         linesize = 90;
         spriteDict = new HashMap<String, Sprite>();
+        itemdescdict = new HashMap<String, String[]>();
         tela = new ArrayList<String>();
         for (int i = 0; i < lineamount; i++) {
             StringBuilder builder = new StringBuilder();
@@ -150,7 +152,9 @@ public class ScreenManager {
         this.updateItemSprite(new Sprite(spritelist), itemindex);
     }
 
-
+    public void updateItemDesc(int key, String... args) {
+        itemdescdict.put("item"+key, args);
+    }
 
     //sequencia de metodos que desenha a tela completa de batalha na tela
     //não inclui a renderização. lembra de chamar o método renderScreen depois
@@ -185,11 +189,14 @@ public class ScreenManager {
     public void drawInventoryItemSelected(int index) {
         clear();
         Inventario_ItemSelecionado.drawUI(tela);
-        Inventario_ItemSelecionado.drawDesc(tela, "- ITEM MANEIRO -", "palavras palavras palavras", "descricao de item", "textotextotextotextotextotextotextoextotextotextotexto");
+        String[] itemdesc = itemdescdict.get("item"+1);
         Sprite itemsprite = spriteDict.get("item"+index);
         if (itemsprite != null) {
             Inventario_ItemSelecionado.drawItem(tela, itemsprite);
-            Inventario_ItemSelecionado.drawOptions(tela, "0 - Testando formatação das opções       1 - Voltar", "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+            Inventario_ItemSelecionado.drawOptions(tela, "0 - Testando formatação das opções       1 - Voltar", " 2 - frase muito longa que passa do limite da tela pra testar se funciona cortar o finaluuauq90931u9fduj13fiuihusahufhua daioahefouhaeohfoahgouhaoudhgohaeoughaouehg");
         } 
+        if (itemdesc != null) {
+            Inventario_ItemSelecionado.drawDesc(tela, itemdesc);
+        }
     }
 }

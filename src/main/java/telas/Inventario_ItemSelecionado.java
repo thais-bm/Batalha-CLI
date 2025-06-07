@@ -18,7 +18,7 @@ public abstract class Inventario_ItemSelecionado {
     }
 
 
-    public static void drawDesc(ArrayList<String> tela, String... args) {
+    public static void drawDesc(ArrayList<String> tela, String[] args) {
         for (int i = 0; i < args.length && i < 4; i++) {
             StringBuilder builder = new StringBuilder(tela.get(11+i));
             builder.replace(21, 69, ComandosUteis.autocentraliza(args[i], 48));

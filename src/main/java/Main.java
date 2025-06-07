@@ -40,7 +40,13 @@ public class Main {
     tela.updateInimigoSprite(enemy.getSpriteList());
     tela.updatePlayerData(player);
     tela.updateEnemyData(enemy);
-    tela.updateItemSprite(Spritesheets.getEspadinha(), 1);
+    tela.updateItemSprite(Spritesheets.getEspadaMinecraft(), 1);
+    tela.updateItemDesc(1, "- ESPADA DE DIAMANTE -",
+                                       "Sharpness V | Fire Aspect II | Looting III",
+                                       "11 de dano extra, velocidade de ataque 1.6",
+                                       "Durabilidade:  946/1561",
+                                       "Se a formatação funcionar essa linha não vai aparecer e não vai dar erro"
+                                       );
     tela.drawBattleScreen();
     tela.renderScreen();
     tela.drawInventoryMain();

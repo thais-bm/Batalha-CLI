@@ -75,4 +75,14 @@ public abstract class Spritesheets {
         spritelist.add("      ⡇      ");
         return spritelist;
     }
+
+    public static ArrayList<String> getEspadaMinecraft() {
+        ArrayList<String> spritelist = new ArrayList<>();
+        spritelist.add("     ⠀⠀⠀⠀⡐⡉⣹ ");
+        spritelist.add("   ⠀⡀⠀⠀⡔⢊⡬⠊⠁ ");
+        spritelist.add("  ⠀⠚⣗⣤⡪⡢⠓⠁⠀⠀ ");
+        spritelist.add("  ⠀⢀⣼⠾⣳⣅⠀⠀⠀⠀ ");
+        spritelist.add("  ⣿⡯⠁⠀⠀⠉⠁⠀⠀⠀ ");
+        return spritelist;
+    }
 }
