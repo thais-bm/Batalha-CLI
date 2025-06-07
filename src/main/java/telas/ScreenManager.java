@@ -76,6 +76,9 @@ public class ScreenManager {
     //simplesmente faz o print da tela principal
     //com uma margem
     public void renderScreen() {
+        System.out.println("");
+        System.out.println("");
+
         String extrastring = "";
         String framestring = "";
         String frameside = "";
@@ -182,6 +185,11 @@ public class ScreenManager {
     public void drawInventoryItemSelected(int index) {
         clear();
         Inventario_ItemSelecionado.drawUI(tela);
-        Inventario_ItemSelecionado.drawDesc(tela, "- ITEM MANEIRO -", "palavras palavras palavras", "");
+        Inventario_ItemSelecionado.drawDesc(tela, "- ITEM MANEIRO -", "palavras palavras palavras", "descricao de item", "textotextotextotextotextotextotextoextotextotextotexto");
+        Sprite itemsprite = spriteDict.get("item"+index);
+        if (itemsprite != null) {
+            Inventario_ItemSelecionado.drawItem(tela, itemsprite);
+            Inventario_ItemSelecionado.drawOptions(tela, "0 - Testando formatação das opções       1 - Voltar", "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+        } 
     }
 }

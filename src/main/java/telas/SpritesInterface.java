@@ -44,7 +44,7 @@ public abstract class SpritesInterface {
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("  __________________________________|ITEM SELECIONADO|__________________________________  ");
         spritelist.add(" O                                                                                      O ");
-        spritelist.add("|                                     O|SELECIONADO|O                                    |");
+        spritelist.add("|                                     O-------------O                                    |");
         spritelist.add("|                                     |             |                                    |");
         spritelist.add("|                                     |             |                                    |");
         spritelist.add("|                                     |             |                                    |");

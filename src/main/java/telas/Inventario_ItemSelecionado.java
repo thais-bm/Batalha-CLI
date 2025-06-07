@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public abstract class Inventario_ItemSelecionado {
     public static void drawUI(ArrayList<String> tela) {
-        new Sprite(SpritesInterface.getInvSwap()).draw(tela);
+        new Sprite(SpritesInterface.getInvSelected()).draw(tela);
     }
 
 
@@ -20,9 +20,19 @@ public abstract class Inventario_ItemSelecionado {
 
     public static void drawDesc(ArrayList<String> tela, String... args) {
         for (int i = 0; i < args.length && i < 4; i++) {
-            StringBuilder builder = new StringBuilder(tela.get(10+i));
+            StringBuilder builder = new StringBuilder(tela.get(11+i));
             builder.replace(21, 69, ComandosUteis.autocentraliza(args[i], 48));
-            tela.set(10+i, builder.toString());
+            tela.set(11+i, builder.toString());
+        }
+    }
+
+
+    public static void drawOptions(ArrayList<String> tela, String... args) {
+        for (int i = 0; i < args.length && i < 2; i++) {
+            StringBuilder builder = new StringBuilder(tela.get(17+i));
+            builder.replace(1, 89, ComandosUteis.autocentraliza(args[i], 88));
+            tela.set(17+i, builder.toString());
         }
     }
 }
+//13 60

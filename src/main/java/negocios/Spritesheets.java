@@ -68,11 +68,11 @@ public abstract class Spritesheets {
 
     public static ArrayList<String> getEspadinha() {
         ArrayList<String> spritelist = new ArrayList<>();
-        spritelist.add("     /|\\     ");
-        spritelist.add("     |||     ");
-        spritelist.add("     |||     ");
+        spritelist.add("     / \\     ");
+        spritelist.add("     |Y|     ");
+        spritelist.add("     \\|/     ");
         spritelist.add("    <=O=>    ");
-        spritelist.add("      U      ");
+        spritelist.add("      ⡇      ");
         return spritelist;
     }
 }

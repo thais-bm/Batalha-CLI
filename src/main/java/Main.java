@@ -26,6 +26,9 @@ public class Main {
     Arma arco = new Arma("Arco", "+10 Ataque", 10);
 
 
+    tela.setMargin(33);
+    tela.toggleFrame();
+
     items.add(armaduraFerro);
     items.add(armaduraDiamante);
     items.add(armaduraNetherite);
@@ -37,6 +40,7 @@ public class Main {
     tela.updateInimigoSprite(enemy.getSpriteList());
     tela.updatePlayerData(player);
     tela.updateEnemyData(enemy);
+    tela.updateItemSprite(Spritesheets.getEspadinha(), 1);
     tela.drawBattleScreen();
     tela.renderScreen();
     tela.drawInventoryMain();
