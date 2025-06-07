@@ -5,9 +5,10 @@ import java.util.ArrayList;
 public class Inimigo extends Entidade{
     public String tipo;
     public ArrayList<Item> recompensa;
+    public String[] items;
 
-    public Inimigo(String tipo, ArrayList<Item> recompensa, float max_vida,float vida, float atk, float def) {
-        super(max_vida, vida, atk, def);
+    public Inimigo(String nome,String tipo, ArrayList<Item> recompensa, float max_vida,float vida, float atk, float def) {
+        super(nome,max_vida, vida, atk, def);
         loadDefaultSprite();
         this.tipo = tipo;
         this.recompensa = recompensa;
