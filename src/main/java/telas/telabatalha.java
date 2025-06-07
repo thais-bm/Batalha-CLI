@@ -12,7 +12,7 @@ import java.util.ArrayList;
  CONTADOR DE VIDA DO INIMIGO:
 
  SPRITE DO JOGADOR: LINHAS 6-13 (8) SUBSTRING 0-41 (42 caracteres)
- SPRITE DO INIMIGO:
+ SPRITE DO INIMIGO: LINHAS 0-16 (17) SUBSTRING 48-89 (43 caracteres)
 */
 public abstract class telabatalha {
 
@@ -35,6 +35,7 @@ public abstract class telabatalha {
         menu.add("  4 -                                    |");
         menu.add("                                         |");
 
+        //esse daqui ficou tipo minimamente assimetrico mas a gente ignora e nao conta pra ninguem
         ArrayList<String> vidadoinimigo = new ArrayList<String>();
         vidadoinimigo.add(" _______________________________________ ");
         vidadoinimigo.add("O     [NOME DO INIMIGO]     | HP ??/??  O");
@@ -59,12 +60,13 @@ public abstract class telabatalha {
         playersprite.draw(tela, 6, 0);
         return;
     }
-
+    //Mesma coisa que o anterior mas com 13 linhas de altura e 43 comprimento
     public static void drawEnemySprite(ArrayList<String> tela, Sprite enemysprite) {
         enemysprite.draw(tela, 0, 48);
         return;
     }
     
+    //metodo que atualiza os valores de HP que aparecem na interface de batalha assim como a barra de hp
     public static void drawHPBar(ArrayList<String> tela, int hp, int maxhp, String tipo) {
         int xposcounter = 0;
         int yposcounter = 0;

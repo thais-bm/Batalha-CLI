@@ -62,14 +62,23 @@ public class ScreenManager {
     //atualiza sprite atual do jogador para tela de batalha
     public void updatePlayerSprite(Sprite sprite) {
         spriteDict.put("jogador", sprite);
+    } //tambem funciona se colocar só o ArrayList, automaticamente criando um objeto tipo Sprite com ele
+    public void updatePlayerSprite(ArrayList<String> spritelist) {
+        this.updatePlayerSprite(new Sprite(spritelist, 6, 0));
     }
 
     //atualiza sprite de inimigo utilizado na tela de batalha
     public void updateInimigoSprite(Sprite sprite) {
         spriteDict.put("inimigo", sprite);
+    } //tambem funciona se bla bla bla mesma coisa que o outro
+    public void updateInimigoSprite(ArrayList<String> spritelist) {
+        this.updateInimigoSprite(new Sprite(spritelist, 0, 48));
     }
 
+
+
     //sequencia de metodos que desenha a tela completa de batalha na tela
+    //não inclui a renderização. lembra de chamar o método renderScreen depois
     public void drawBattleScreen() {
         clear();
         telabatalha.drawUI(tela);

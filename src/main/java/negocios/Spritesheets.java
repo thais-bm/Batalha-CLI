@@ -1,5 +1,18 @@
 package negocios;
 import java.util.ArrayList;
+
+/*
+Criei essa classe abstrata pra ter um lugar onde guardar os sprites sem deixar um negocio enorme dentro do codigo das outras classes
+por sinal, barrinha inclinada pra esquerda "\" dentro de string causa erro sozinha por causa da formatação de strings
+duas barrinhas tipo "\\" saem como uma só barrinha "\" na hora de fazer o print
+então cada par de "\\" representa um "\"
+
+fora isso
+sprite do player em batalha: 8 x 42
+sprite do inimigo em batalha: 13 x 43
+
+*/
+
 public abstract class Spritesheets {
     public static ArrayList<String> getCavaleirinho() {
         ArrayList<String> sprite;
