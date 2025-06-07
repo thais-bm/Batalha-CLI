@@ -43,17 +43,27 @@ public class Main {
     tela.updateItemSprite(Spritesheets.getEspadaMinecraft(), 1);
     tela.updateItemDesc(1, "- ESPADA DE DIAMANTE -",
                                        "Sharpness V | Fire Aspect II | Looting III",
-                                       "11 de dano extra, velocidade de ataque 1.6",
+                                       "11 dano por golpe, 1.6 velocidade de ataque",
                                        "Durabilidade:  946/1561",
+                                       "Se a formatação funcionar essa linha não vai aparecer e não vai dar erro"
+                                       );
+    tela.updateItemSprite(Spritesheets.getPicaretaMinecraft(), 2);
+    tela.updateItemDesc(2, "- PICARETA DE FERRO -",
+                                       "Efficiency IV | Unbreaking III | Silk Touch",
+                                       "4 dano por golpe, 1.2 velocidade de ataque",
+                                       "Durabilidade:  231/250",
                                        "Se a formatação funcionar essa linha não vai aparecer e não vai dar erro"
                                        );
     tela.drawBattleScreen();
     tela.renderScreen();
     tela.drawInventoryMain();
     tela.renderScreen();
-    tela.drawInventoryItemSelected(1);
+    tela.drawInventoryItemSelected(1, "1 - Usar                 3 - Descartar                         ",
+                                                    "2 - Mudar posicao        4 - Comer                   0 - Voltar");
     tela.renderScreen();
-
+    tela.drawInventorySwap(1, 2, "1 - Aceitar novo item                                          ",
+                                                       "2 - Cancelar troca                                   0 - Voltar");
+    tela.renderScreen();
     Batalha batalha = new Batalha(20, player, enemy, inventário,true);
 
 

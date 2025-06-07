@@ -186,17 +186,33 @@ public class ScreenManager {
     }
 
     //sequencia de metodos que desenha pagina do inventario com item selecionado
-    public void drawInventoryItemSelected(int index) {
+    public void drawInventoryItemSelected(int index, String... args) {
         clear();
         Inventario_ItemSelecionado.drawUI(tela);
-        String[] itemdesc = itemdescdict.get("item"+1);
+        String[] itemdesc = itemdescdict.get("item"+index);
         Sprite itemsprite = spriteDict.get("item"+index);
         if (itemsprite != null) {
             Inventario_ItemSelecionado.drawItem(tela, itemsprite);
-            Inventario_ItemSelecionado.drawOptions(tela, "0 - Testando formatação das opções       1 - Voltar", " 2 - frase muito longa que passa do limite da tela pra testar se funciona cortar o finaluuauq90931u9fduj13fiuihusahufhua daioahefouhaeohfoahgouhaoudhgohaeoughaouehg");
+            Inventario_ItemSelecionado.drawOptions(tela, args);
         } 
         if (itemdesc != null) {
-            Inventario_ItemSelecionado.drawDesc(tela, itemdesc);
+            Inventario_ItemSelecionado.drawDesc(tela, itemdesc, "");
         }
+    }
+
+    public void drawInventorySwap(int index1, int index2, String... args) {
+        clear();
+        Inventario_ItemSelecionado.drawSwapUI(tela);
+        String[] itemdesc1 = itemdescdict.get("item"+index1);
+        String[] itemdesc2 = itemdescdict.get("item"+index2);
+        Sprite itemsprite1 = spriteDict.get("item"+index1);
+        Sprite itemsprite2 = spriteDict.get("item"+index2);
+
+        if (itemsprite1 != null) Inventario_ItemSelecionado.drawItem(tela, itemsprite1, "swap1");
+        if (itemsprite2 != null) Inventario_ItemSelecionado.drawItem(tela, itemsprite2, "swap2");
+        if (itemdesc1 != null) Inventario_ItemSelecionado.drawDesc(tela, itemdesc1, "swap1");
+        if (itemdesc2 != null) Inventario_ItemSelecionado.drawDesc(tela, itemdesc2, "swap2");
+
+        Inventario_ItemSelecionado.drawOptions(tela, args);
     }
 }
