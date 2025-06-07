@@ -39,10 +39,7 @@ public class Main {
     Inimigo enemy2 = new Inimigo("Elon Musk", null,items, 100, 100, 10, 0);
 
     Batalha batalha1 = new Batalha(20, player, enemy, inventário);
-
     Batalha batalha2 = new Batalha(20, player, enemy2, inventário);
-    Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 21, 0);
-    Inimigo enemy = new Inimigo("Felicien", null,items, 100, 100, 12, 0);
 
     tela.updatePlayerSprite(player.getSpriteList());
     tela.updateInimigoSprite(enemy.getSpriteList());
@@ -72,7 +69,6 @@ public class Main {
     tela.drawInventorySwap(1, 2, "1 - Aceitar novo item                                          ",
                                                        "2 - Cancelar troca                                   0 - Voltar");
     tela.renderScreen();
-    Batalha batalha = new Batalha(20, player, enemy, inventário,true);
 
 
     GameManager manager = new GameManager(batalha1);
