@@ -158,14 +158,14 @@ public class ScreenManager {
 
     //sequencia de metodos que desenha a tela completa de batalha na tela
     //não inclui a renderização. lembra de chamar o método renderScreen depois
-    public void drawBattleScreen() {
+    public void drawBattleScreen(String... args) {
         clear();
         telabatalha.drawUI(tela);
         telabatalha.drawPlayerSprite(tela, spriteDict.get("jogador"));
         telabatalha.drawEnemySprite(tela, spriteDict.get("inimigo")); //hp arredondado pra cima se nao for inteiro
         telabatalha.drawHPBar(tela, (int) (playerhpdata[0] + 0.9999), (int) (playerhpdata[1] + 0.9999), "jogador");
         telabatalha.drawHPBar(tela, (int) (enemyhpdata[0] + 0.9999), (int) (enemyhpdata[1] + 0.9999), "inimigo");
-        telabatalha.drawMenuOptions(tela, "isso é uma opção", "atacar?", "não atacar", "todas as anteriores");
+        telabatalha.drawMenuOptions(tela, args);
         telabatalha.drawName(tela, playername, "jogador");
         telabatalha.drawName(tela, enemyname, "inimigo");
     }

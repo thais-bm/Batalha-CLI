@@ -34,6 +34,7 @@ public class Main {
     items.add(armaduraNetherite);
 
     Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 50, 0);
+    player.setSpriteList(Spritesheets.getCavaleirinho());
     Inimigo enemy = new Inimigo("Felicien", null,items, 100, 100, 10, 0);
 
     Inimigo enemy2 = new Inimigo("Elon Musk", null,items, 100, 100, 10, 0);
@@ -41,6 +42,7 @@ public class Main {
     Batalha batalha1 = new Batalha(20, player, enemy, inventário);
     Batalha batalha2 = new Batalha(20, player, enemy2, inventário);
 
+/*
     tela.updatePlayerSprite(player.getSpriteList());
     tela.updateInimigoSprite(enemy.getSpriteList());
     tela.updatePlayerData(player);
@@ -59,7 +61,7 @@ public class Main {
                                        "Durabilidade:  231/250",
                                        "Se a formatação funcionar essa linha não vai aparecer e não vai dar erro"
                                        );
-    tela.drawBattleScreen();
+    tela.drawBattleScreen("Abraçar", "Esquartejar", "Atacar?", "Inventario");
     tela.renderScreen();
     tela.drawInventoryMain();
     tela.renderScreen();
@@ -69,9 +71,9 @@ public class Main {
     tela.drawInventorySwap(1, 2, "1 - Aceitar novo item                                          ",
                                                        "2 - Cancelar troca                                   0 - Voltar");
     tela.renderScreen();
+*/
 
-
-    GameManager manager = new GameManager(batalha1);
+    GameManager manager = new GameManager(batalha1, tela);
     manager.iniciarBatalha(batalha1);
     manager.controleTurno(batalha1);
 

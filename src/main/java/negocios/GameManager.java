@@ -1,10 +1,13 @@
 package negocios;
+import telas.ScreenManager;
 
 public class GameManager {
     private Batalha batalha;
+    private ScreenManager tela;
 
-    public GameManager(Batalha batalha) {
+    public GameManager(Batalha batalha, ScreenManager tela) {
         this.batalha = batalha;
+        this.tela = tela;
     }
 
     //Getters e Setters
@@ -24,11 +27,20 @@ public class GameManager {
         System.out.println(batalha.getNumTurnos() + " turnos ao total");
     }
 
+    public void battleSpriteLoad(Batalha batalha, String... args) {
+        tela.updatePlayerData(batalha.getPersonagem());
+        tela.updateEnemyData(batalha.getInimigo());
+        tela.updatePlayerSprite(batalha.getPersonagem().getSpriteList());
+        tela.updateInimigoSprite(batalha.getInimigo().getSpriteList());
+        tela.drawBattleScreen(args);
+        tela.renderScreen();
+    }
+
     public void controleTurno(Batalha batalha) {
         if (batalha.getSeAtivo()) {
             while (batalha.getNumTurnos() > 0 && batalha.getSeAtivo()) {
                 System.out.println("Turno atual: " + batalha.getNumTurnos());
-
+                battleSpriteLoad(batalha, "Atacar", "Defender", "Inventario", "Nao sei");
                 batalha.turnoJogador();
 
                 //Conseguiu derrotar o inimigo
