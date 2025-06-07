@@ -13,12 +13,11 @@ public class Batalha {
     private boolean seAtivo;
 
 
-    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventário inventário, boolean seAtivo) {
+    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventário inventário) {
         this.numTurnos = numTurnos;
         this.inventário = inventário;
         this.personagem = personagem;
         this.inimigo = inimigo;
-        this.seAtivo = seAtivo;
     }
 
     //Getter e Setters

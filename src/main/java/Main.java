@@ -30,15 +30,24 @@ public class Main {
     items.add(armaduraDiamante);
     items.add(armaduraNetherite);
 
-    Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 20, 0);
+    Jogador player = new Jogador("Trabalho de PE",0, null, 100, 100, 50, 0);
     Inimigo enemy = new Inimigo("Felicien", null,items, 100, 100, 10, 0);
 
-    Batalha batalha = new Batalha(20, player, enemy, inventário,true);
+    Inimigo enemy2 = new Inimigo("Elon Musk", null,items, 100, 100, 10, 0);
+
+    Batalha batalha1 = new Batalha(20, player, enemy, inventário);
+
+    Batalha batalha2 = new Batalha(20, player, enemy2, inventário);
+
+    GameManager manager = new GameManager(batalha1);
+    manager.iniciarBatalha(batalha1);
+    manager.controleTurno(batalha1);
+
+    manager.iniciarBatalha(batalha2);
+    manager.controleTurno(batalha2);
 
 
-    GameManager manager = new GameManager(batalha);
-    manager.iniciarBatalha();
-    manager.controleTurno();
+
 
     /*tela.updatePlayerSprite(new Sprite(player.getSpriteList()));
     tela.updateInimigoSprite(new Sprite(enemy.getSpriteList()));
