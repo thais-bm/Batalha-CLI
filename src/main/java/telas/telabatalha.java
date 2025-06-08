@@ -123,7 +123,8 @@ public abstract class telabatalha {
     //de 0 a 4 Strings. pode botar mais string mas da quinta pra cima elas vao ser ignoradas
     public static void drawMenuOptions(ArrayList<String> tela, String... args) {
         for (int i = 0; i < 4 && i < args.length; i++) {
-            String newsubstr = "  " + (i+1) + " - " + args[i];
+            //String newsubstr = "  " + (i+1) + " - " + args[i];
+            String newsubstr = "" + args[i];
 
             if (newsubstr.length() > 40) {
                 newsubstr = newsubstr.substring(0, 39);

@@ -34,7 +34,7 @@ public class Main {
 
     tela.drawInventoryMain(inventario);
     tela.renderScreen();
-    tela.drawInventorySwap(inventario, 1, 2, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "012345678910111213141516171819");
+    tela.drawInventorySwap(inventario, 1, new CuraMedia(), "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "012345678910111213141516171819");
     tela.renderScreen();
 
     System.out.println(inventario.itensDeAtaqueFunctionCall(20));

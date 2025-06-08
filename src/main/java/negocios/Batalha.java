@@ -97,6 +97,9 @@ public class Batalha {
             //Vou ver se da pra fazer se ele tiver pocao de dano foda dar pra usar
             //else if(inimigo.getVida() < 20 && inimigo.items == "Pocao de cura") {
 
+            //??? n sei se precisa
+            //so fazer o inimigo ter tipo muita vida
+            //trabalho demais fazer o inimigo ter item tambem
             //}
 
         }

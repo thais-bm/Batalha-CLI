@@ -35,7 +35,8 @@ public class ScreenManager {
     }
 
     //simplesmente faz o print da tela principal
-    //com uma margem
+    //com uma margem se habilitado
+    //tambem com uma moldura se habilitado
     public void renderScreen() {
         System.out.println("");
         System.out.println("");
@@ -86,6 +87,8 @@ public class ScreenManager {
 
     //sequencia de metodos que desenha a tela completa de batalha na tela
     //não inclui a renderização. lembra de chamar o método renderScreen depois
+    //basta usar os objetos Jogador e Inimigo como argumento, e a extração dos valores necessários vai ser automática
+    //como argumentos extras, pode opcionalmente colocar 1 a 4 Strings que vão aparecer como opções do menu
     public void drawBattleScreen(Jogador jogador, Inimigo inimigo, String... args) {
         clear();
         telabatalha.drawUI(tela);
@@ -99,6 +102,8 @@ public class ScreenManager {
     }
 
     //sequencia de metodos que desenha tela inicial do inventario aberto
+    //basta usar o objeto Inventario como argumento, e a extração dos valores necessários vai ser automática
+    //como argumentos extras, pode opcionalmente colocar 1 a 2 Strings que vão aparecer como opções do menu
     public void drawInventoryMain(Inventario inventario, String... args) {
         clear();
         TelaInventario.drawUI(tela);
@@ -113,6 +118,8 @@ public class ScreenManager {
     }
 
     //sequencia de metodos que desenha pagina do inventario com item selecionado
+    //basta usar o objeto Inventario e o número do slot do item selecionado como argumento, e a extração dos valores necessários vai ser automática
+    //como argumentos extras, pode opcionalmente colocar 1 a 2 Strings que vão aparecer como opções do menu
     public void drawInventoryItemSelected(Inventario inventario, int index, String... args) {
         clear();
         Inventario_ItemSelecionado.drawUI(tela);
@@ -134,7 +141,9 @@ public class ScreenManager {
 
 
     //sequencia de metodos que desenha na tela o inventario durante a comparação entre um item novo e um selecionado
-    public void drawInventorySwap(Inventario inventario, int index1, int index2, String... args) {
+    //como argumentos, usar objeto Inventario, numero do slot do item selecionado, e objeto Item inteiro do novo item, e a extração dos valores necessários vai ser automática
+    //como argumentos extras, pode opcionalmente colocar 1 a 2 Strings que vão aparecer como opções do menu
+    public void drawInventorySwap(Inventario inventario, int index1, Item item2, String... args) {
         clear();
         Inventario_ItemSelecionado.drawSwapUI(tela);
         Item item1 = inventario.getItem(index1);
@@ -144,7 +153,7 @@ public class ScreenManager {
             itemdesc1 = item1.getDescricao();
             itemsprite1 = new Sprite(item1.getSpriteList());
         }
-        Item item2 = inventario.getItem(index2);
+
         String[] itemdesc2 = null;
         Sprite itemsprite2 = null;
         if (item2 != null) {
