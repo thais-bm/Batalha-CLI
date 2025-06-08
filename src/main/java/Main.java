@@ -14,16 +14,17 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    ScreenManager tela = new ScreenManager();
-    GameManager gameManager = new GameManager(null, tela);
+    GameManager gameManager = new GameManager();
+    gameManager.gameLoop();
+
+
     // tela.setMargin(33);
     // tela.toggleFrame();
     // fica bugadinho
     // tela.drawMainMenuScreen();
     // tela.renderScreen();
 
-    // gameManager -> desenha a tela e faz a logica
-    gameManager.screenLogic();
+
 
 
 
