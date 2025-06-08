@@ -4,6 +4,9 @@
 import negocios.*;
 import negocios.tipos_item.*;
 import negocios.tipos_item.ItensAtk.*;
+import negocios.tipos_item.ItensConsumiveis.CuraGrande;
+import negocios.tipos_item.ItensConsumiveis.CuraMedia;
+import negocios.tipos_item.ItensConsumiveis.CuraPequena;
 import telas.ScreenManager;
 import telas.Sprite;
 
@@ -13,12 +16,12 @@ public class Main {
   public static void main(String[] args) {
     ScreenManager tela = new ScreenManager();
     Inventario inventario = new Inventario();
-    inventario.setItem(new EspadaBacaninha(), 1);
+    inventario.setItem(new CuraGrande(), 1);
     inventario.setItem(new EspadaFantasma(), 2);
-    inventario.setItem(new EspadaBacaninha(), 3);
+    inventario.setItem(new CuraPequena(), 3);
     inventario.setItem(new EspadaBasica(), 4);
     inventario.setItem(new EspadaManeira(), 5);
-    inventario.setItem(new EspadaBacaninha(), 7);
+    inventario.setItem(new CuraMedia(), 7);
     inventario.setItem(new PedraPolimento(), 8);
 
 

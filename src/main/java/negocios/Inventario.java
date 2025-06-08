@@ -35,7 +35,8 @@ public class Inventario {
         int resposta = entrada;
         for (Item item: itemlist) {
             if (item instanceof ItemAtk) {
-                resposta = item.Efeito(resposta);
+                ItemAtk holder = (ItemAtk) item;
+                resposta = holder.Efeito(resposta);
             }
         }
         return resposta;

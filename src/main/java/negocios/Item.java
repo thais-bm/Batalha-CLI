@@ -45,5 +45,4 @@ public abstract class Item {
         return inventario;
     }
 
-    public abstract int Efeito(int entrada);
 }
