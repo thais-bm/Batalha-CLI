@@ -168,4 +168,9 @@ public class ScreenManager {
 
         Inventario_ItemSelecionado.drawOptions(tela, args);
     }
+
+    public void drawMainMenuScreen(){
+        clear();
+        MenuPrincipal.drawUI(tela);
+    }
 }

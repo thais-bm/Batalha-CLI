@@ -3,11 +3,16 @@ import telas.ScreenManager;
 import telas.Sprite;
 
 import java.util.Scanner;
-import telas.Sprite;
 
 public class GameManager {
     private Batalha batalha;
     private ScreenManager tela;
+
+    // sem metodos
+    public GameManager(){
+        this.batalha = null;
+        this.tela = null;
+    }
 
     public GameManager(Batalha batalha, ScreenManager tela) {
         this.batalha = batalha;
@@ -18,6 +23,7 @@ public class GameManager {
     public Batalha getBatalha() {
         return batalha;
     }
+
     public void setBatalha(Batalha batalha) {
         this.batalha = batalha;
     }
@@ -91,6 +97,58 @@ public class GameManager {
     public void reinciarBatalha() {
         System.out.println("Turno reinciado!");
         batalha.setSeAtivo(false);
+    }
+
+    // MENU PRINCIPAL
+    public void start_new_game(){
+        System.out.println("Comecou novo jogo");
+        // comecar um novo jogo
+    }
+
+    public void close_game(){
+        System.out.println("Fechou o jogo");
+        System.exit(0);
+    }
+
+    public void load_game(){
+        System.out.println("Carregou o jogo");
+        // carregar um save
+
+    }
+
+    public void screenLogic(){
+        tela.drawMainMenuScreen();
+        tela.renderScreen();
+        Scanner sc = new Scanner(System.in);
+        int resposta = -1;
+        while (true) {
+            System.out.print("> ");
+            try{
+                String opcao = sc.nextLine();
+                resposta = Integer.parseInt(opcao);
+
+            } catch (NumberFormatException e) {
+                System.out.println("Erro! Por favor, digite um numero");
+                continue;
+            }
+
+            switch (resposta) {
+                case 1:
+                    start_new_game();
+                    break;
+
+                case 2:
+                    load_game();
+                    break;
+
+                case 3:
+                    close_game();
+                    break;
+
+                default:
+                    System.out.println("Opcao Invalida!");
+            }
+        }
     }
 
 }

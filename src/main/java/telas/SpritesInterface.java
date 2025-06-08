@@ -90,6 +90,30 @@ public abstract class SpritesInterface {
         return spritelist;
     }
 
+    // Interface menu principal
+    public static ArrayList<String> getMenuPrincipal(){
+        ArrayList<String> spritelist = new ArrayList<String>();
+
+        spritelist.add(
+                "   ______________________________________________________________________________________\n" +
+                "  0                                                                                      0\n" +
+                "  |  __                /     ____        _        _ _                                    |\n" +
+                "  |  \\ Z_            / /    |  _ \\      | |      | | |          \t                     |\n" +
+                "  |    \\_\\__       /__ /    | |_) | __ _| |_ __ _| | |__   __ _ \t                     |\n" +
+                "  |    /  \\\\\\_     //       |  _ < / _` | __/ _` | | '_ \\ / _` |\t                     |\n" +
+                "  |    \\_____/    //        | |_) | (_| | || (_| | | | | | (_| |\t                     |\n" +
+                "  |    /    \\    //         |____/ \\__,_|\\__\\__,_|_|_| |_|\\__,_|\t                     |\n" +
+                "  |                                                                                      |\n" +
+                "  |                                1 - NOVO JOGO                                         |\n" +
+                "  |                               2 - CARREGAR JOGO                                      |\n" +
+                "  |                                3 - FECHAR JOGO                                       |\n" +
+                "  |                                                                                      |\n" +
+                "  |                                                                                      |\n" +
+                "  0______________________________________________________________________________________0");
+
+        return spritelist;
+    }
+
     public static ArrayList<String> getEmptySlot() {
         ArrayList<String> spritelist = new ArrayList<String>();
         for (int i = 0; i < 5; i++) {

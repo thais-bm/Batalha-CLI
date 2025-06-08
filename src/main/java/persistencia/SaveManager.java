@@ -7,6 +7,8 @@ import negocios.tipos_item.ItensAtk.*;
 import negocios.tipos_item.ItensConsumiveis.CuraGrande;
 import negocios.tipos_item.ItensConsumiveis.CuraMedia;
 import negocios.tipos_item.ItensConsumiveis.CuraPequena;
+import telas.MenuPrincipal;
+import telas.ScreenManager;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -121,6 +123,13 @@ public class SaveManager {
             System.out.println("MAX INV: "+ player.getMax_inv_tam());
             System.out.println("SPRITE LIST: "+player.getSpriteList());
         }
+
+        // RENDERIZANDO MENU
+        ScreenManager tela = new ScreenManager();
+        MenuPrincipal.drawUI(tela.getScreen());
+        tela.renderScreen();
+
+        // RECEBENDO COMANDOS
 
 
 
