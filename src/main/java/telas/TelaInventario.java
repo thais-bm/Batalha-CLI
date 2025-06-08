@@ -1,5 +1,7 @@
 package telas;
 import java.util.ArrayList;
+
+import utilidades.ComandosUteis;
 /*
 ITENS POSICAO:
 item 1: Linha 3, Coluna 8 
@@ -36,10 +38,11 @@ public abstract class TelaInventario {
     //imagino que não tem nenhuma situação que pode necessitar de mais que 2 opções nessa tela do menu
     //então vou programar pra formatar pra 2 opções
     //limite de tamanho de string: 43
-    public static void drawOptions(ArrayList<String> tela, String str1, String str2) {
-        StringBuilder builder = new StringBuilder(tela.get(18));
-        if (str1.length() >= 43) str1 = str1.substring(0, 42);
-        if (str2.length() >= 43) str2 = str2.substring(0, 42);
-        tela.set(18, builder.replace(1, str1.length(), str1).replace(88 - str2.length(), 89, str2).toString());
+    public static void drawOptions(ArrayList<String> tela, String... args) {
+        for (int i = 0; i < args.length && i < 2; i++) {
+            StringBuilder builder = new StringBuilder(tela.get(17+i));
+            builder.replace(1, 89, ComandosUteis.autocentraliza(args[i], 88));
+            tela.set(17+i, builder.toString());
+        }
     }
 }

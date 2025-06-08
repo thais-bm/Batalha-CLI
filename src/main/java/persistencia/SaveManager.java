@@ -69,12 +69,8 @@ public class SaveManager {
         // AREA DE TESTES
         // Nao ta salvando objetos como o Inventario INV
         // TODO: mexer apenas quando estiver pronto
-        Pocao p1 = new Pocao("cura", "aumenta em 10% de vida", 10);
-        Arma arma = new Arma("Espada bolada", "aumenta em 10% de atk", 10);
 
-        Inventário inv = new Inventário(8, 0, new ArrayList<Item>());
-        inv.adicionarItem(p1);
-        inv.adicionarItem(arma);
+        Inventario inv = new Inventario();
 
         Jogador jogador = new Jogador("Max", 8, inv, 100, 80, 10, 20);
         SaveManager.Salvar(jogador);

@@ -9,13 +9,13 @@ public class Batalha {
     private int numTurnos;
     private Jogador personagem;
     private Inimigo inimigo;
-    private Inventário inventário;
+    private Inventario inventario;
     private boolean seAtivo;
 
 
     public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventario inventario) {
         this.numTurnos = numTurnos;
-        this.inventario = inventário;
+        this.inventario = inventario;
         this.personagem = personagem;
         this.inimigo = inimigo;
     }
@@ -26,12 +26,12 @@ public class Batalha {
         this.inimigo = inimigo;
     }
 
-    public Inventario getInventário() {
+    public Inventario getInventario() {
         return inventario;
     }
 
     public void setInventário(Inventario inventario) {
-        this.inventario = inventário;
+        this.inventario = inventario;
     }
 
     public void setNumTurnos(int numTurnos) {

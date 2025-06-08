@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class Jogador extends Entidade{
     private int max_inv_tam;
-    private Inventário inventário;
+    private Inventario inventario;
     private ArrayList<String> sprite;
-    private Armadura armadura;
-    private Arma arma;
 
-    public Jogador(String nome,int max_inv_tam, Inventário inventário,float max_vida, float vida, float atk, float def){
+    public Jogador(String nome,int max_inv_tam, Inventario inventario,float max_vida, float vida, float atk, float def){
         super(nome,max_vida, vida, atk, def);
         this.max_inv_tam = max_inv_tam;
+        this.inventario = inventario;
         loadDefaultSprite();
     }
 
@@ -27,12 +26,10 @@ public class Jogador extends Entidade{
         this.setSpriteList(Spritesheets.getCavaleirinho());
     }
 
-    public void equiparArmadura(Armadura armadura){
-        setDef(getDef() + armadura.getDefesaBonus());
-    }
+    public void atacar(Batalha batalha, Entidade entidade) {
+        System.out.println("Atacando: " + entidade.getNome());
+        entidade.setVida(entidade.getVida() - this.inventario.itensDeAtaqueFunctionCall((int) this.getAtk()));
+        System.out.println("Total vida depois do ataque: " + entidade.getVida());
 
-    public void equiparArma(Arma arma){
-        setAtk(getAtk() + arma.getDanoBonus());
     }
-
 }

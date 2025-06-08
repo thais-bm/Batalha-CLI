@@ -32,11 +32,7 @@ public class GameManager {
     }
 
     public void battleSpriteLoad(Batalha batalha, String... args) {
-        tela.updatePlayerData(batalha.getPersonagem());
-        tela.updateEnemyData(batalha.getInimigo());
-        tela.updatePlayerSprite(batalha.getPersonagem().getSpriteList());
-        tela.updateInimigoSprite(batalha.getInimigo().getSpriteList());
-        tela.drawBattleScreen(args);
+        tela.drawBattleScreen(batalha.getPersonagem(), batalha.getInimigo(), args);
         if (args.length > 0) {
             
             if (args[0].equals(batalha.getInimigo().getNome() + " morreu, prosseguir")) {
@@ -83,27 +79,9 @@ public class GameManager {
     public void derrotouInimigo() {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
-        if (batalha.getInimigo().recompensa != null) {
-            adicionarAoInventario();
-
-        }
         reinciarBatalha();
     }
 
-    //Se o inimigo tiver recompensas adiciona elas ao inventario
-    //Nao sei se o jogador vai ter que escolher entre oq adicioar e descartar ou se vai adicionar tudo direto
-    public void adicionarAoInventario(){
-        System.out.println("O inimigo dropou recompensas: ");
-        for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
-            System.out.println("-" + batalha.getInimigo().recompensa.get(i).getNome());
-        }
-
-        //Adiciona as recompensas que o inimigo tinha no inventario
-        for (int i = 0; i < batalha.getInimigo().recompensa.size(); i++) {
-            System.out.println(batalha.getInimigo().recompensa.get(i).getNome() + " adicionado no inventário");
-            batalha.getInventário().adicionarItem(batalha.getInimigo().recompensa.get(i));
-        }
-    }
 
     public void perdeu(){
         batalha.setSeAtivo(false);

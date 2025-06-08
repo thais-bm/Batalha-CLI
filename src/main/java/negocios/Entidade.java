@@ -42,6 +42,7 @@ public abstract class Entidade {
     }
     public void setVida(float vida) {
         this.vida = vida;
+        if (this.vida < 0) this.vida = 0;
     }
     public void setSpriteList(ArrayList<String> list) {
         this.spritelist = list;

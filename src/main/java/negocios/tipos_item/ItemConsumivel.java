@@ -1,5 +1,9 @@
 package negocios.tipos_item;
+import negocios.Item;
 
-public class ItemConsumivel {
-    
+public abstract class ItemConsumivel extends Item{
+    public ItemConsumivel(String nome, String... descricao) {
+        super(nome, descricao);
+        
+    }
 }
