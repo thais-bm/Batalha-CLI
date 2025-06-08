@@ -1,11 +1,131 @@
 {
-  "max_inv_tam": 8,
-  "nome": "Max",
+  "max_inv_tam": 0,
+  "inventario": {
+    "itemlist": [
+      {
+        "type": "curaGrande",
+        "spritelist": [
+          "    .:\u003d:.  @ ",
+          "   @ | |     ",
+          "    /~~~\\ @  ",
+          "   | \u0027 . |   ",
+          "    \\___/    "
+        ],
+        "nome": "Poçãozona",
+        "raridade": "comum",
+        "descricao": [
+          "- POÇÃO -\n\nrecupera 100% de HP perdido"
+        ]
+      },
+      {
+        "type": "EspadaFantasma",
+        "spritelist": [
+          "      .      ",
+          "     : :     ",
+          "     : :     ",
+          "    \u003c O \u003e    ",
+          "      :      "
+        ],
+        "nome": "Espada Fantasma",
+        "raridade": "pouco comum",
+        "descricao": [
+          "- ESPADA FANTASMA -",
+          "aumenta dano de ataques em 5",
+          "bônus aumenta em mais 15 para cada",
+          "espaço vazio restante no inventário"
+        ]
+      },
+      {
+        "type": "curaPequena",
+        "spritelist": [
+          "             ",
+          "     |~|     ",
+          "     | |     ",
+          "     |_|     ",
+          "             "
+        ],
+        "nome": "Poçãozinha",
+        "raridade": "muito comum",
+        "descricao": [
+          "- POÇÃOZINHA -\n\nrecupera 25% de HP perdido"
+        ]
+      },
+      {
+        "type": "EspadaBasica",
+        "spritelist": [
+          "             ",
+          "      |      ",
+          "      |      ",
+          "      T      ",
+          "             "
+        ],
+        "nome": "Espada Simples",
+        "raridade": "muito comum",
+        "descricao": [
+          "- ESPADA SIMPLES -",
+          "",
+          "aumenta dano de ataques em 10"
+        ]
+      },
+      {
+        "type": "EspadaManeira",
+        "spritelist": [
+          "     / \\     ",
+          "     |Y|     ",
+          "     \\|/     ",
+          "    \u003c\u003dO\u003d\u003e    ",
+          "      ⡇      "
+        ],
+        "nome": "Espada Legal",
+        "raridade": "menos comum",
+        "descricao": [
+          "- ESPADA LEGAL -",
+          "",
+          "aumenta dano de ataques em 25"
+        ]
+      },
+      null,
+      {
+        "type": "curaMedia",
+        "spritelist": [
+          "     ._.     ",
+          "     | |     ",
+          "     / \\     ",
+          "    |~~~|     ",
+          "    \\___/    "
+        ],
+        "nome": "Poção",
+        "raridade": "comum",
+        "descricao": [
+          "- POÇÃO -\n\nrecupera 60% de HP perdido"
+        ]
+      },
+      {
+        "type": "PedraPolimento",
+        "spritelist": [
+          "     _______ ",
+          "    /.   : /|",
+          "   /   .  / /",
+          "  /_\u0027___ /./ ",
+          " | \u0027  . | /  "
+        ],
+        "nome": "Amolador de Faca",
+        "raridade": "comum",
+        "descricao": [
+          "- AMOLADOR DE FACA -",
+          "A cada item ofensivo no inventário,",
+          "aumenta dano do ataque em 20%",
+          "(tudo que aumenta ataque é considerado ofensivo)"
+        ]
+      }
+    ]
+  },
+  "nome": "Trabalho de PE",
   "max_vida": 100.0,
   "min_vida": 0.0,
-  "vida": 80.0,
-  "atk": 10.0,
-  "def": 20.0,
+  "vida": 100.0,
+  "atk": 50.0,
+  "def": 0.0,
   "spritelist": [
     "                                          ",
     "                                          ",

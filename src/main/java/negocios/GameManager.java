@@ -13,13 +13,11 @@ public class GameManager {
         this.batalha = batalha;
         this.tela = tela;
     }
-
     //Getters e Setters
 
     public Batalha getBatalha() {
         return batalha;
     }
-
     public void setBatalha(Batalha batalha) {
         this.batalha = batalha;
     }
