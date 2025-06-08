@@ -103,4 +103,22 @@ public abstract class Spritesheets {
         spritelist.add("o-------------------o");
         return spritelist;
     }
+    public static ArrayList<String> getClearItem() {
+        ArrayList<String> spritelist = new ArrayList<>();
+        spritelist.add("             ");
+        spritelist.add("             ");
+        spritelist.add("             ");
+        spritelist.add("             ");
+        spritelist.add("             ");
+        return spritelist;
+    }
+    public static ArrayList<String> getEscudo1() {
+        ArrayList<String> spritelist = new ArrayList<>();
+        spritelist.add("  //=====\\\\  ");
+        spritelist.add(" ||   \\__ || ");
+        spritelist.add(" ||      \\|| ");
+        spritelist.add("  \\\\_____//  ");
+        spritelist.add("   \\-----/   ");
+        return spritelist;
+    }
 }
