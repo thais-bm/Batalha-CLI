@@ -11,6 +11,7 @@ import utilidades.ComandosUteis;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Optional; // para criar um opcional pro load
 
 // Acho que as batalhas deviam ficar aqui dentro
 // O Main manipular apenas o gameManager 1-1
@@ -78,7 +79,7 @@ public class GameManager {
                 if (batalha.getInimigo().getVida() <= 0) {
                     battleSpriteLoad(batalha, " " + batalha.getInimigo().getNome() + " morreu", "pressione Enter para prosseguir");
                     Scanner scanner = new Scanner(System.in);
-                    scanner.next();
+                    scanner.nextLine(); // isso pode desbugar o enter
                     derrotouInimigo();
                     break;
                 }
@@ -113,6 +114,7 @@ public class GameManager {
         System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
         Scanner scanner = new Scanner(System.in);
         int opcao = scanner.nextInt();
+
         while (opcao != 1) {
             System.out.println("Aperte 1 para voltar ao menu: ");
             if (scanner.hasNextInt()) {
@@ -122,13 +124,11 @@ public class GameManager {
                 }
             } else {
                 System.out.println("Entrada inválida, digite um número.");
-
             }
         }
         if (opcao == 1) {
             gameLoop();
         }
-
     }
 
     public void morreu(){
@@ -377,7 +377,9 @@ public class GameManager {
 
 
     // MENU PRINCIPAL
-    public void start_new_game() {
+    public void start_new_game(Optional<Jogador> jog) {
+
+
         System.out.println("Comecou novo jogo");
 
         Inventario inventario = new Inventario();
@@ -395,7 +397,14 @@ public class GameManager {
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
+<<<<<<< Updated upstream
         Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0);
+=======
+        tela.setMargin(33);
+        tela.toggleFrame();
+
+        Jogador player = jog.orElse(new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0));
+>>>>>>> Stashed changes
         player.setSpriteList(Spritesheets.getCavaleirinho());
         Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 20, 0);
         Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 20, 0);
@@ -435,17 +444,41 @@ public class GameManager {
 
     public void load_game(){
         System.out.println("Carregou o jogo");
-        // carregar um save
-
+        Jogador jogadorRecuperado = SaveManager.Carregar();
+        start_new_game(Optional.ofNullable(jogadorRecuperado));
     }
 
     public void saveGame(Jogador player){
-        SaveManager saveManager = new SaveManager();
+        // saveManager nao possui atributos apenas metodos
         SaveManager.Salvar(player);
     }
 
-    public void LoadGame(){
 
+    public void SaveOptions(Jogador player){
+        Scanner sc = new Scanner(System.in);
+        int resposta = -1;
+
+        while (true) {
+            System.out.print("> ");
+            try {
+                String opcao = sc.nextLine();
+                resposta = Integer.parseInt(opcao);
+                if (resposta >= 1 && resposta <= 2) {
+                    switch (resposta){
+                        case 1:
+                            saveGame(player);
+                            break;
+                        case 2:
+                            System.out.println("O jogo nao foi salvo");
+                            break;
+                    }
+                } else {
+                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Erro! Por favor, digite um numero.");
+            }
+        }
     }
 
 
@@ -483,7 +516,7 @@ public class GameManager {
             int escolha = ShowMenuAndOptions(); // o menu
             switch (escolha) {
                 case 1:
-                    start_new_game();
+                    start_new_game(Optional.empty()); // vai criar um do zero
                     break;
                 case 2:
                     load_game();

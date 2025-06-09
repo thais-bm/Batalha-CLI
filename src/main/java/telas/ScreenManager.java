@@ -7,10 +7,10 @@ import negocios.*;
 
 public class ScreenManager {
     private ArrayList<String> tela;
-    private int lineamount;
-    private int linesize;
-    private int margin;
-    private boolean frame;
+    int lineamount;
+    int linesize;
+    int margin;
+    boolean frame;
 
     //construtor, claro, n pode faltar
     public ScreenManager() {

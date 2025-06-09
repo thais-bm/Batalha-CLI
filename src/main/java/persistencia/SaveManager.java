@@ -74,7 +74,7 @@ public class SaveManager {
             GSON.toJson(player, writer);
             System.out.println("Salvo com sucesso!");
         } catch (IOException e) {
-            System.out.println("Erro ao salvar o arquivo!");
+            System.out.println("Erro ao salvar o jogo!");
         }
     }
 

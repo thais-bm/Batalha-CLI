@@ -8,11 +8,11 @@ não vão sempre ser os mesmos
 */
 
 public class Sprite {
-    private int len;
-    private int height;
-    private int[] start;
-    private ArrayList<String> sprite;
+    int len;
+    int height;
+    int[] start;
 
+    ArrayList<String> sprite;
     //Argumentos:
     //primeiro: ArrayList contendo as Strings do sprite
     //segundo (opcional (mas de preferencia usar)): em que linha é pra começar o sprite
