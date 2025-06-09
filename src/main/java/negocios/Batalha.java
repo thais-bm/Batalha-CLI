@@ -4,8 +4,6 @@ package negocios;
 import java.util.Random;
 import java.util.Scanner;
 
-//Não sei se é pra ter um numero definido de turnos ou se vai trocando ate alguem morrer
-
 public class Batalha {
     private int numTurnos;
     private Jogador personagem;

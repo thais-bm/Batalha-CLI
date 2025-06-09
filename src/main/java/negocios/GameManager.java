@@ -108,22 +108,48 @@ public class GameManager {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
-        System.out.println("Aperte 1 para voltar ao menu: ");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextInt() == 1) {
+        int opcao = scanner.nextInt();
+        while (opcao != 1) {
+            System.out.println("Aperte 1 para voltar ao menu: ");
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if (opcao != 1) {
+                    System.out.println("Número inválido, digite novamente.");
+                }
+            } else {
+                System.out.println("Entrada inválida, digite um número.");
+
+            }
+        }
+        if (opcao == 1) {
             gameLoop();
         }
+
     }
 
     public void morreu(){
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Você morreu!");
-        System.out.println("Aperte 1 para voltar ao menu: ");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextInt() == 1) {
+        int opcao = scanner.nextInt();
+        while (opcao != 1) {
+            System.out.println("Aperte 1 para voltar ao menu: ");
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if (opcao != 1) {
+                    System.out.println("Número inválido, digite novamente: ");
+                }
+            } else {
+                System.out.println("Entrada inválida, digite um número: ");
+
+            }
+        }
+        if (opcao == 1) {
             gameLoop();
         }
+
 
 
     }
