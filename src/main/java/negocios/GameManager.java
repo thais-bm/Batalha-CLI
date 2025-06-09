@@ -380,16 +380,24 @@ public class GameManager {
     public void start_new_game(Optional<Jogador> jog) {
         System.out.println("Comecou novo jogo");
 
-        Inventario inventario = new Inventario();
-        inventario.setItem(new EspadaBasica(), 1);
-        inventario.setItem(new EscudoRuim(), 2);
+        Jogador player;
+        if (jog.isPresent()) {
+            player = jog.get();
+        }
+
+        else {
+            Inventario inventario = new Inventario();
+            inventario.setItem(new EspadaBasica(), 1);
+            inventario.setItem(new EscudoRuim(), 2);
+
+            player = new Jogador("fOFO", 0, inventario, 100, 100, 20, 0, 0);
+
+        }
 
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(new CuraGrande());
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
-
-        Jogador player = jog.orElse(new Jogador("fOFO", 0, inventario, 100, 100, 20, 0, 0));
         player.setSpriteList(Spritesheets.getCavaleirinho());
 
         Inimigo enemy = new Inimigo("", null, items, 100, 100, 20, 0);
@@ -397,7 +405,7 @@ public class GameManager {
         Inimigo enemy3 = new Inimigo("", null, items, 999, 999, 20, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
-        Batalha batalha = new Batalha(20, player, enemy, inventario, this);
+        Batalha batalha = new Batalha(20, player, enemy, this);
 
         float enemyhpmodifier = 1;
         float enemyatkmodifier = 1;
@@ -415,7 +423,7 @@ public class GameManager {
                                 enemydef);
             enemy.RandomNomeESprite();
 
-            this.setBatalha(new Batalha(20, player, enemy, inventario, this));
+            this.setBatalha(new Batalha(20, player, enemy, this));
             iniciarBatalha(this.batalha);
             controleTurno(this.batalha);
 
