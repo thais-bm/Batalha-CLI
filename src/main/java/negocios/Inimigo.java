@@ -42,7 +42,7 @@ public class Inimigo extends Entidade{
         this.setSpriteList(Spritesheets.getFantasminha());
     }
 
-    public void getRandomNomeESprite() {
+    public void RandomNomeESprite() {
         int key = new Random().nextInt(2);
         String[] possiblenames = new String[] {};
         switch(key) {
@@ -57,6 +57,7 @@ public class Inimigo extends Entidade{
                     "Alma Penada",
                     "Esqueci o nome desse"
                 };
+                break;
             case(1):
                 this.setSpriteList(Spritesheets.getEsnupi());
                 possiblenames = new String[] {
@@ -67,6 +68,7 @@ public class Inimigo extends Entidade{
                     "Esnope",
                     "Cachorro"
                 };
+                break;
         }
         this.setNome(possiblenames[new Random().nextInt(possiblenames.length)]);
     }

@@ -416,17 +416,14 @@ public class GameManager {
         ArrayList<String> enemysprite = Spritesheets.getClearItem();
 
         do {
-            enemyname = "";
-            enemysprite = Spritesheets.getClearItem();
-
-            enemy = new Inimigo(enemyname,
+            enemy = new Inimigo("",
                                 null,
                                 items,
                                 (int) (100*enemyhpmodifier),
                                 (int) (100*enemyhpmodifier),
                                 (int) (20*enemyatkmodifier),
                                 enemydef);
-            enemy.setSpriteList(enemysprite);
+            enemy.RandomNomeESprite();
 
             this.setBatalha(new Batalha(20, player, enemy, inventario, this));
             iniciarBatalha(this.batalha);
