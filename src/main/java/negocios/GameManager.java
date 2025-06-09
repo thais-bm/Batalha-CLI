@@ -85,8 +85,14 @@ public class GameManager {
                     derrotouInimigo();
                     break;
                 }
+                tela.drawBattleScreen(batalha.getPersonagem(), batalha.getInimigo(), "Fim da sua rodada!", "Agora o inimigo vai te atacar", "", "Pressione enter para prosseguir");
+                Scanner sc = new Scanner(System.in);
+                tela.renderScreen();
+                sc.nextLine();
+                
 
                 batalha.turnoInimigo();
+                
 
                 if (batalha.getInimigo().getVida() <= 0) {
                     derrotouInimigo();
