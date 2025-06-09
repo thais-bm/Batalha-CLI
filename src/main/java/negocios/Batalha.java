@@ -12,9 +12,9 @@ public class Batalha {
     private boolean seAtivo;
     private GameManager manager;
 
-    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventario inventario, GameManager manager) {
+    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, GameManager manager) {
         this.numTurnos = numTurnos;
-        this.inventario = inventario;
+        this.inventario = personagem.getInventario();
         this.personagem = personagem;
         this.inimigo = inimigo;
         this.manager = manager;
