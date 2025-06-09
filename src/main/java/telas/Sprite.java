@@ -20,7 +20,7 @@ public class Sprite {
     public Sprite(ArrayList<String> list, int startlinha, int startcoluna) {
         sprite = list;
         height = sprite.size();
-        len = sprite.getFirst().length();
+        len = sprite.get(0).length();
         start = new int[] {startlinha, startcoluna};
     }
     //construtor caso nao usar os argumentos opcionais
