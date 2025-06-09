@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
+    ScreenManager tela = new ScreenManager();
     GameManager gameManager = new GameManager();
     gameManager.gameLoop();
 
