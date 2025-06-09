@@ -47,9 +47,13 @@ public class Jogador extends Entidade{
 
     }
 
-    //n sei se ja tinha um chamar inventario, tem mt coisa aq
     public void mostrarInventario() {
         screen.drawInventoryMain(getInventario());
+        screen.renderScreen();
+    }
+
+    public void mostrarItem(int index){
+        screen.drawInventoryItemSelected(inventario, index);
         screen.renderScreen();
     }
 

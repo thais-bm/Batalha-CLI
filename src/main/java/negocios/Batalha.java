@@ -78,6 +78,7 @@ public class Batalha {
                     System.out.println("Escolha o slot do inventario a utilizar: ");
                     int index = sc.nextInt();
                     if (personagem.getInventario().getItem(index) != null) {
+                        personagem.mostrarItem(index);
                         System.out.println("O item " + personagem.getInventario().getItem(index).getNome() + "foi selecionado com sucesso!");
                     }else{
                         System.out.println("Item inválido!");

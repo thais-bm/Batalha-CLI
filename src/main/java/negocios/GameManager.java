@@ -131,7 +131,7 @@ public class GameManager {
                     batalha.getPersonagem().getInventario().removeItem(item);
                 }
                 else {
-                    System.out.println("Item removido com sucesso!");
+                    System.out.println("Item não encontrado");
                 }
                 break;
 
@@ -142,7 +142,7 @@ public class GameManager {
                     batalha.getInventario().useItem(item2, batalha.getPersonagem());
                 }
                 else {
-                    System.out.println("Item utilizado com sucesso!");
+                    System.out.println("Item não encontrado");
                 }
 
             case 3:
