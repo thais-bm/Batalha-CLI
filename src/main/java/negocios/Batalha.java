@@ -1,6 +1,7 @@
 package negocios;
 
 
+import java.util.Random;
 import java.util.Scanner;
 
 //Não sei se é pra ter um numero definido de turnos ou se vai trocando ate alguem morrer
@@ -86,15 +87,14 @@ public class Batalha {
     }
     public void turnoInimigo() {
         System.out.println("\nÉ a vez de:" + inimigo.getNome());
-        if (numTurnos > 0 && personagem.seVivo(personagem) && seAtivo) {
-            if (personagem.getAtk() + 50 > inimigo.getAtk()) {
-                inimigo.atacar(this, personagem);
-                numTurnos--;
-            } else if (personagem.getAtk() < inimigo.getAtk()) {
-                inimigo.defender(this, inimigo);
-                numTurnos--;
-            }
-
+        Random random = new Random();
+        float num = random.nextFloat();
+        if (num < 0.25) {
+            inimigo.atacarFoda(this, personagem);
+        } else if (num < 0.50 && num > 0.25) {
+            inimigo.defenderFoda(this, inimigo);
+        } else if (num < 1.00 && num > 0.50) {
+            inimigo.atacar(this, personagem);
         }
     }
 }

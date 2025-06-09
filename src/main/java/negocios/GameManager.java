@@ -322,9 +322,9 @@ public class GameManager {
 
         Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
-        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 40, 0);
-        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 40, 0);
-        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 40, 20);
+        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 20, 0);
+        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 20, 0);
+        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 20, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
         Batalha batalha1 = new Batalha(20, player, enemy, inventario, this);
