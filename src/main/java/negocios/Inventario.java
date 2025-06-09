@@ -6,6 +6,7 @@ import java.util.Map;
 
 import negocios.tipos_item.ItemAtk;
 import negocios.tipos_item.ItemConsumivel;
+import negocios.tipos_item.ItemDef;
 
 import java.util.HashMap;
 
@@ -73,6 +74,17 @@ public class Inventario {
         for (Item item: itemlist) {
             if (item instanceof ItemAtk) {
                 ItemAtk holder = (ItemAtk) item;
+                resposta = holder.Efeito(resposta);
+            }
+        }
+        return resposta;
+    }
+
+    public int itensDeDefesaFunctionCall(int entrada) {
+        int resposta = entrada;
+        for (Item item: itemlist) {
+            if (item instanceof ItemDef) {
+                ItemDef holder = (ItemDef) item;
                 resposta = holder.Efeito(resposta);
             }
         }

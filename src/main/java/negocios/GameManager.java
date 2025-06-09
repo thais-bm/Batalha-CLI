@@ -1,5 +1,6 @@
 package negocios;
 import negocios.tipos_item.ItensConsumiveis.*;
+import negocios.tipos_item.ItensDef.EscudoRuim;
 import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItensAtk.*;
 import telas.ScreenManager;
@@ -243,10 +244,10 @@ public class GameManager {
         System.out.println("Comecou novo jogo");
 
         Inventario inventario = new Inventario();
-        inventario.setItem(new CuraGrande(), 1);
+        inventario.setItem(new EscudoRuim(), 1);
         inventario.setItem(new EspadaFantasma(), 2);
         inventario.setItem(new CuraPequena(), 3);
-        inventario.setItem(new EspadaBasica(), 4);
+        inventario.setItem(new EscudoRuim(), 4);
         inventario.setItem(new EspadaManeira(), 5);
         inventario.setItem(new CuraMedia(), 7);
         inventario.setItem(new PedraPolimento(), 8);
@@ -261,9 +262,9 @@ public class GameManager {
 
         Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
-        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 10, 0);
-        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 10, 0);
-        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 10, 20);
+        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 40, 0);
+        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 40, 0);
+        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 40, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
         Batalha batalha1 = new Batalha(20, player, enemy, inventario, this);
