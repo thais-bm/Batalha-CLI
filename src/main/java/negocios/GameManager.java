@@ -230,7 +230,7 @@ public class GameManager {
             }
         }
         if (entrada == 0) return;
-        tela.drawInventorySwap(batalha.getInventario(), entrada, newitem, "1 - Aceitar novo item e descartar antigo", "0 - Cancelar                            ");
+        tela.drawInventorySwap(batalha.getInventario(), entrada, newitem, "1 - Aceitar novo item e descartar antigo                     ", "0 - Cancelar                                                 ");
         while (true) {
             try {
                 entrada2 = Integer.parseInt(sc.nextLine());
@@ -249,6 +249,48 @@ public class GameManager {
 
     }
 
+    public void newItemChoice (Item item1, Item item2, Item item3) {
+        tela.drawNewItemsScreen(item1, item2, item3, "(1-3) - Escolher novo item              4 - Checar inventario", "0 - Pular                                                    ");
+        Scanner sc = new Scanner(System.in);
+        int entrada = -1;
+        while (true) {
+            try {
+                entrada = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {}
+            if (entrada > 0 || entrada < 4) {
+                break;
+            }
+        }
+        switch(entrada) {
+            case 0:
+                break;
+            case 1:
+                if (getBatalha().getInventario().isFull()) {
+                    inventarioCheioAddItem(item1);
+                } else {
+                    getBatalha().getInventario().addItem(item1);
+                }
+                break;
+            case 2:
+                if (getBatalha().getInventario().isFull()) {
+                    inventarioCheioAddItem(item2);
+                } else {
+                    getBatalha().getInventario().addItem(item2);
+                }
+                break;
+            case 3:
+                if (getBatalha().getInventario().isFull()) {
+                    inventarioCheioAddItem(item3);
+                } else {
+                    getBatalha().getInventario().addItem(item3);
+                }
+                break;
+            case 4:
+                manusearInventario();
+                break;
+        }
+    }
+
     public void reiniciarBatalha() {
         System.out.println("Turno reinciado!");
         batalha.setSeAtivo(false);
@@ -261,14 +303,14 @@ public class GameManager {
         System.out.println("Comecou novo jogo");
 
         Inventario inventario = new Inventario();
-        inventario.setItem(new EscudoRuim(), 1);
-        inventario.setItem(new EspadaFantasma(), 2);
-        inventario.setItem(new Garrafa(), 3);
-        inventario.setItem(new EscudoRuim(), 4);
-        inventario.setItem(new Martelo(), 5);
-        inventario.setItem(new CuraMedia(), 6);
-        inventario.setItem(new EscudoRuim(), 7);
-        inventario.setItem(new CuraGrande(), 8);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 1);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 2);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 3);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 4);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 5);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 6);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 7);
+        inventario.setItem(InvHelper.getRandomItemByRarity(), 8);
 
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(new CuraGrande());

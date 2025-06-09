@@ -16,13 +16,8 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    //GameManager gameManager = new GameManager();
-    //gameManager.gameLoop();
-
-    ScreenManager tela = new ScreenManager();
-    tela.drawNewItemsScreen(new Dente(), new EspadaFantasma(), new Garrafa(), "testando testando 123");
-    tela.renderScreen();
-
+    GameManager gameManager = new GameManager();
+    gameManager.gameLoop();
 
     // tela.setMargin(33);
     // tela.toggleFrame();

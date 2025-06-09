@@ -7,6 +7,9 @@ import java.util.Map;
 import negocios.tipos_item.ItemAtk;
 import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItemDef;
+import negocios.tipos_item.ItensAtk.*;
+import negocios.tipos_item.ItensConsumiveis.*;
+import negocios.tipos_item.ItensDef.*;
 
 import java.util.HashMap;
 
@@ -74,6 +77,15 @@ public class Inventario {
             if (item == null) return false;
         }
         return true;
+    }
+
+    public void addItem(Item newitem) {
+        for (int i = 1; i <= 8; i++) {
+            if (getItem(i) == null) {
+                setItem(newitem, i);
+                break;
+            }
+        }
     }
 
 

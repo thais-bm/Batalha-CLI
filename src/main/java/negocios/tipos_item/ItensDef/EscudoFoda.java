@@ -4,7 +4,7 @@ import negocios.tipos_item.ItemDef;
 
 import java.util.ArrayList;
 
-public abstract class EscudoFoda extends ItemDef {
+public class EscudoFoda extends ItemDef {
     public EscudoFoda() {
         super("Escudo Foda", "- ESCUDO FODA -", "", "reduz dano de ataques sofridos em 50");
         this.setRaridade("menos comum");
@@ -16,8 +16,6 @@ public abstract class EscudoFoda extends ItemDef {
         spritelist.add("             ");
         this.setSpriteList(spritelist);
     }
-
-
 
     public int Efeito(int entrada) {
         int resposta = entrada - 50;

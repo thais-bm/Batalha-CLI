@@ -6,7 +6,7 @@ public class EspadaFantasma extends ItemAtk{
     public EspadaFantasma() {
         super("Espada Fantasma", "- ESPADA FANTASMA -", "aumenta dano de ataques em 5",
                    "bônus aumenta em mais 15 para cada", "espaço vazio restante no inventário");
-        this.setRaridade("pouco comum");
+        this.setRaridade("menos comum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("      .      ");
         spritelist.add("     : :     ");
