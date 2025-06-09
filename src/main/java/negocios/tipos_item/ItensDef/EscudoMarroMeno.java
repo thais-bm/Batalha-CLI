@@ -10,9 +10,9 @@ public class EscudoMarroMeno extends ItemDef {
         this.setRaridade("comum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("   .-.__.-.  ");
-        spritelist.add("  ||esc   ||  ");
-        spritelist.add("  ||  uda ||  ");
-        spritelist.add("   \\____o/   ");
+        spritelist.add("  ||esc   || ");
+        spritelist.add("  ||  uda || ");
+        spritelist.add("   \\____o/  ");
         spritelist.add("             ");
         this.setSpriteList(spritelist);
     }

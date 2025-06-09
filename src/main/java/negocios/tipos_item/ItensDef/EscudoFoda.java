@@ -6,14 +6,15 @@ import java.util.ArrayList;
 
 public class EscudoFoda extends ItemDef {
     public EscudoFoda() {
-        super("Escudo Foda", "- ESCUDO FODA -", "", "reduz dano de ataques sofridos em 50");
+        //acho que o professor pode nao gostar do nome antigo disso
+        super("Escudo Maneiro", "- ESCUDO MANEIRO -", "", "reduz dano de ataques sofridos em 50");
         this.setRaridade("menos comum");
         ArrayList<String> spritelist = new ArrayList<String>();
-        spritelist.add("   .-.__.-.  ");
-        spritelist.add("  ||escudo|| ");
-        spritelist.add("  || foda || ");
-        spritelist.add("   \\______/  ");
-        spritelist.add("             ");
+        spritelist.add("  .-==-==-.  ");
+        spritelist.add(" ||escudo || ");
+        spritelist.add(" ||maneiro|| ");
+        spritelist.add("  \\\\      // ");
+        spritelist.add("   \\\\____//  ");
         this.setSpriteList(spritelist);
     }
 
