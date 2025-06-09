@@ -1,4 +1,6 @@
 package negocios;
+import com.google.gson.annotations.Expose;
+
 import java.util.ArrayList;
 
 public abstract class Item {
@@ -6,7 +8,9 @@ public abstract class Item {
     private String nome;
     private String raridade;
     private String[] descricao;
-    private transient Inventario inventario; //adicionado pro GSON ignorar ele -> pessima ideia, ele fica null
+
+    @Expose(serialize = false, deserialize = false) // Evita referência circular
+    private Inventario inventario; //adicionado pro GSON ignorar ele -> pessima ideia, ele fica null
 
 
     public Item(String nome, String... descricao) {
