@@ -18,6 +18,8 @@ public class CuraPequena extends ItemConsumivel{
 
     public void Efeito(Jogador personagem) {
         personagem.setVida(personagem.getVida() + (personagem.getMax_vida()/4));
-        if (personagem.getVida() > personagem.getMax_vida()) personagem.setVida(personagem.getVida());
+        if (personagem.getVida() > personagem.getMax_vida()){
+            personagem.setVida(100);
+        }
     }
 }

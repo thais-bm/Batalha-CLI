@@ -17,7 +17,11 @@ public class CuraMedia extends ItemConsumivel{
     }
 
     public void Efeito(Jogador personagem) {
+
         personagem.setVida(personagem.getVida() + (personagem.getMax_vida() * 0.6f));
-        if (personagem.getVida() > personagem.getMax_vida()) personagem.setVida(personagem.getVida());
+        if (personagem.getVida() > personagem.getMax_vida()){
+            personagem.setVida(100);
+        }
+
     }
 }

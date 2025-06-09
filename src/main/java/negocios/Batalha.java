@@ -74,6 +74,16 @@ public class Batalha {
                     numTurnos--;
                     break;
                 case 3:
+                    personagem.mostrarInventario();
+                    System.out.println("Escolha o slot do inventario a utilizar: ");
+                    int index = sc.nextInt();
+                    if (personagem.getInventario().getItem(index) != null) {
+                        System.out.println("O item " + personagem.getInventario().getItem(index).getNome() + "foi selecionado com sucesso!");
+                    }else{
+                        System.out.println("Item inválido!");
+                    }
+                    personagem.getInventario().useItem(index, personagem);
+                    numTurnos--;
                     break;
                 case 4:
                     break;
@@ -91,16 +101,6 @@ public class Batalha {
                 inimigo.defender(this, inimigo);
                 numTurnos--;
             }
-
-
-            //Se o inimigo tiver menos de 20 de vida e pocao de cura com ele da pra ele usar
-            //Vou ver se da pra fazer se ele tiver pocao de dano foda dar pra usar
-            //else if(inimigo.getVida() < 20 && inimigo.items == "Pocao de cura") {
-
-            //??? n sei se precisa
-            //so fazer o inimigo ter tipo muita vida
-            //trabalho demais fazer o inimigo ter item tambem
-            //}
 
         }
     }

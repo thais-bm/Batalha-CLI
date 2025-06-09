@@ -17,6 +17,9 @@ public class CuraGrande extends ItemConsumivel{
     }
 
     public void Efeito(Jogador personagem) {
-        personagem.setVida(personagem.getVida());
+            personagem.setVida(personagem.getVida() + (personagem.getMax_vida() * 1));
+        if (personagem.getVida() > personagem.getMax_vida()){
+            personagem.setVida(100);
+        }
     }
 }

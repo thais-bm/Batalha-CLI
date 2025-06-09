@@ -59,8 +59,15 @@ public class GameManager {
     public void controleTurno(Batalha batalha) {
         if (batalha.getSeAtivo()) {
             while (batalha.getNumTurnos() > 0 && batalha.getSeAtivo()) {
+
                 System.out.println("Turno atual: " + batalha.getNumTurnos());
                 battleSpriteLoad(batalha, "Atacar", "Defender", "Inventario", "Nao sei");
+
+
+
+                if(batalha.getPersonagem().getVida() <= 0){
+                    perdeu();
+                }
                 batalha.turnoJogador();
 
                 //Conseguiu derrotar o inimigo
@@ -92,20 +99,63 @@ public class GameManager {
     public void derrotouInimigo() {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
-        reinciarBatalha();
+        manusearInventario();
+
     }
 
     public void perdeu(){
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
-        reinciarBatalha();
+        manusearInventario();
     }
 
-    public void reinciarBatalha() {
+    public void manusearInventario(){
+        tela.drawInventoryMain(batalha.getInventario());
+        tela.renderScreen();
+
+
+
+        System.out.println("1 - para remover um item");
+        System.out.println("2 - para usar de item");
+        System.out.println("3 - continuar");
+
+        Scanner sc = new Scanner(System.in);
+        int escolha = sc.nextInt();
+
+        switch (escolha) {
+            case 1:
+                System.out.println("Selecione um item para remover: ");
+                int item = sc.nextInt();
+                if(batalha.getPersonagem().getInventario().getItem(item) != null){
+                    batalha.getPersonagem().getInventario().removeItem(item);
+                }
+                else {
+                    System.out.println("Item removido com sucesso!");
+                }
+                break;
+
+            case 2:
+                System.out.println("Selecione um item para usar: ");
+                int item2 = sc.nextInt();
+                if(batalha.getPersonagem().getInventario().getItem(item2) != null){
+                    batalha.getInventario().useItem(item2, batalha.getPersonagem());
+                }
+                else {
+                    System.out.println("Item utilizado com sucesso!");
+                }
+
+            case 3:
+                reiniciarBatalha();
+
+        }
+
+    }
+    public void reiniciarBatalha() {
         System.out.println("Turno reinciado!");
         batalha.setSeAtivo(false);
     }
+
 
 
     // MENU PRINCIPAL
@@ -122,6 +172,9 @@ public class GameManager {
         inventario.setItem(new PedraPolimento(), 8);
 
         ArrayList<Item> items = new ArrayList<Item>();
+        items.add(new CuraGrande());
+        items.add(new EspadaFantasma());
+        items.add(new CuraPequena());
 
         tela.setMargin(33);
         tela.toggleFrame();
@@ -212,6 +265,8 @@ public class GameManager {
             }
         }
     }
+
+
 }
 
 
