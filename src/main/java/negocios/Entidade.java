@@ -83,23 +83,15 @@ public abstract class Entidade {
         //adicionar os calculos com a defesa
     }
 
-    public boolean seVivo(Entidade entidade) {
-        if (entidade.vida > 0) {
-            return true;
-        }
-        else{
-            System.out.println(entidade.getNome() + " esta morto");
-            return false;
-        }
+    public void atacarFoda(Batalha batalha,Entidade entidade) {
+        System.out.println("Atacando fodamente: " + entidade.nome);
+        entidade.vida -= this.atk + 5.0f;
+        System.out.println("Total vida depois do ataque: " + entidade.vida);
     }
 
-    public void sofrerDano(Entidade entidade) {
-        this.vida -= entidade.atk;
-        //colocar mais calculos de defesa
-    }
-
-    public void draw(Entidade entidade) {
-
+    public void defenderFoda(Batalha batalha,Entidade entidade) {
+        entidade.def += this.def + 5.0f;
+        System.out.println("A defesa de "+entidade.getNome() + " aumentou em 5");
     }
 
 }

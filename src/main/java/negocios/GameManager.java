@@ -3,6 +3,7 @@ import negocios.tipos_item.ItensConsumiveis.*;
 import negocios.tipos_item.ItensDef.EscudoRuim;
 import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItensAtk.*;
+import persistencia.SaveManager;
 import telas.ScreenManager;
 import telas.Sprite;
 import telas.SpritesInterface;
@@ -110,22 +111,48 @@ public class GameManager {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
-        System.out.println("Aperte 1 para voltar ao menu: ");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextInt() == 1) {
+        int opcao = scanner.nextInt();
+        while (opcao != 1) {
+            System.out.println("Aperte 1 para voltar ao menu: ");
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if (opcao != 1) {
+                    System.out.println("Número inválido, digite novamente.");
+                }
+            } else {
+                System.out.println("Entrada inválida, digite um número.");
+
+            }
+        }
+        if (opcao == 1) {
             gameLoop();
         }
+
     }
 
     public void morreu(){
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Você morreu!");
-        System.out.println("Aperte 1 para voltar ao menu: ");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextInt() == 1) {
+        int opcao = scanner.nextInt();
+        while (opcao != 1) {
+            System.out.println("Aperte 1 para voltar ao menu: ");
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+                if (opcao != 1) {
+                    System.out.println("Número inválido, digite novamente: ");
+                }
+            } else {
+                System.out.println("Entrada inválida, digite um número: ");
+
+            }
+        }
+        if (opcao == 1) {
             gameLoop();
         }
+
 
 
     }
@@ -370,9 +397,9 @@ public class GameManager {
 
         Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
-        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 40, 0);
-        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 40, 0);
-        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 40, 20);
+        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 20, 0);
+        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 20, 0);
+        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 20, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
         Batalha batalha1 = new Batalha(20, player, enemy, inventario, this);
@@ -394,7 +421,10 @@ public class GameManager {
         iniciarBatalha(this.batalha);
         controleTurno(this.batalha);
 
-        System.out.println("\nFim de jogo! Pressione Enter para voltar ao menu.");
+        System.out.println("\nFim de jogo! Deseja armazenar os seus items?");
+        System.out.println("\n 1 - Salvar");
+        System.out.println("\n2 - Não salvar");
+        System.out.println("> ");
         new Scanner(System.in).nextLine(); // Pausa para o jogador ler
     }
 
@@ -406,6 +436,15 @@ public class GameManager {
     public void load_game(){
         System.out.println("Carregou o jogo");
         // carregar um save
+
+    }
+
+    public void saveGame(Jogador player){
+        SaveManager saveManager = new SaveManager();
+        SaveManager.Salvar(player);
+    }
+
+    public void LoadGame(){
 
     }
 
