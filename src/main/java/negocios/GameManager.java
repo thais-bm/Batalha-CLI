@@ -1,6 +1,7 @@
 package negocios;
 import negocios.tipos_item.ItensConsumiveis.*;
 import negocios.tipos_item.ItensDef.EscudoRuim;
+import negocios.tipos_item.ItensDef.SapatoEspetado;
 import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItensAtk.*;
 import persistencia.SaveManager;
@@ -389,6 +390,7 @@ public class GameManager {
             Inventario inventario = new Inventario();
             inventario.setItem(new EspadaBasica(), 1);
             inventario.setItem(new EscudoRuim(), 2);
+            inventario.setItem(new SapatoEspetado(), 3);
 
             player = new Jogador("fOFO", 0, inventario, 100, 100, 20, 0, 0);
 
@@ -401,9 +403,6 @@ public class GameManager {
         player.setSpriteList(Spritesheets.getCavaleirinho());
 
         Inimigo enemy = new Inimigo("", null, items, 100, 100, 20, 0);
-        Inimigo enemy2 = new Inimigo("", null, items, 100, 100, 20, 0);
-        Inimigo enemy3 = new Inimigo("", null, items, 999, 999, 20, 20);
-        enemy3.setSpriteList(Spritesheets.getEsnupi());
 
         Batalha batalha = new Batalha(20, player, enemy, this);
 
