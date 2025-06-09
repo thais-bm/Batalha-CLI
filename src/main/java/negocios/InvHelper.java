@@ -32,7 +32,8 @@ public abstract class InvHelper {
         return new Item[] {
             new EscudoFoda(),
             new EscudoMarroMeno(),
-            new EscudoRuim()
+            new EscudoRuim(),
+            new SapatoEspetado()
         };
     }
 
