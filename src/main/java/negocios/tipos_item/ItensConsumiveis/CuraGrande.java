@@ -5,7 +5,7 @@ import negocios.Jogador;
 
 public class CuraGrande extends ItemConsumivel{
     public CuraGrande() {
-        super("Poçãozona", "- POÇÃOZONA -", "recupera 100% de HP perdido");
+        super("Poçãozona", "- POÇÃOZONA -", "Consumível", "recupera 100% de HP perdido");
         this.setRaridade("comum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("    .:=:.  @ ");

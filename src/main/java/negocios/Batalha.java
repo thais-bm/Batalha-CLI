@@ -60,7 +60,6 @@ public class Batalha {
     //Métodos
 
     public void turnoJogador() {
-        
         System.out.println("\nÉ a vez de:" + personagem.getNome());
             Scanner sc = new Scanner(System.in);
 

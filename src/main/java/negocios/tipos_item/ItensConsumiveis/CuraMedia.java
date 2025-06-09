@@ -5,7 +5,7 @@ import negocios.Jogador;
 
 public class CuraMedia extends ItemConsumivel{
     public CuraMedia() {
-        super("Poção", "- POÇÃO - ", "recupera 60% de HP perdido");
+        super("Poção", "- POÇÃO - ", "Consumível", "recupera 60% de HP perdido ao consumir");
         this.setRaridade("comum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("     ._.     ");
