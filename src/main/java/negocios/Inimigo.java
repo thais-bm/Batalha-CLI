@@ -30,11 +30,9 @@ public class Inimigo extends Entidade{
     }
 
     public void atacar(Batalha batalha, Entidade entidade) {
-        System.out.println("Atacando: " + entidade.getNome());
         double dano = batalha.getInventario().itensDeDefesaFunctionCall((int) this.getAtk(), (Jogador) entidade);
         entidade.setVida((float)(entidade.getVida() - dano));
         if (entidade.getVida() < 0) entidade.setVida(0);
-        System.out.println("Total vida depois do ataque: " + entidade.getVida());
 
     }
 

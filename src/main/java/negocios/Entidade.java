@@ -71,14 +71,12 @@ public abstract class Entidade {
 
 
     public void atacar(Batalha batalha,Entidade entidade) {
-        System.out.println("Atacando: " + entidade.nome);
+
         entidade.vida -= this.atk;
-        System.out.println("Total vida depois do ataque: " + entidade.vida);
 
     }
 
     public void defender(Batalha batalha,Entidade entidade) {
-        System.out.println(entidade.getNome() + " esta defendendo");
 
         //adicionar os calculos com a defesa
     }

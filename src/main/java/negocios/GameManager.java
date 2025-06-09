@@ -43,6 +43,9 @@ public class GameManager {
     public void setTela(ScreenManager tela) {
         this.tela = tela;
     }
+    public ScreenManager getTela(){
+        return tela;
+    }
 
     //Métodos
     public void iniciarBatalha(Batalha batalha) {
@@ -67,7 +70,7 @@ public class GameManager {
             while (batalha.getNumTurnos() > 0 && batalha.getSeAtivo()) {
 
                 System.out.println("Turno atual: " + batalha.getNumTurnos());
-                battleSpriteLoad(batalha, " 1 - Atacar", " 2 - Defender", " 3 - Inventario", " 4 - Nao sei");
+                battleSpriteLoad(batalha, " 1 - Atacar", " 2 - Inspecionar", " 3 - Inventario", "");
 
 
 
@@ -360,11 +363,20 @@ public class GameManager {
                 break;
         }
     }
-    private void popUpInfo (Item item) {
+    public void popUpInfo (Item item) {
         Sprite popup = new Sprite(SpritesInterface.getTextBox(), 10, 19);
         popup.draw(tela.getScreen());
         ArrayList<String> desc = new ArrayList<String>();
         for (String i : item.getDescricao()) desc.add(ComandosUteis.autocentraliza(i, 48));
+        Sprite descsprite = new Sprite(desc, 11, 21);
+        descsprite.draw(tela.getScreen());
+    }
+
+    public void popUpStats (String... args) {
+        Sprite popup = new Sprite(SpritesInterface.getTextBox(), 10, 19);
+        popup.draw(tela.getScreen());
+        ArrayList<String> desc = new ArrayList<String>();
+        for (String i : args) desc.add(ComandosUteis.autocentraliza(i, 48));
         Sprite descsprite = new Sprite(desc, 11, 21);
         descsprite.draw(tela.getScreen());
     }
@@ -392,7 +404,7 @@ public class GameManager {
             inventario.setItem(new EscudoRuim(), 2);
             inventario.setItem(new SapatoEspetado(), 3);
 
-            player = new Jogador("fOFO", 0, inventario, 100, 100, 20, 0, 0);
+            player = new Jogador("PLAYER", 0, inventario, 100, 100, 20, 0, 0);
 
         }
 

@@ -45,9 +45,7 @@ public class Jogador extends Entidade{
     }
 
     public void atacar(Batalha batalha, Entidade entidade) {
-        System.out.println("Atacando: " + entidade.getNome());
         entidade.setVida(entidade.getVida() - this.inventario.itensDeAtaqueFunctionCall((int) this.getAtk(), this));
-        System.out.println("Total vida depois do ataque: " + entidade.getVida());
 
     }
 

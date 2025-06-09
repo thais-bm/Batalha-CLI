@@ -59,10 +59,8 @@ public class Batalha {
     //Métodos
 
     public void turnoJogador() {
-        System.out.println("\nÉ a vez de:" + personagem.getNome());
             Scanner sc = new Scanner(System.in);
 
-            System.out.println("Acao do jogador:");
             int turno;
             try {
                 turno = sc.nextInt();
@@ -75,7 +73,10 @@ public class Batalha {
                     numTurnos--;
                     break;
                 case 2:
-                    personagem.defender(this,personagem);
+                    manager.popUpStats(new String[] {"", (inimigo.getAtk() + " ATAQUE"), (inimigo.getDef() + " DEFESA"), "pressione enter para fechar essa tela"});
+                    manager.getTela().renderScreen();
+                    sc.nextLine();
+                    sc.nextLine();
                     numTurnos--;
                     break;
                 case 3:
