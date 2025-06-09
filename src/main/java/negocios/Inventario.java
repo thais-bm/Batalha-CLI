@@ -58,6 +58,17 @@ public class Inventario {
         }
     }
 
+    public int findItem(Item item) {
+        int counter = 1;
+        for (Item i : itemlist) {
+            if (i.equals(item)) {
+                return counter;
+            }
+            counter++;
+        }
+        return 0;
+    }
+
     public boolean isFull() {
         for (Item item : itemlist) {
             if (item == null) return false;

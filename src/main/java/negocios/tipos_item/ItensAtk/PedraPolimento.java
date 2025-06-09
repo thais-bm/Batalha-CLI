@@ -16,7 +16,7 @@ public class PedraPolimento extends ItemAtk{
     }
 
     public int Efeito(int entrada) {
-        double resposta = (double) entrada + 5;
+        double resposta = (double) entrada;
         double multiplicador = 1;
         for (int i = 1; i <= 8; i++) {
             if (this.getInventario().getItem(i) instanceof ItemAtk) multiplicador += 0.20;

@@ -7,7 +7,7 @@ public class Martelo extends ItemAtk{
     public Martelo() {
         super("Martelão", "- MARTELÃO -", "aumenta dano de ataques em 5",
                    "bônus aumenta em mais 15 para cada", "item que reduz dano sofrido no invenário");
-        this.setRaridade("pouco comum");
+        this.setRaridade("comum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add(" |''-=X=-''| ");
         spritelist.add(" |,,-.X.-,,| ");

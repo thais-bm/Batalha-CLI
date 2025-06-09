@@ -246,7 +246,7 @@ public class GameManager {
         Inventario inventario = new Inventario();
         inventario.setItem(new EscudoRuim(), 1);
         inventario.setItem(new EspadaFantasma(), 2);
-        inventario.setItem(new CuraPequena(), 3);
+        inventario.setItem(new Garrafa(), 3);
         inventario.setItem(new EscudoRuim(), 4);
         inventario.setItem(new Martelo(), 5);
         inventario.setItem(new CuraMedia(), 6);

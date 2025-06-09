@@ -14,7 +14,9 @@
         "nome": "Poçãozona",
         "raridade": "comum",
         "descricao": [
-          "- POÇÃO -\n\nrecupera 100% de HP perdido"
+          "- POÇÃOZONA -",
+          "Consumível",
+          "recupera 100% de HP perdido"
         ]
       },
       {
@@ -47,7 +49,9 @@
         "nome": "Poçãozinha",
         "raridade": "muito comum",
         "descricao": [
-          "- POÇÃOZINHA -\n\nrecupera 25% de HP perdido"
+          "- POÇÃOZINHA -",
+          "Consumível",
+          "recupera 25% de HP perdido"
         ]
       },
       {
@@ -91,13 +95,15 @@
           "     ._.     ",
           "     | |     ",
           "     / \\     ",
-          "    |~~~|     ",
+          "    |~~~|    ",
           "    \\___/    "
         ],
         "nome": "Poção",
         "raridade": "comum",
         "descricao": [
-          "- POÇÃO -\n\nrecupera 60% de HP perdido"
+          "- POÇÃO - ",
+          "Consumível",
+          "recupera 60% de HP perdido ao consumir"
         ]
       },
       {
@@ -119,6 +125,34 @@
         ]
       }
     ]
+  },
+  "screen": {
+    "tela": [
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          ",
+      "                                                                                          "
+    ],
+    "lineamount": 20,
+    "linesize": 90,
+    "margin": 0,
+    "frame": false
   },
   "nome": "Trabalho de PE",
   "max_vida": 100.0,
