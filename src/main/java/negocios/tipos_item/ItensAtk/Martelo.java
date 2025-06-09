@@ -1,5 +1,7 @@
 package negocios.tipos_item.ItensAtk;
 import java.util.ArrayList;
+
+import negocios.Jogador;
 import negocios.tipos_item.ItemAtk;
 import negocios.tipos_item.ItemDef;
 
@@ -17,10 +19,10 @@ public class Martelo extends ItemAtk{
         this.setSpriteList(spritelist);
     }
 
-    public int Efeito(int entrada) {
+    public int Efeito(int entrada, Jogador jogador) {
         int resposta = entrada + 5;
         for (int i = 1; i <= 8; i++) {
-            if (this.getInventario().getItem(i) instanceof ItemDef) resposta += 15;
+            if (jogador.getInventario().getItem(i) instanceof ItemDef) resposta += 15;
         }
         return resposta;
     }

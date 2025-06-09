@@ -1,4 +1,5 @@
 package negocios.tipos_item.ItensAtk;
+import negocios.Jogador;
 import negocios.tipos_item.ItemAtk;
 import java.util.ArrayList;
 
@@ -15,11 +16,11 @@ public class PedraPolimento extends ItemAtk{
         this.setSpriteList(spritelist);
     }
 
-    public int Efeito(int entrada) {
+    public int Efeito(int entrada, Jogador jogador) {
         double resposta = (double) entrada;
         double multiplicador = 1;
         for (int i = 1; i <= 8; i++) {
-            if (this.getInventario().getItem(i) instanceof ItemAtk) multiplicador += 0.20;
+            if (jogador.getInventario().getItem(i) instanceof ItemAtk) multiplicador += 0.20;
         }
         return (int) ((resposta * multiplicador) + 0.9999);
     }

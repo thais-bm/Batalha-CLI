@@ -1,4 +1,5 @@
 package utilidades;
+import negocios.*;
 
 public class ComandosUteis {
     public static String autocentraliza(String string, int sizelimit) {
@@ -16,5 +17,4 @@ public class ComandosUteis {
         }
         return newsubstr;
     }
-
 }

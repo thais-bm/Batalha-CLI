@@ -1,4 +1,5 @@
 package negocios.tipos_item.ItensAtk;
+import negocios.Jogador;
 import negocios.tipos_item.ItemAtk;
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class EspadaManeira extends ItemAtk{
         this.setSpriteList(spritelist);
     }
 
-    public int Efeito(int entrada) {
+    public int Efeito(int entrada, Jogador jogador) {
         return entrada + 25;
     }
 }

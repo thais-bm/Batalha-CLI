@@ -360,11 +360,11 @@ public class GameManager {
         }
     }
     private void popUpInfo (Item item) {
-        Sprite popup = new Sprite(SpritesInterface.getTextBox(), 12, 19);
+        Sprite popup = new Sprite(SpritesInterface.getTextBox(), 10, 19);
         popup.draw(tela.getScreen());
         ArrayList<String> desc = new ArrayList<String>();
         for (String i : item.getDescricao()) desc.add(ComandosUteis.autocentraliza(i, 48));
-        Sprite descsprite = new Sprite(desc, 13, 21);
+        Sprite descsprite = new Sprite(desc, 11, 21);
         descsprite.draw(tela.getScreen());
     }
 
@@ -397,38 +397,45 @@ public class GameManager {
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
-<<<<<<< Updated upstream
-        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0);
-=======
         tela.setMargin(33);
         tela.toggleFrame();
 
-        Jogador player = jog.orElse(new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0));
->>>>>>> Stashed changes
+        Jogador player = jog.orElse(new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0));
         player.setSpriteList(Spritesheets.getCavaleirinho());
-        Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 20, 0);
-        Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 20, 0);
-        Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 20, 20);
+        Inimigo enemy = new Inimigo("", null, items, 100, 100, 20, 0);
+        Inimigo enemy2 = new Inimigo("", null, items, 100, 100, 20, 0);
+        Inimigo enemy3 = new Inimigo("", null, items, 999, 999, 20, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
-        Batalha batalha1 = new Batalha(20, player, enemy, inventario, this);
-        Batalha batalha2 = new Batalha(20, player, enemy2, inventario, this);
-        Batalha batalha3 = new Batalha(20, player, enemy3, inventario, this);
+        Batalha batalha = new Batalha(20, player, enemy, inventario, this);
 
-        // Batalha 1
-        this.setBatalha(batalha1);
-        iniciarBatalha(this.batalha);
-        controleTurno(this.batalha);
+        float enemyhpmodifier = 1;
+        float enemyatkmodifier = 1;
+        int enemydef = 0;
+        String enemyname = "";
+        ArrayList<String> enemysprite = Spritesheets.getClearItem();
 
-        // Batalha 2
-        this.setBatalha(batalha2);
-        iniciarBatalha(this.batalha);
-        controleTurno(this.batalha);
+        do {
+            enemyname = "";
+            enemysprite = Spritesheets.getClearItem();
 
-        // Batalha 3
-        this.setBatalha(batalha3);
-        iniciarBatalha(this.batalha);
-        controleTurno(this.batalha);
+            enemy = new Inimigo(enemyname,
+                                null,
+                                items,
+                                (int) (100*enemyhpmodifier),
+                                (int) (100*enemyhpmodifier),
+                                (int) (20*enemyatkmodifier),
+                                enemydef);
+            enemy.setSpriteList(enemysprite);
+
+            this.setBatalha(new Batalha(20, player, enemy, inventario, this));
+            iniciarBatalha(this.batalha);
+            controleTurno(this.batalha);
+
+            enemyhpmodifier *= 1.1;
+            enemyatkmodifier += 11;
+            enemydef += 7;
+        } while (getBatalha().getPersonagem().getVida() > 0);
 
         System.out.println("\nFim de jogo! Deseja armazenar os seus items?");
         System.out.println("\n 1 - Salvar");

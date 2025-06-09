@@ -1,4 +1,5 @@
 package negocios.tipos_item.ItensDef;
+import negocios.Jogador;
 import negocios.tipos_item.ItemDef;
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class EscudoRuim extends ItemDef{
         this.setSpriteList(spritelist);
     }
 
-    public int Efeito(int entrada) {
+    public int Efeito(int entrada, Jogador jogador) {
         int resposta = entrada - 10;
         if (resposta < 1) resposta = 1;
         return resposta;

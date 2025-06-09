@@ -39,11 +39,4 @@ public abstract class Item {
         return spritelist;
     }
 
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
-    }
-    public Inventario getInventario() {
-        return inventario;
-    }
-
 }

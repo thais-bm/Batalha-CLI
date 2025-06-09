@@ -33,7 +33,6 @@ public class Inventario {
     public void setItem(Item item, int index){
         if (index < 1 || index > 8) return;
         itemlist[index-1] = item;
-        item.setInventario(this);
     }
 
 //se item no slot especificado for consumivel ativa o efeito do item sobre o jogador, entao remove o item do inventario
@@ -92,23 +91,23 @@ public class Inventario {
 //A ideia é antes do jogador atacar, rodar esse método por cima do stat base de ataque do jogador
 //o loop passa por cada item no inventario, e se o item for uma sub-subclasse da subclasse ItemAtk
 //usa a função Efeito() no valor de entrada, a função Efeito() tem um efeito diferente pra cada item diferente
-    public int itensDeAtaqueFunctionCall(int entrada) {
+    public int itensDeAtaqueFunctionCall(int entrada, Jogador jogador) {
         int resposta = entrada;
         for (Item item: itemlist) {
             if (item instanceof ItemAtk) {
                 ItemAtk holder = (ItemAtk) item;
-                resposta = holder.Efeito(resposta);
+                resposta = holder.Efeito(resposta, jogador);
             }
         }
         return resposta;
     }
 
-    public int itensDeDefesaFunctionCall(int entrada) {
+    public int itensDeDefesaFunctionCall(int entrada, Jogador jogador) {
         int resposta = entrada;
         for (Item item: itemlist) {
             if (item instanceof ItemDef) {
                 ItemDef holder = (ItemDef) item;
-                resposta = holder.Efeito(resposta);
+                resposta = holder.Efeito(resposta, jogador);
             }
         }
         return resposta;

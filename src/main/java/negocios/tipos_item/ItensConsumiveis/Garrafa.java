@@ -26,7 +26,7 @@ public class Garrafa extends ItemConsumivel{
 
         ArrayList<String> spritelist3 = new ArrayList<String>();
         spritelist3.add("     , ,     ");
-        spritelist3.add("     / \\    ");
+        spritelist3.add("     / \\     ");
         spritelist3.add("    |   |    ");
         spritelist3.add("    |~~~|    ");
         spritelist3.add("    \\___/    ");

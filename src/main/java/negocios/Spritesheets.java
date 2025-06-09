@@ -1,5 +1,7 @@
 package negocios;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 /*
 Criei essa classe abstrata pra ter um lugar onde guardar os sprites sem deixar um negocio enorme dentro do codigo das outras classes
@@ -27,7 +29,7 @@ public abstract class Spritesheets {
         sprite.add("             /    \\    //                 ");
         return sprite;
     }
-
+    
     public static ArrayList<String> getFantasminha() {
         ArrayList<String> sprite;
         sprite = new ArrayList<String>();
