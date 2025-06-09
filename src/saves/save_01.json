@@ -1,5 +1,4 @@
 {
-  "max_inv_tam": 0,
   "inventario": {
     "itemlist": [
       {
@@ -29,7 +28,7 @@
           "      :      "
         ],
         "nome": "Espada Fantasma",
-        "raridade": "pouco comum",
+        "raridade": "menos comum",
         "descricao": [
           "- ESPADA FANTASMA -",
           "aumenta dano de ataques em 5",
@@ -154,6 +153,7 @@
     "margin": 0,
     "frame": false
   },
+  "sortebonus": 0,
   "nome": "Trabalho de PE",
   "max_vida": 100.0,
   "min_vida": 0.0,

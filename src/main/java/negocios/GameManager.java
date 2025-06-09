@@ -103,8 +103,7 @@ public class GameManager {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         
-        newItemChoice();
-
+        newItemSet(batalha.getPersonagem().getSorte());
     }
 
     public void perdeu(){
@@ -261,12 +260,15 @@ public class GameManager {
         }
 
     }
-    public void newItemChoice () {
-        Item item1 = InvHelper.getRandomItemByRarity();
-        Item item2 = InvHelper.getRandomItemByRarity();
-        while (item2.equals(item1)) item2 = InvHelper.getRandomItemByRarity();
-        Item item3 = InvHelper.getRandomItemByRarity();
-        while (item3.equals(item1) || item3.equals(item2)) item3 = InvHelper.getRandomItemByRarity();
+    public void newItemSet() {
+        newItemSet(0);
+    }
+    public void newItemSet(int fatorsorte) {
+        Item item1 = InvHelper.getRandomItemByRarity(fatorsorte);
+        Item item2 = InvHelper.getRandomItemByRarity(fatorsorte);
+        while (item2.equals(item1)) item2 = InvHelper.getRandomItemByRarity(fatorsorte);
+        Item item3 = InvHelper.getRandomItemByRarity(fatorsorte);
+        while (item3.equals(item1) || item3.equals(item2)) item3 = InvHelper.getRandomItemByRarity(fatorsorte);
         newItemChoice(item1, item2, item3);
     }
     public void newItemChoice(Item item1, Item item2, Item item3) {
@@ -366,7 +368,7 @@ public class GameManager {
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
-        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0);
+        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
         Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 40, 0);
         Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 40, 0);

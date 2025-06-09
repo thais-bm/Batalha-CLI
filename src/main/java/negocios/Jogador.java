@@ -7,25 +7,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Jogador extends Entidade{
-    private int max_inv_tam;
     private Inventario inventario;
     private ArrayList<String> sprite;
     private ScreenManager screen;
+    private int sortebonus;
 
-    public Jogador(String nome,int max_inv_tam, Inventario inventario,float max_vida, float vida, float atk, float def){
+    public Jogador(String nome,int max_inv_tam, Inventario inventario,float max_vida, float vida, float atk, float def, int sortebonus) {
         super(nome,max_vida, vida, atk, def);
-        this.max_inv_tam = max_inv_tam;
+        this.sortebonus = sortebonus;
         this.inventario = inventario;
         this.screen = new ScreenManager();
         loadDefaultSprite();
     }
 
-    //Getters e Setters
-    public int getMax_inv_tam() {
-        return max_inv_tam;
-    }
-    public void setMax_inv_tam(int max_inv_tam) {
-        this.max_inv_tam = max_inv_tam;
+    public Jogador(String nome,int max_inv_tam, Inventario inventario,float max_vida, float vida, float atk, float def) {
+        this(nome, max_inv_tam, inventario, max_vida, vida, atk, def, 0);
     }
 
     public Inventario getInventario() {
@@ -34,6 +30,14 @@ public class Jogador extends Entidade{
 
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
+    }
+
+    public void setSorte(int sortebonus) {
+        this.sortebonus = sortebonus;
+    }
+
+    public int getSorte() {
+        return sortebonus;
     }
 
     private void loadDefaultSprite() {

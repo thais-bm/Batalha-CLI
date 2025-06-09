@@ -120,7 +120,6 @@ public class SaveManager {
             System.out.println("MAX VIDA: " + player.getMax_vida());
             System.out.println("MIN VIDA: "+player.getMin_vida());
             System.out.println("VIDA: "+ player.getVida());
-            System.out.println("MAX INV: "+ player.getMax_inv_tam());
             System.out.println("SPRITE LIST: "+player.getSpriteList());
         }
 

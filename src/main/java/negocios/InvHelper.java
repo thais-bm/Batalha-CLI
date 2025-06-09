@@ -96,10 +96,12 @@ public abstract class InvHelper {
         return resposta;    
     }
 
-    public static Item getRandomItemByRarity() {
+    public static Item getRandomItemByRarity(int sortebonus) {
         Random random = new Random();
         Item[] list;
         int key = random.nextInt(100) + 1;
+        key *= (1 + (sortebonus/100));
+        //key = (int) ( ( (double) key) * ((double) 1 + ( ( (double) (sortebonus) ) / 100 ) ) );
 
         if (key <= 50) {
             //50%
@@ -115,5 +117,9 @@ public abstract class InvHelper {
         }
 
         return list[random.nextInt(list.length)];
+    }
+
+    public static Item getRandomItemByRarity() {
+        return getRandomItemByRarity(0);
     }
 }
