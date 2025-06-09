@@ -1,5 +1,4 @@
 {
-  "max_inv_tam": 0,
   "inventario": {
     "itemlist": [
       {
@@ -29,7 +28,7 @@
           "      :      "
         ],
         "nome": "Espada Fantasma",
-        "raridade": "pouco comum",
+        "raridade": "menos comum",
         "descricao": [
           "- ESPADA FANTASMA -",
           "aumenta dano de ataques em 5",
@@ -154,8 +153,14 @@
     "margin": 0,
     "frame": false
   },
+<<<<<<< Updated upstream
+  "sortebonus": 0,
+  "nome": "Trabalho de PE",
+  "max_vida": 100.0,
+=======
   "nome": "PEDRINHO MIL GRAU",
   "max_vida": 990.0,
+>>>>>>> Stashed changes
   "min_vida": 0.0,
   "vida": 100.0,
   "atk": 50.0,

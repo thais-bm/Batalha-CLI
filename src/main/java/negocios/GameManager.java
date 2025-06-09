@@ -6,6 +6,8 @@ import negocios.tipos_item.ItensAtk.*;
 import persistencia.SaveManager;
 import telas.ScreenManager;
 import telas.Sprite;
+import telas.SpritesInterface;
+import utilidades.ComandosUteis;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -102,8 +104,8 @@ public class GameManager {
     public void derrotouInimigo() {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
-        manusearInventario();
-
+        
+        newItemSet(batalha.getPersonagem().getSorte());
     }
 
     public void perdeu(){
@@ -244,6 +246,15 @@ public class GameManager {
 
     public void inventarioCheioAddItem(Item newitem) {
         tela.drawInventoryMain(batalha.getInventario(), " Inventário cheio ", " (1-8) - Escolher item para comparar                                    0 - Voltar ");
+        String string1 = "| Escolha um item para substituir por " + newitem.getNome() + " |";
+        String string2 = "X";
+        for (int i = 2; i < string1.length(); i++) string2 += "-";
+        string2 += "X";
+        ArrayList<String> spritelist = new ArrayList<String>();
+        spritelist.add(string1);
+        spritelist.add(string2);
+        Sprite aviso = new Sprite(spritelist, 0, (int) (90 - string1.length())/2);
+        aviso.draw(tela.getScreen());
         tela.renderScreen();
         Scanner sc = new Scanner(System.in);
         int entrada = -1;
@@ -258,16 +269,17 @@ public class GameManager {
         }
         if (entrada == 0) return;
         tela.drawInventorySwap(batalha.getInventario(), entrada, newitem, "1 - Aceitar novo item e descartar antigo                     ", "0 - Cancelar                                                 ");
+        tela.renderScreen();
         while (true) {
             try {
                 entrada2 = Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {}
-            if (entrada2 == 0) {
+            if (entrada2 == 1) {
                 batalha.getInventario().setItem(newitem, entrada);
                 manusearInventario();
                 break;
             }
-            if (entrada2 == 1) {
+            if (entrada2 == 0) {
                 inventarioCheioAddItem(newitem);
                 break;
             }
@@ -275,11 +287,23 @@ public class GameManager {
         }
 
     }
-
-    public void newItemChoice (Item item1, Item item2, Item item3) {
+    public void newItemSet() {
+        newItemSet(0);
+    }
+    public void newItemSet(int fatorsorte) {
+        Item item1 = InvHelper.getRandomItemByRarity(fatorsorte);
+        Item item2 = InvHelper.getRandomItemByRarity(fatorsorte);
+        while (item2.equals(item1)) item2 = InvHelper.getRandomItemByRarity(fatorsorte);
+        Item item3 = InvHelper.getRandomItemByRarity(fatorsorte);
+        while (item3.equals(item1) || item3.equals(item2)) item3 = InvHelper.getRandomItemByRarity(fatorsorte);
+        newItemChoice(item1, item2, item3);
+    }
+    public void newItemChoice(Item item1, Item item2, Item item3) {
         tela.drawNewItemsScreen(item1, item2, item3, "(1-3) - Escolher novo item              4 - Checar inventario", "0 - Pular                                                    ");
+        tela.renderScreen();
         Scanner sc = new Scanner(System.in);
         int entrada = -1;
+        int entrada2 = -1;
         while (true) {
             try {
                 entrada = Integer.parseInt(sc.nextLine());
@@ -288,35 +312,62 @@ public class GameManager {
                 break;
             }
         }
+        Item selecteditem = null;
+        switch(entrada) {
+            case 1:
+                selecteditem = item1;
+                break;
+            case 2:
+                selecteditem = item2;
+                break;
+            case 3:
+                selecteditem = item3;
+                break;
+        }
+        if (4 > entrada && entrada > 0) {
+        tela.drawNewItemsScreen(item1, item2, item3, "1 - Aceitar item                             0 - Voltar");
+            popUpInfo(selecteditem);
+            tela.renderScreen();
+            while (true) {
+                try {
+                    entrada2 = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException e) {}
+                if (entrada2 == 0 || entrada2 == 1) {
+                    break;
+                }
+            }
+            if (entrada2 == 0) {
+                newItemChoice(item1, item2, item3);
+                return;
+            }
+        }
         switch(entrada) {
             case 0:
                 break;
             case 1:
-                if (getBatalha().getInventario().isFull()) {
-                    inventarioCheioAddItem(item1);
-                } else {
-                    getBatalha().getInventario().addItem(item1);
-                }
-                break;
             case 2:
-                if (getBatalha().getInventario().isFull()) {
-                    inventarioCheioAddItem(item2);
-                } else {
-                    getBatalha().getInventario().addItem(item2);
-                }
-                break;
             case 3:
                 if (getBatalha().getInventario().isFull()) {
-                    inventarioCheioAddItem(item3);
+                    inventarioCheioAddItem(selecteditem);
                 } else {
-                    getBatalha().getInventario().addItem(item3);
+                    getBatalha().getInventario().addItem(selecteditem);
                 }
                 break;
             case 4:
                 manusearInventario();
+                newItemChoice(item1, item2, item3);
                 break;
         }
     }
+    private void popUpInfo (Item item) {
+        Sprite popup = new Sprite(SpritesInterface.getTextBox(), 12, 19);
+        popup.draw(tela.getScreen());
+        ArrayList<String> desc = new ArrayList<String>();
+        for (String i : item.getDescricao()) desc.add(ComandosUteis.autocentraliza(i, 48));
+        Sprite descsprite = new Sprite(desc, 13, 21);
+        descsprite.draw(tela.getScreen());
+    }
+
 
     public void reiniciarBatalha() {
         System.out.println("Turno reinciado!");
@@ -332,7 +383,7 @@ public class GameManager {
         System.out.println("Comecou novo jogo");
 
         Inventario inventario = new Inventario();
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 1);
+        inventario.setItem(new EspadaDebug(), 1);
         inventario.setItem(InvHelper.getRandomItemByRarity(), 2);
         inventario.setItem(InvHelper.getRandomItemByRarity(), 3);
         inventario.setItem(InvHelper.getRandomItemByRarity(), 4);
@@ -346,10 +397,14 @@ public class GameManager {
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
+<<<<<<< Updated upstream
+        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0);
+=======
         tela.setMargin(33);
         tela.toggleFrame();
 
         Jogador player = jog.orElse(new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0));
+>>>>>>> Stashed changes
         player.setSpriteList(Spritesheets.getCavaleirinho());
         Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 20, 0);
         Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 20, 0);
@@ -438,10 +493,10 @@ public class GameManager {
             try {
                 String opcao = sc.nextLine();
                 resposta = Integer.parseInt(opcao);
-                if (resposta >= 1 && resposta <= 3) {
+                if (resposta >= 1) {
                     return resposta;
                 } else {
-                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3.");
+                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3 ou 4 ou mais.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Erro! Por favor, digite um numero.");
@@ -450,8 +505,11 @@ public class GameManager {
     }
 
     // LOGICA DE JOGO AQUI
+    //na verdade isso e so a logica do menu principal
     public void gameLoop(){
         this.tela = new ScreenManager();
+        tela.setMargin(20);
+        tela.toggleFrame();
         this.gameLoop = true;
 
         while (this.gameLoop) {
@@ -466,8 +524,13 @@ public class GameManager {
                 case 3:
                     close_game();
                     break;
+                case 4:
+                    tela.toggleFrame();
+                    break;
                 default:
-                    System.out.println("Opcao Invalida!");
+                    try {
+                        tela.setMargin(escolha);
+                    } catch (Exception ArrayIndexOutOfBoundsException) {}
             }
         }
     }
