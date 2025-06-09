@@ -7,6 +7,9 @@ import negocios.tipos_item.ItensAtk.*;
 import negocios.tipos_item.ItensConsumiveis.CuraGrande;
 import negocios.tipos_item.ItensConsumiveis.CuraMedia;
 import negocios.tipos_item.ItensConsumiveis.CuraPequena;
+import negocios.tipos_item.ItensDef.EscudoFoda;
+import negocios.tipos_item.ItensDef.EscudoMarroMeno;
+import negocios.tipos_item.ItensDef.EscudoRuim;
 import telas.MenuPrincipal;
 import telas.ScreenManager;
 
@@ -39,6 +42,9 @@ public class SaveManager {
                     .registerSubtype(EspadaFantasma.class, "EspadaFantasma")
                     .registerSubtype(EspadaManeira.class, "EspadaManeira")
                     .registerSubtype(PedraPolimento.class, "PedraPolimento")
+                    .registerSubtype(EscudoFoda.class, "EscudoFoda")
+                    .registerSubtype(EscudoMarroMeno.class, "EscudoMarroMeno")
+                    .registerSubtype(EscudoRuim.class, "EscudoRuim")
                     .registerSubtype(EspadaBacaninha.class, "EspadaBacaninha");
 
     // 2. Crie o objeto Gson registrando a fábrica que acabamos de configurar
@@ -72,7 +78,6 @@ public class SaveManager {
         }
     }
 
-    @org.jetbrains.annotations.Nullable
     public static Jogador Carregar(){
         File arquivo = new File(NOME_ARQUIVO);
 

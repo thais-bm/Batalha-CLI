@@ -3,6 +3,7 @@ import negocios.tipos_item.ItensConsumiveis.*;
 import negocios.tipos_item.ItensDef.EscudoRuim;
 import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItensAtk.*;
+import persistencia.SaveManager;
 import telas.ScreenManager;
 import telas.Sprite;
 
@@ -372,7 +373,10 @@ public class GameManager {
         iniciarBatalha(this.batalha);
         controleTurno(this.batalha);
 
-        System.out.println("\nFim de jogo! Pressione Enter para voltar ao menu.");
+        System.out.println("\nFim de jogo! Deseja armazenar os seus items?");
+        System.out.println("\n 1 - Salvar");
+        System.out.println("\n2 - Não salvar");
+        System.out.println("> ");
         new Scanner(System.in).nextLine(); // Pausa para o jogador ler
     }
 
@@ -384,6 +388,15 @@ public class GameManager {
     public void load_game(){
         System.out.println("Carregou o jogo");
         // carregar um save
+
+    }
+
+    public void saveGame(Jogador player){
+        SaveManager saveManager = new SaveManager();
+        SaveManager.Salvar(player);
+    }
+
+    public void LoadGame(){
 
     }
 
