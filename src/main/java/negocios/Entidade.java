@@ -83,15 +83,4 @@ public abstract class Entidade {
         //adicionar os calculos com a defesa
     }
 
-    public void atacarFoda(Batalha batalha,Entidade entidade) {
-        System.out.println("Atacando fodamente: " + entidade.nome);
-        entidade.vida -= this.atk + 5.0f;
-        System.out.println("Total vida depois do ataque: " + entidade.vida);
-    }
-
-    public void defenderFoda(Batalha batalha,Entidade entidade) {
-        entidade.def += this.def + 5.0f;
-        System.out.println("A defesa de "+entidade.getNome() + " aumentou em 5");
-    }
-
 }

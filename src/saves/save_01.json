@@ -2,38 +2,37 @@
   "inventario": {
     "itemlist": [
       {
-        "type": "curaGrande",
+        "type": "EspadaBasica",
         "spritelist": [
-          "    .:\u003d:.  @ ",
-          "   @ | |     ",
-          "    /~~~\\ @  ",
-          "   | \u0027 . |   ",
-          "    \\___/    "
+          "             ",
+          "      |      ",
+          "      |      ",
+          "      T      ",
+          "             "
         ],
-        "nome": "Poçãozona",
-        "raridade": "comum",
+        "nome": "Espada Simples",
+        "raridade": "muito comum",
         "descricao": [
-          "- POÇÃOZONA -",
-          "Consumível",
-          "recupera 100% de HP perdido"
+          "- ESPADA SIMPLES -",
+          "",
+          "aumenta dano de ataques em 10"
         ]
       },
       {
-        "type": "EspadaFantasma",
+        "type": "EscudoRuim",
         "spritelist": [
-          "      .      ",
-          "     : :     ",
-          "     : :     ",
-          "    \u003c O \u003e    ",
-          "      :      "
+          "   .-.__.-.  ",
+          "   |es    |  ",
+          "   |  cu  |  ",
+          "    \\__do/   ",
+          "             "
         ],
-        "nome": "Espada Fantasma",
-        "raridade": "menos comum",
+        "nome": "Escudo Basico",
+        "raridade": "muito comum",
         "descricao": [
-          "- ESPADA FANTASMA -",
-          "aumenta dano de ataques em 5",
-          "bônus aumenta em mais 15 para cada",
-          "espaço vazio restante no inventário"
+          "- ESCUDO BASICO -",
+          "",
+          "reduz dano de ataques sofridos em 10"
         ]
       },
       {
@@ -53,76 +52,11 @@
           "recupera 25% de HP perdido"
         ]
       },
-      {
-        "type": "EspadaBasica",
-        "spritelist": [
-          "             ",
-          "      |      ",
-          "      |      ",
-          "      T      ",
-          "             "
-        ],
-        "nome": "Espada Simples",
-        "raridade": "muito comum",
-        "descricao": [
-          "- ESPADA SIMPLES -",
-          "",
-          "aumenta dano de ataques em 10"
-        ]
-      },
-      {
-        "type": "EspadaManeira",
-        "spritelist": [
-          "     / \\     ",
-          "     |Y|     ",
-          "     \\|/     ",
-          "    \u003c\u003dO\u003d\u003e    ",
-          "      ⡇      "
-        ],
-        "nome": "Espada Legal",
-        "raridade": "menos comum",
-        "descricao": [
-          "- ESPADA LEGAL -",
-          "",
-          "aumenta dano de ataques em 25"
-        ]
-      },
       null,
-      {
-        "type": "curaMedia",
-        "spritelist": [
-          "     ._.     ",
-          "     | |     ",
-          "     / \\     ",
-          "    |~~~|    ",
-          "    \\___/    "
-        ],
-        "nome": "Poção",
-        "raridade": "comum",
-        "descricao": [
-          "- POÇÃO - ",
-          "Consumível",
-          "recupera 60% de HP perdido ao consumir"
-        ]
-      },
-      {
-        "type": "PedraPolimento",
-        "spritelist": [
-          "     _______ ",
-          "    /.   : /|",
-          "   /   .  / /",
-          "  /_\u0027___ /./ ",
-          " | \u0027  . | /  "
-        ],
-        "nome": "Amolador de Faca",
-        "raridade": "comum",
-        "descricao": [
-          "- AMOLADOR DE FACA -",
-          "A cada item ofensivo no inventário,",
-          "aumenta dano do ataque em 20%",
-          "(tudo que aumenta ataque é considerado ofensivo)"
-        ]
-      }
+      null,
+      null,
+      null,
+      null
     ]
   },
   "screen": {
@@ -153,17 +87,12 @@
     "margin": 0,
     "frame": false
   },
-<<<<<<< Updated upstream
   "sortebonus": 0,
-  "nome": "Trabalho de PE",
+  "nome": "fOFO",
   "max_vida": 100.0,
-=======
-  "nome": "PEDRINHO MIL GRAU",
-  "max_vida": 990.0,
->>>>>>> Stashed changes
   "min_vida": 0.0,
-  "vida": 100.0,
-  "atk": 50.0,
+  "vida": 70.0,
+  "atk": 20.0,
   "def": 0.0,
   "spritelist": [
     "                                          ",

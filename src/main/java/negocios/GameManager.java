@@ -378,30 +378,20 @@ public class GameManager {
 
     // MENU PRINCIPAL
     public void start_new_game(Optional<Jogador> jog) {
-
-
         System.out.println("Comecou novo jogo");
 
         Inventario inventario = new Inventario();
-        inventario.setItem(new EspadaDebug(), 1);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 2);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 3);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 4);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 5);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 6);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 7);
-        inventario.setItem(InvHelper.getRandomItemByRarity(), 8);
+        inventario.setItem(new EspadaBasica(), 1);
+        inventario.setItem(new EscudoRuim(), 2);
 
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(new CuraGrande());
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
-        tela.setMargin(33);
-        tela.toggleFrame();
-
-        Jogador player = jog.orElse(new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0, 0));
+        Jogador player = jog.orElse(new Jogador("fOFO", 0, inventario, 100, 100, 20, 0, 0));
         player.setSpriteList(Spritesheets.getCavaleirinho());
+
         Inimigo enemy = new Inimigo("", null, items, 100, 100, 20, 0);
         Inimigo enemy2 = new Inimigo("", null, items, 100, 100, 20, 0);
         Inimigo enemy3 = new Inimigo("", null, items, 999, 999, 20, 20);
@@ -432,6 +422,7 @@ public class GameManager {
             enemyhpmodifier *= 1.1;
             enemyatkmodifier += 11;
             enemydef += 7;
+            saveGame(player);
         } while (getBatalha().getPersonagem().getVida() > 0);
 
         System.out.println("\nFim de jogo! Deseja armazenar os seus items?");
@@ -449,7 +440,15 @@ public class GameManager {
     public void load_game(){
         System.out.println("Carregou o jogo");
         Jogador jogadorRecuperado = SaveManager.Carregar();
-        start_new_game(Optional.ofNullable(jogadorRecuperado));
+
+        if (jogadorRecuperado != null) {
+            System.out.println("Carregou mesmo");
+            start_new_game(Optional.of(jogadorRecuperado));
+        }
+        else{
+            System.out.println("Deu ruim");
+            start_new_game(Optional.empty());
+        }
     }
 
     public void saveGame(Jogador player){
@@ -457,33 +456,6 @@ public class GameManager {
         SaveManager.Salvar(player);
     }
 
-
-    public void SaveOptions(Jogador player){
-        Scanner sc = new Scanner(System.in);
-        int resposta = -1;
-
-        while (true) {
-            System.out.print("> ");
-            try {
-                String opcao = sc.nextLine();
-                resposta = Integer.parseInt(opcao);
-                if (resposta >= 1 && resposta <= 2) {
-                    switch (resposta){
-                        case 1:
-                            saveGame(player);
-                            break;
-                        case 2:
-                            System.out.println("O jogo nao foi salvo");
-                            break;
-                    }
-                } else {
-                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Erro! Por favor, digite um numero.");
-            }
-        }
-    }
 
 
     public int ShowMenuAndOptions() {

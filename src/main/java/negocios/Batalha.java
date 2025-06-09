@@ -84,15 +84,6 @@ public class Batalha {
 
     }
     public void turnoInimigo() {
-        System.out.println("\nÉ a vez de:" + inimigo.getNome());
-        Random random = new Random();
-        float num = random.nextFloat();
-        if (num < 0.25) {
-            inimigo.atacarFoda(this, personagem);
-        } else if (num < 0.50 && num > 0.25) {
-            inimigo.defenderFoda(this, inimigo);
-        } else if (num < 1.00 && num > 0.50) {
-            inimigo.atacar(this, personagem);
-        }
+        inimigo.atacar(this, personagem);
     }
 }

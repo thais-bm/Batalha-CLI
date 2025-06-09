@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import negocios.*;
 import negocios.tipos_item.ItensAtk.*;
-import negocios.tipos_item.ItensConsumiveis.CuraGrande;
-import negocios.tipos_item.ItensConsumiveis.CuraMedia;
-import negocios.tipos_item.ItensConsumiveis.CuraPequena;
+import negocios.tipos_item.ItensConsumiveis.*;
 import negocios.tipos_item.ItensDef.EscudoFoda;
 import negocios.tipos_item.ItensDef.EscudoMarroMeno;
 import negocios.tipos_item.ItensDef.EscudoRuim;
@@ -42,9 +40,14 @@ public class SaveManager {
                     .registerSubtype(EspadaFantasma.class, "EspadaFantasma")
                     .registerSubtype(EspadaManeira.class, "EspadaManeira")
                     .registerSubtype(PedraPolimento.class, "PedraPolimento")
+                    .registerSubtype(Martelo.class, "Martelo")
+                    .registerSubtype(Dente.class, "Dente")
                     .registerSubtype(EscudoFoda.class, "EscudoFoda")
                     .registerSubtype(EscudoMarroMeno.class, "EscudoMarroMeno")
                     .registerSubtype(EscudoRuim.class, "EscudoRuim")
+                    .registerSubtype(EspadaDebug.class, "EscudoDebug")
+                    .registerSubtype(Garrafa.class, "Garrafa")
+                    .registerSubtype(Sanduiche.class, "Sanduiche")
                     .registerSubtype(EspadaBacaninha.class, "EspadaBacaninha");
 
     // 2. Crie o objeto Gson registrando a fábrica que acabamos de configurar
@@ -93,51 +96,6 @@ public class SaveManager {
             System.out.println("Arquivo nao encontrado");
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        // AREA DE TESTES
-        // Nao ta salvando objetos como o Inventario INV
-        // TODO: mexer apenas quando estiver pronto
-
-        Inventario inventario = new Inventario();
-        inventario.setItem(new CuraGrande(), 1);
-        inventario.setItem(new EspadaFantasma(), 2);
-        inventario.setItem(new CuraPequena(), 3);
-        inventario.setItem(new EspadaBasica(), 4);
-        inventario.setItem(new EspadaManeira(), 5);
-        inventario.setItem(new CuraMedia(), 7);
-        inventario.setItem(new PedraPolimento(), 8);
-        Jogador player = new Jogador("Trabalho de PE",0, inventario, 100, 100, 50, 0);
-        player.setSpriteList(Spritesheets.getCavaleirinho());
-        SaveManager.Salvar(player);
-
-        player = null;
-
-        player = SaveManager.Carregar();
-        if (player == null){
-            System.out.println("Erro ao carregar o arquivo!");
-        } else {
-            System.out.println("Arquivo carregado!");
-            System.out.println("Nome: " + player.getNome());
-            System.out.println("ATK: "+ player.getAtk());
-            System.out.println("DEF: "+ player.getDef());
-            System.out.println("MAX VIDA: " + player.getMax_vida());
-            System.out.println("MIN VIDA: "+player.getMin_vida());
-            System.out.println("VIDA: "+ player.getVida());
-            System.out.println("SPRITE LIST: "+player.getSpriteList());
-        }
-
-        // RENDERIZANDO MENU
-        ScreenManager tela = new ScreenManager();
-        MenuPrincipal.drawUI(tela.getScreen());
-        tela.renderScreen();
-
-        // RECEBENDO COMANDOS
-
-
-
-
     }
 
 }
