@@ -248,9 +248,10 @@ public class GameManager {
         inventario.setItem(new EspadaFantasma(), 2);
         inventario.setItem(new CuraPequena(), 3);
         inventario.setItem(new EscudoRuim(), 4);
-        inventario.setItem(new EspadaManeira(), 5);
-        inventario.setItem(new CuraMedia(), 7);
-        inventario.setItem(new PedraPolimento(), 8);
+        inventario.setItem(new Martelo(), 5);
+        inventario.setItem(new CuraMedia(), 6);
+        inventario.setItem(new EscudoRuim(), 7);
+        inventario.setItem(new CuraGrande(), 8);
 
         ArrayList<Item> items = new ArrayList<Item>();
         items.add(new CuraGrande());
