@@ -96,11 +96,11 @@ public abstract class SpritesInterface {
         spritelist.add("   ______________________________________________________________________________________");
         spritelist.add("  0                                                                                      0");
         spritelist.add("  |  __                /     ____        _        _ _                                    |");
-        spritelist.add("  |  \\ Z_            / /    |  _ \\      | |      | | |          \t                     |");
-        spritelist.add("  |    \\_\\__       /__ /    | |_) | __ _| |_ __ _| | |__   __ _ \t                     |");
-        spritelist.add("  |    /  \\\\\\_     //       |  _ < / _` | __/ _` | | '_ \\ / _` |\t                     |");
-        spritelist.add("  |    \\_____/    //        | |_) | (_| | || (_| | | | | | (_| |\t                     |");
-        spritelist.add("  |    /    \\    //         |____/ \\__,_|\\__\\__,_|_|_| |_|\\__,_|\t                     |");
+        spritelist.add("  |  \\ Z_            / /    |  _ \\      | |      | | |          \t                 |");
+        spritelist.add("  |    \\_\\__       /__ /    | |_) | __ _| |_ __ _| | |__   __ _ \t                 |");
+        spritelist.add("  |    /  \\\\\\_     //       |  _ < / _` | __/ _` | | '_ \\ / _` |\t                 |");
+        spritelist.add("  |    \\_____/    //        | |_) | (_| | || (_| | | | | | (_| |\t                 |");
+        spritelist.add("  |    /    \\    //         |____/ \\__,_|\\__\\__,_|_|_| |_|\\__,_|\t                 |");
         spritelist.add("  |                                                                                      |");
         spritelist.add("  |                                1 - NOVO JOGO                                         |");
         spritelist.add("  |                               2 - CARREGAR JOGO                                      |");

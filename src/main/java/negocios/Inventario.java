@@ -45,6 +45,26 @@ public class Inventario {
         if (index < 1 || index > 8) return;
         itemlist[index-1] = null;
     }
+
+    public void removeItem(Item item) {
+        int counter = 1;
+        for (Item i : itemlist) {
+            if (i == item) {
+                removeItem(counter);
+                break;
+            }
+            counter++;
+        }
+    }
+
+    public boolean isFull() {
+        for (Item item : itemlist) {
+            if (item == null) return false;
+        }
+        return true;
+    }
+
+
 //A ideia é antes do jogador atacar, rodar esse método por cima do stat base de ataque do jogador
 //o loop passa por cada item no inventario, e se o item for uma sub-subclasse da subclasse ItemAtk
 //usa a função Efeito() no valor de entrada, a função Efeito() tem um efeito diferente pra cada item diferente

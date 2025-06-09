@@ -1,5 +1,6 @@
 package negocios;
 import negocios.tipos_item.ItensConsumiveis.*;
+import negocios.tipos_item.ItemConsumivel;
 import negocios.tipos_item.ItensAtk.*;
 import telas.ScreenManager;
 import telas.Sprite;
@@ -49,7 +50,6 @@ public class GameManager {
         if (args.length > 0) {
             
             if (args[0].equals(batalha.getInimigo().getNome() + " morreu, prosseguir")) {
-                System.out.println("morreu");
                 new Sprite(Spritesheets.getVitoria(), 11, 45).draw(tela.getScreen());
             }
         }
@@ -61,7 +61,7 @@ public class GameManager {
             while (batalha.getNumTurnos() > 0 && batalha.getSeAtivo()) {
 
                 System.out.println("Turno atual: " + batalha.getNumTurnos());
-                battleSpriteLoad(batalha, "Atacar", "Defender", "Inventario", "Nao sei");
+                battleSpriteLoad(batalha, " 1 - Atacar", " 2 - Defender", " 3 - Inventario", " 4 - Nao sei");
 
 
 
@@ -72,7 +72,7 @@ public class GameManager {
 
                 //Conseguiu derrotar o inimigo
                 if (batalha.getInimigo().getVida() <= 0) {
-                    battleSpriteLoad(batalha, batalha.getInimigo().getNome() + " morreu, prosseguir");
+                    battleSpriteLoad(batalha, " " + batalha.getInimigo().getNome() + " morreu", "pressione Enter para prosseguir");
                     Scanner scanner = new Scanner(System.in);
                     scanner.next();
                     derrotouInimigo();
@@ -111,46 +111,126 @@ public class GameManager {
     }
 
     public void manusearInventario(){
-        tela.drawInventoryMain(batalha.getInventario());
+        tela.drawInventoryMain(batalha.getInventario(), "(1-8) - Selecionar item                          ", "0 - Fechar inventário                            ");
         tela.renderScreen();
-
-
-
-        System.out.println("1 - para remover um item");
-        System.out.println("2 - para usar de item");
-        System.out.println("3 - continuar");
-
         Scanner sc = new Scanner(System.in);
-        int escolha = sc.nextInt();
-
-        switch (escolha) {
-            case 1:
-                System.out.println("Selecione um item para remover: ");
-                int item = sc.nextInt();
-                if(batalha.getPersonagem().getInventario().getItem(item) != null){
-                    batalha.getPersonagem().getInventario().removeItem(item);
-                }
-                else {
-                    System.out.println("Item não encontrado");
-                }
+        int entrada = -1;
+        while (true) {
+            try {
+                entrada = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {}
+            if (((entrada > 1 || entrada < 8) && batalha.getInventario().getItem(entrada) != null) || entrada == 0) {
                 break;
+            }
+        } 
+        if (entrada == 0) return;
+        manusearInventarioItemSelecionado(entrada);
+    }
 
-            case 2:
-                System.out.println("Selecione um item para usar: ");
-                int item2 = sc.nextInt();
-                if(batalha.getPersonagem().getInventario().getItem(item2) != null){
-                    batalha.getInventario().useItem(item2, batalha.getPersonagem());
-                }
-                else {
-                    System.out.println("Item não encontrado");
-                }
+    private void manusearInventarioItemSelecionado(int index) {
+        Item item = batalha.getInventario().getItem(index);
+        ItemConsumivel itemconsumivel;
+        boolean consumivel = (item instanceof ItemConsumivel);
+        Scanner sc = new Scanner(System.in);
+        int entrada = -1;
+        if (consumivel) {
+            itemconsumivel = (ItemConsumivel) item;
+            tela.drawInventoryItemSelected(batalha.getInventario(), index, " 1 - Remover            2 - Usar              3 - Reposicionar    ", " 0 - Voltar                                                       ");
+            tela.renderScreen();
+            while (entrada < 0 || entrada > 3) {
+                try {
+                    entrada = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException e) {}
+            }
+            switch(entrada) {
+                case 1:
+                    batalha.getInventario().removeItem(index);
+                    break;
+                case 2:
+                    itemconsumivel.Efeito(batalha.getPersonagem());
+                    break;
+                case 3:
+                    manusearInventarioSwap(index);
+                    break;
+            }
+        } else {
+            tela.drawInventoryItemSelected(batalha.getInventario(), index, " 1 - Remover                                  2 - Reposicionar    ", " 0 - Voltar                                                       ");
+            tela.renderScreen();
+            while (entrada < 0 || entrada > 2) {
+                try {
+                    entrada = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException e) {}
+            }
+            switch(entrada) {
+                case 1:
+                    batalha.getInventario().removeItem(index);
+                    break;
+                case 2:
+                    manusearInventarioSwap(index);
+                    break;
+            }
+        }
+        manusearInventario();
+    }
 
-            case 3:
-                reiniciarBatalha();
+    private void manusearInventarioSwap(int index) {
+        tela.drawInventoryMain(batalha.getInventario(), " (1-8) - Selecionar item para trocar posição                      ", " 0 - Cancelar                                                     ");
+        tela.renderScreen();
+        Scanner sc = new Scanner(System.in);
+        int entrada = -1;
+        while (true) {
+            try {
+                entrada = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {}
+            if (entrada > 0 || entrada < 8) {
+                break;
+            }
+        }
+        if (entrada == 0) return;
+        Item item1 = batalha.getInventario().getItem(index);
+        Item item2 = batalha.getInventario().getItem(entrada);
+        batalha.getInventario().setItem(item1, entrada);
+        if (item2 != null) {
+            batalha.getInventario().setItem(item2, index);
+        } else {
+            batalha.getInventario().removeItem(index);
+        }
+    }
 
+    public void inventarioCheioAddItem(Item newitem) {
+        tela.drawInventoryMain(batalha.getInventario(), " Inventário cheio ", " (1-8) - Escolher item para comparar                                    0 - Voltar ");
+        tela.renderScreen();
+        Scanner sc = new Scanner(System.in);
+        int entrada = -1;
+        int entrada2 = -1;
+        while (true) {
+            try {
+                entrada = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {}
+            if (entrada > 0 || entrada < 8) {
+                break;
+            }
+        }
+        if (entrada == 0) return;
+        tela.drawInventorySwap(batalha.getInventario(), entrada, newitem, "1 - Aceitar novo item e descartar antigo", "0 - Cancelar                            ");
+        while (true) {
+            try {
+                entrada2 = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {}
+            if (entrada2 == 0) {
+                batalha.getInventario().setItem(newitem, entrada);
+                manusearInventario();
+                break;
+            }
+            if (entrada2 == 1) {
+                inventarioCheioAddItem(newitem);
+                break;
+            }
+            
         }
 
     }
+
     public void reiniciarBatalha() {
         System.out.println("Turno reinciado!");
         batalha.setSeAtivo(false);
@@ -179,16 +259,16 @@ public class GameManager {
         tela.setMargin(33);
         tela.toggleFrame();
 
-        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 50, 0);
+        Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
         Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 10, 0);
         Inimigo enemy2 = new Inimigo("Elon Musk", null, items, 100, 100, 10, 0);
         Inimigo enemy3 = new Inimigo("snope", null, items, 999, 999, 10, 20);
         enemy3.setSpriteList(Spritesheets.getEsnupi());
 
-        Batalha batalha1 = new Batalha(20, player, enemy, inventario);
-        Batalha batalha2 = new Batalha(20, player, enemy2, inventario);
-        Batalha batalha3 = new Batalha(20, player, enemy3, inventario);
+        Batalha batalha1 = new Batalha(20, player, enemy, inventario, this);
+        Batalha batalha2 = new Batalha(20, player, enemy2, inventario, this);
+        Batalha batalha3 = new Batalha(20, player, enemy3, inventario, this);
 
         // Batalha 1
         this.setBatalha(batalha1);
@@ -265,8 +345,6 @@ public class GameManager {
             }
         }
     }
-
-
 }
 
 

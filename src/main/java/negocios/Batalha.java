@@ -11,13 +11,14 @@ public class Batalha {
     private Inimigo inimigo;
     private Inventario inventario;
     private boolean seAtivo;
+    private GameManager manager;
 
-
-    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventario inventario) {
+    public Batalha(int numTurnos, Jogador personagem, Inimigo inimigo, Inventario inventario, GameManager manager) {
         this.numTurnos = numTurnos;
         this.inventario = inventario;
         this.personagem = personagem;
         this.inimigo = inimigo;
+        this.manager = manager;
     }
 
     //Getter e Setters
@@ -59,6 +60,7 @@ public class Batalha {
     //Métodos
 
     public void turnoJogador() {
+        
         System.out.println("\nÉ a vez de:" + personagem.getNome());
             Scanner sc = new Scanner(System.in);
 
@@ -74,16 +76,7 @@ public class Batalha {
                     numTurnos--;
                     break;
                 case 3:
-                    personagem.mostrarInventario();
-                    System.out.println("Escolha o slot do inventario a utilizar: ");
-                    int index = sc.nextInt();
-                    if (personagem.getInventario().getItem(index) != null) {
-                        personagem.mostrarItem(index);
-                        System.out.println("O item " + personagem.getInventario().getItem(index).getNome() + "foi selecionado com sucesso!");
-                    }else{
-                        System.out.println("Item inválido!");
-                    }
-                    personagem.getInventario().useItem(index, personagem);
+                    manager.manusearInventario();
                     numTurnos--;
                     break;
                 case 4:
