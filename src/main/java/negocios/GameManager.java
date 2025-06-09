@@ -67,7 +67,7 @@ public class GameManager {
 
 
                 if(batalha.getPersonagem().getVida() <= 0){
-                    perdeu();
+                    morreu();
                 }
                 batalha.turnoJogador();
 
@@ -108,7 +108,24 @@ public class GameManager {
         batalha.setSeAtivo(false);
         System.out.println("Batalha acabou!");
         System.out.println("Não conseguiu ganhar no numero de turnos determinados ");
-        manusearInventario();
+        System.out.println("Aperte 1 para voltar ao menu: ");
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.nextInt() == 1) {
+            gameLoop();
+        }
+    }
+
+    public void morreu(){
+        batalha.setSeAtivo(false);
+        System.out.println("Batalha acabou!");
+        System.out.println("Você morreu!");
+        System.out.println("Aperte 1 para voltar ao menu: ");
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.nextInt() == 1) {
+            gameLoop();
+        }
+
+
     }
 
     public void manusearInventario(){
