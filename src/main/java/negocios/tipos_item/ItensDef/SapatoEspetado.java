@@ -10,7 +10,12 @@ public class SapatoEspetado extends ItemDef{
     public SapatoEspetado() {
         super("Sapato Espetado","- SAPATO ESPETADO -", "Reduz dano sofrido em 5%", "Sempre que o usuário for atacado, aumenta o valor base", "de ataque do jogador em 7 permanentemente");
         this.setRaridade("comum");
-        ArrayList<String> spritelist = Spritesheets.getPicaretaMinecraft();
+        ArrayList<String> spritelist = new ArrayList<String>();
+        spritelist.add("      .____. ");
+        spritelist.add("      |   /  ");
+        spritelist.add("   ,-' '-.\\  ");
+        spritelist.add("  |_______|  ");
+        spritelist.add("   \\/\\/\\/\\/  ");
         this.setSpriteList(spritelist);
     }
 

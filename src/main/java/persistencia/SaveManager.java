@@ -8,6 +8,7 @@ import negocios.tipos_item.ItensConsumiveis.*;
 import negocios.tipos_item.ItensDef.EscudoFoda;
 import negocios.tipos_item.ItensDef.EscudoMarroMeno;
 import negocios.tipos_item.ItensDef.EscudoRuim;
+import negocios.tipos_item.ItensDef.SapatoEspetado;
 import telas.MenuPrincipal;
 import telas.ScreenManager;
 
@@ -48,7 +49,8 @@ public class SaveManager {
                     .registerSubtype(EspadaDebug.class, "EscudoDebug")
                     .registerSubtype(Garrafa.class, "Garrafa")
                     .registerSubtype(Sanduiche.class, "Sanduiche")
-                    .registerSubtype(EspadaBacaninha.class, "EspadaBacaninha");
+                    .registerSubtype(EspadaBacaninha.class, "EspadaBacaninha")
+                    .registerSubtype(SapatoEspetado.class, "SapatoEspetado");
 
     // 2. Crie o objeto Gson registrando a fábrica que acabamos de configurar
     private static final Gson GSON = new GsonBuilder()
