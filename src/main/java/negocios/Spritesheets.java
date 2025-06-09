@@ -68,6 +68,44 @@ public abstract class Spritesheets {
         return sprite;
     }
 
+    public static ArrayList<String> getPalitinho() {
+        ArrayList<String> sprite;
+        sprite = new ArrayList<String>();
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                  O                      ");
+        sprite.add("                 /|\\                     ");
+        sprite.add("                 / \\                     ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        return sprite;
+    }
+
+    public static ArrayList<String> getInimigoVazio() {
+        ArrayList<String> sprite;
+        sprite = new ArrayList<String>();
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        sprite.add("                                         ");
+        return sprite;
+    }
+
     public static ArrayList<String> getEspadinha() {
         ArrayList<String> spritelist = new ArrayList<>();
         spritelist.add("     / \\     ");

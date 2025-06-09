@@ -50,8 +50,6 @@ public class GameManager {
     //Métodos
     public void iniciarBatalha(Batalha batalha) {
         batalha.setSeAtivo(true);
-        System.out.println("Batalha iniciada com sucesso!");
-        System.out.println(batalha.getNumTurnos() + " turnos ao total");
     }
 
     public void battleSpriteLoad(Batalha batalha, String... args) {
@@ -69,7 +67,7 @@ public class GameManager {
         if (batalha.getSeAtivo()) {
             while (batalha.getNumTurnos() > 0 && batalha.getSeAtivo()) {
 
-                System.out.println("Turno atual: " + batalha.getNumTurnos());
+
                 battleSpriteLoad(batalha, " 1 - Atacar", " 2 - Inspecionar", " 3 - Inventario", "");
 
 
@@ -88,7 +86,6 @@ public class GameManager {
                     break;
                 }
 
-                System.out.println("Turno atual: " + batalha.getNumTurnos());
                 batalha.turnoInimigo();
 
                 if (batalha.getInimigo().getVida() <= 0) {

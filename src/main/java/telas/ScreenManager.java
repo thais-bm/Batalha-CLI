@@ -39,7 +39,7 @@ public class ScreenManager {
     //tambem com uma moldura se habilitado
     public void renderScreen() {
         System.out.println("");
-        System.out.println("");
+        for (int i = 0; i < 9; i++) System.out.println("");
 
         String extrastring = "";
         String framestring = "";

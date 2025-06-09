@@ -36,23 +36,41 @@
         ]
       },
       {
-        "type": "curaPequena",
+        "type": "SapatoEspetado",
         "spritelist": [
-          "             ",
-          "     |~|     ",
-          "     | |     ",
-          "     |_|     ",
-          "             "
+          "      .____. ",
+          "      |   /  ",
+          "   ,-\u0027 \u0027-.\\  ",
+          "  |_______|  ",
+          "   \\/\\/\\/\\/  "
         ],
-        "nome": "Poçãozinha",
-        "raridade": "muito comum",
+        "nome": "Sapato Espetado",
+        "raridade": "comum",
         "descricao": [
-          "- POÇÃOZINHA -",
-          "Consumível",
-          "recupera 25% de HP perdido"
+          "- SAPATO ESPETADO -",
+          "Reduz dano sofrido em 5%",
+          "Sempre que o usuário for atacado, aumenta o valor base",
+          "de ataque do jogador em 7 permanentemente"
         ]
       },
-      null,
+      {
+        "type": "Sanduiche",
+        "spritelist": [
+          "    ______   ",
+          "   /______\\  ",
+          "   |_.-\u003d-_|  ",
+          "  ~_~_~\u003d_~_~ ",
+          "   \\______/  "
+        ],
+        "nome": "Sanduíche",
+        "raridade": "comum",
+        "descricao": [
+          "- SANDUÍCHE -",
+          "Consumível",
+          "Aumenta o dano base de ataque do jogador em 10 ao consumir",
+          "Melhoria permanente"
+        ]
+      },
       null,
       null,
       null,
@@ -88,11 +106,11 @@
     "frame": false
   },
   "sortebonus": 0,
-  "nome": "fOFO",
+  "nome": "PLAYER",
   "max_vida": 100.0,
   "min_vida": 0.0,
-  "vida": 70.0,
-  "atk": 20.0,
+  "vida": 76.0,
+  "atk": 41.0,
   "def": 0.0,
   "spritelist": [
     "                                          ",
