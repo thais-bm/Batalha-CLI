@@ -495,7 +495,6 @@ public class GameManager {
                     tela.toggleFrame();
                     break;
                 default:
-                    System.out.println("Opcao Invalida!");
                     try {
                         tela.setMargin(escolha);
                     } catch (Exception ArrayIndexOutOfBoundsException) {}

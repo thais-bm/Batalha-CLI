@@ -12,7 +12,7 @@ public class EscudoMarroMeno extends ItemDef {
         spritelist.add("   .-.__.-.  ");
         spritelist.add("  ||esc   || ");
         spritelist.add("  ||  uda || ");
-        spritelist.add("   \\____o/  ");
+        spritelist.add("   \\_____o/  ");
         spritelist.add("             ");
         this.setSpriteList(spritelist);
     }
