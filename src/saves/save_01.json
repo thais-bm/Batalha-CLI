@@ -54,25 +54,57 @@
         ]
       },
       {
-        "type": "Sanduiche",
+        "type": "EspadaFantasma",
         "spritelist": [
-          "    ______   ",
-          "   /______\\  ",
-          "   |_.-\u003d-_|  ",
-          "  ~_~_~\u003d_~_~ ",
-          "   \\______/  "
+          "      .      ",
+          "     : :     ",
+          "     : :     ",
+          "    \u003c O \u003e    ",
+          "      :      "
         ],
-        "nome": "Sanduíche",
-        "raridade": "comum",
+        "nome": "Espada Fantasma",
+        "raridade": "menos comum",
         "descricao": [
-          "- SANDUÍCHE -",
-          "Consumível",
-          "Aumenta o dano base de ataque do jogador em 10 ao consumir",
-          "Melhoria permanente"
+          "- ESPADA FANTASMA -",
+          "aumenta dano de ataques em 5",
+          "bônus aumenta em mais 15 para cada",
+          "espaço vazio restante no inventário"
         ]
       },
-      null,
-      null,
+      {
+        "type": "EscudoMarroMeno",
+        "spritelist": [
+          "   .-.__.-.  ",
+          "  ||esc   || ",
+          "  ||  uda || ",
+          "   \\_____o/  ",
+          "             "
+        ],
+        "nome": "Escudo Marro Meno",
+        "raridade": "comum",
+        "descricao": [
+          "- ESCUDO MARRO MENO -",
+          "",
+          "reduz dano de ataques sofridos em 25"
+        ]
+      },
+      {
+        "type": "curaPequena",
+        "spritelist": [
+          "             ",
+          "     |~|     ",
+          "     | |     ",
+          "     |_|     ",
+          "             "
+        ],
+        "nome": "Poçãozinha",
+        "raridade": "muito comum",
+        "descricao": [
+          "- POÇÃOZINHA -",
+          "Consumível",
+          "recupera 25% de HP perdido"
+        ]
+      },
       null,
       null
     ]
@@ -105,12 +137,12 @@
     "margin": 0,
     "frame": false
   },
-  "sortebonus": 0,
+  "sortebonus": 20,
   "nome": "PLAYER",
   "max_vida": 100.0,
   "min_vida": 0.0,
-  "vida": 76.0,
-  "atk": 41.0,
+  "vida": 67.0,
+  "atk": 55.0,
   "def": 0.0,
   "spritelist": [
     "                                          ",
