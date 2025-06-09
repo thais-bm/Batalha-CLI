@@ -169,6 +169,15 @@ public class ScreenManager {
         Inventario_ItemSelecionado.drawOptions(tela, args);
     }
 
+    public void drawNewItemsScreen(Item item1, Item item2, Item item3, String... args) {
+        clear();
+        Inventario_EscolherNovoItem.drawUI(tela);
+        Inventario_EscolherNovoItem.drawItem(tela, item1.getSpriteList(), item2.getSpriteList(), item3.getSpriteList(),
+                                                   item1.getNome(), item2.getNome(), item3.getNome());
+        Inventario_ItemSelecionado.drawOptions(tela, args);
+    }
+
+
     public void drawMainMenuScreen(){
         clear();
         MenuPrincipal.drawUI(tela);

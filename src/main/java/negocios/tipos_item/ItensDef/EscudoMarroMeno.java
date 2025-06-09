@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class EscudoMarroMeno extends ItemDef {
     public EscudoMarroMeno() {
         super("Escudo Marro Meno", "- ESCUDO MARRO MENO -", "", "reduz dano de ataques sofridos em 25");
-        this.setRaridade("incomum");
+        this.setRaridade("icomum");
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("   .-.__.-.  ");
         spritelist.add("  ||esc   ||  ");

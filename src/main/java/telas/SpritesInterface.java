@@ -65,6 +65,31 @@ public abstract class SpritesInterface {
         return spritelist;
     }
 
+    public static ArrayList<String> getNewItems() {
+        ArrayList<String> spritelist = new ArrayList<String>();
+        spritelist.add("  __________________________________|ITEM SELECIONADO|__________________________________  ");
+        spritelist.add(" O                                                                                      O ");
+        spritelist.add("|           O-----|1|-----O           O-----|2|-----O           O-----|3|-----O          |");
+        spritelist.add("|           |             |           |             |           |             |          |");
+        spritelist.add("|           |             |           |             |           |             |          |");
+        spritelist.add("|           |             |           |             |           |             |          |");
+        spritelist.add("|           |             |           |             |           |             |          |");
+        spritelist.add("|           |             |           |             |           |             |          |");
+        spritelist.add("|           O-------------O           O-------------O           O-------------O          |");
+        spritelist.add("|                  |                         |                         |                 |");
+        spritelist.add("|                  V                         V                         V                 |");
+        spritelist.add("|        O-------------------O     O-------------------O     O-------------------O       |");
+        spritelist.add("|        |                   |     |                   |     |                   |       |");
+        spritelist.add("|        O-------------------O     O-------------------O     O-------------------O       |");
+        spritelist.add("|                                                                                        |");
+        spritelist.add("|                                                                                        |");
+        spritelist.add("|________________________________________________________________________________________|");
+        spritelist.add("|                                                                                        |");
+        spritelist.add("|                                                                                        |");
+        spritelist.add(" O______________________________________________________________________________________O ");
+        return spritelist;
+    }
+
     public static ArrayList<String> getInvSwap() {
         ArrayList<String> spritelist = new ArrayList<String>();
         spritelist.add("  ______________________________________________________________________________________  ");
@@ -89,6 +114,18 @@ public abstract class SpritesInterface {
         spritelist.add(" O______________________________________________________________________________________O ");
         return spritelist;
     }
+
+    public static ArrayList<String> getTextBox() {
+        ArrayList<String> spritelist = new ArrayList<String>();
+        spritelist.add("  ________________________________________________  ");
+        spritelist.add(" /                                                \\ ");
+        spritelist.add("|                                                  |");
+        spritelist.add("|                                                  |");
+        spritelist.add("|                                                  |");
+        spritelist.add(" \\________________________________________________/ ");
+        return spritelist;
+    }
+
 
     // Interface menu principal
     public static ArrayList<String> getMenuPrincipal(){

@@ -7,7 +7,7 @@ public class Garrafa extends ItemConsumivel{
 
     int usos;
     public Garrafa(int usos) {
-        super("Poção", "- POÇÃO - ", "Consumível", "recupera 50% de HP perdido ao consumir", "pode ser consumida " + (usos) + " vezes");
+        super("Garrafa de Coca", "- COCA COLA - ", "Consumível", "recupera 50% de HP perdido ao consumir", "pode ser consumida " + (usos) + " vezes");
         this.setRaridade("comum");
         this.usos = usos;
         ArrayList<String> spritelist1 = new ArrayList<String>();
