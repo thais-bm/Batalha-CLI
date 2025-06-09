@@ -130,21 +130,21 @@ public abstract class SpritesInterface {
     // Interface menu principal
     public static ArrayList<String> getMenuPrincipal(){
         ArrayList<String> spritelist = new ArrayList<String>();
-        spritelist.add("   ______________________________________________________________________________________");
-        spritelist.add("  0                                                                                      0");
-        spritelist.add("  |  __                /     ____        _        _ _                                    |");
-        spritelist.add("  |  \\ Z_            / /    |  _ \\      | |      | | |          \t                 |");
-        spritelist.add("  |    \\_\\__       /__ /    | |_) | __ _| |_ __ _| | |__   __ _ \t                 |");
-        spritelist.add("  |    /  \\\\\\_     //       |  _ < / _` | __/ _` | | '_ \\ / _` |\t                 |");
-        spritelist.add("  |    \\_____/    //        | |_) | (_| | || (_| | | | | | (_| |\t                 |");
-        spritelist.add("  |    /    \\    //         |____/ \\__,_|\\__\\__,_|_|_| |_|\\__,_|\t                 |");
-        spritelist.add("  |                                                                                      |");
-        spritelist.add("  |                                1 - NOVO JOGO                                         |");
-        spritelist.add("  |                               2 - CARREGAR JOGO                                      |");
-        spritelist.add("  |                                3 - FECHAR JOGO                                       |");
-        spritelist.add("  |                                                                                      |");
-        spritelist.add("  |                                                                                      |");
-        spritelist.add("  0______________________________________________________________________________________0");
+        spritelist.add("   _______________________________________________________________________________ ");
+        spritelist.add("  0                                                                               0");
+        spritelist.add("  |  __                /     ____        _        _ _                             |");
+        spritelist.add("  |  \\ Z_            / /    |  _ \\      | |      | | |                            |");
+        spritelist.add("  |    \\_\\__       /__ /    | |_) | __ _| |_ __ _| | |__   __ _                   |");
+        spritelist.add("  |    /  \\\\\\_     //       |  _ < / _` | __/ _` | | '_ \\ / _` |                  |");
+        spritelist.add("  |    \\_____/    //        | |_) | (_| | || (_| | | | | | (_| |                  |");
+        spritelist.add("  |    /    \\    //         |____/ \\__,_|\\__\\__,_|_|_| |_|\\__,_|                  |");
+        spritelist.add("  |                                                                               |");
+        spritelist.add("  |                                1 - NOVO JOGO                                  |");
+        spritelist.add("  |                               2 - CARREGAR JOGO                               |");
+        spritelist.add("  |                                3 - FECHAR JOGO                                |");
+        spritelist.add("  |                                  4 - MOLDURA                                  |");
+        spritelist.add("  |                              5+ - ALTERAR MARGEM                              |");
+        spritelist.add("  0_______________________________________________________________________________0");
         return spritelist;
     }
 

@@ -58,7 +58,7 @@ public abstract class InvHelper {
     }
     
     public static Item[] getAllMuitoComumList() {
-        Item[] listall = getAllAtkItemsList();
+        Item[] listall = getAllItemList();
         int nmuitocomum = 0;
         for (Item i : listall) if (i.getRaridade().equals("muito comum")) nmuitocomum++;
         Item[] resposta = new Item[nmuitocomum];
@@ -71,7 +71,7 @@ public abstract class InvHelper {
     }
 
     public static Item[] getAllComumList() {
-        Item[] listall = getAllAtkItemsList();
+        Item[] listall = getAllItemList();
         int nmuitocomum = 0;
         for (Item i : listall) if (i.getRaridade().equals("comum")) nmuitocomum++;
         Item[] resposta = new Item[nmuitocomum];
@@ -84,7 +84,7 @@ public abstract class InvHelper {
     }
 
     public static Item[] getAllMenosComumList() {
-        Item[] listall = getAllAtkItemsList();
+        Item[] listall = getAllItemList();
         int nmuitocomum = 0;
         for (Item i : listall) if (i.getRaridade().equals("menos comum")) nmuitocomum++;
         Item[] resposta = new Item[nmuitocomum];

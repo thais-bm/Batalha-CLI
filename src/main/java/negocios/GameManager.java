@@ -317,9 +317,6 @@ public class GameManager {
         items.add(new EspadaFantasma());
         items.add(new CuraPequena());
 
-        tela.setMargin(33);
-        tela.toggleFrame();
-
         Jogador player = new Jogador("Trabalho de PE", 0, inventario, 100, 100, 20, 0);
         player.setSpriteList(Spritesheets.getCavaleirinho());
         Inimigo enemy = new Inimigo("Felicien", null, items, 100, 100, 40, 0);
@@ -373,10 +370,10 @@ public class GameManager {
             try {
                 String opcao = sc.nextLine();
                 resposta = Integer.parseInt(opcao);
-                if (resposta >= 1 && resposta <= 3) {
+                if (resposta >= 1) {
                     return resposta;
                 } else {
-                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3.");
+                    System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3 ou 4 ou mais.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Erro! Por favor, digite um numero.");
@@ -387,6 +384,8 @@ public class GameManager {
     // LOGICA DE JOGO AQUI
     public void gameLoop(){
         this.tela = new ScreenManager();
+        tela.setMargin(20);
+        tela.toggleFrame();
         this.gameLoop = true;
 
         while (this.gameLoop) {
@@ -401,8 +400,14 @@ public class GameManager {
                 case 3:
                     close_game();
                     break;
+                case 4:
+                    tela.toggleFrame();
+                    break;
                 default:
                     System.out.println("Opcao Invalida!");
+                    try {
+                        tela.setMargin(escolha);
+                    } catch (Exception ArrayIndexOutOfBoundsException) {}
             }
         }
     }
