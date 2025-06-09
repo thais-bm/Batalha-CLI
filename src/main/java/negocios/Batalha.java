@@ -63,7 +63,12 @@ public class Batalha {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("Acao do jogador:");
-            int turno = sc.nextInt();
+            int turno;
+            try {
+                turno = sc.nextInt();
+            } catch (Exception e) {
+                turno = -1;
+            } 
             switch(turno) {
                 case 1:
                     personagem.atacar(this,inimigo);

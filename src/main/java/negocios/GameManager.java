@@ -165,7 +165,7 @@ public class GameManager {
         while (true) {
             try {
                 entrada = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {}
+            } catch (Exception e) {}
             if (((entrada > 1 || entrada < 8) && batalha.getInventario().getItem(entrada) != null) || entrada == 0) {
                 break;
             }
@@ -187,7 +187,7 @@ public class GameManager {
             while (entrada < 0 || entrada > 3) {
                 try {
                     entrada = Integer.parseInt(sc.nextLine());
-                } catch (NumberFormatException e) {}
+                } catch (Exception e) {}
             }
             switch(entrada) {
                 case 1:
@@ -206,7 +206,7 @@ public class GameManager {
             while (entrada < 0 || entrada > 2) {
                 try {
                     entrada = Integer.parseInt(sc.nextLine());
-                } catch (NumberFormatException e) {}
+                } catch (Exception e) {}
             }
             switch(entrada) {
                 case 1:
@@ -228,7 +228,7 @@ public class GameManager {
         while (true) {
             try {
                 entrada = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {}
+            } catch (Exception e) {}
             if (entrada > 0 || entrada < 8) {
                 break;
             }
@@ -262,7 +262,7 @@ public class GameManager {
         while (true) {
             try {
                 entrada = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {}
+            } catch (Exception e) {}
             if (entrada > 0 || entrada < 8) {
                 break;
             }
@@ -273,7 +273,7 @@ public class GameManager {
         while (true) {
             try {
                 entrada2 = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {}
+            } catch (Exception e) {}
             if (entrada2 == 1) {
                 batalha.getInventario().setItem(newitem, entrada);
                 manusearInventario();
@@ -307,7 +307,7 @@ public class GameManager {
         while (true) {
             try {
                 entrada = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {}
+            } catch (Exception e) {}
             if (entrada > 0 || entrada < 4) {
                 break;
             }
@@ -331,7 +331,7 @@ public class GameManager {
             while (true) {
                 try {
                     entrada2 = Integer.parseInt(sc.nextLine());
-                } catch (NumberFormatException e) {}
+                } catch (Exception e) {}
                 if (entrada2 == 0 || entrada2 == 1) {
                     break;
                 }
@@ -482,7 +482,7 @@ public class GameManager {
                 } else {
                     System.out.println("Opcao Invalida! Por favor, digite 1, 2 ou 3 ou 4 ou mais.");
                 }
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Erro! Por favor, digite um numero.");
             }
         }
